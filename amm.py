@@ -11,15 +11,9 @@ import sys
 
 # main function
 def main():
-  args = sys.argv
-  foreach argument in args:     # }
-    switch argument:            # }  CHECK
-      case 'amm.py'             # }
-      continue                  # }
-
-
-
+    args = sys.argv
+    # parse arguments
+    
 # standard boilerplate
 if __name__ == '__main__':
-  main()
-
+    main()
