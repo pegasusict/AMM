@@ -1,33 +1,35 @@
 #!/usr/bin/python3 -tt
 """
-***************************************************************************************************
-***************************************************************************************************
-** Music Manager V0.0.0e pre-Alpha                                  (c) 2013 Mattijs Snepvangers **
-** http://www.pegsprojects.net/                                                                  **
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-** A Suite that can REALLY manage ALL aspects of a digital Music Collection                      **
-** of ANY size                                                                                   **
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-** REQUIREMENTS:                                                                                 **
-**   Python >=2.7.3                                                                              **
-**   Lame codec >= 0.98                                                                          **
-**   MySQL Server >= 5.0.3 (preferably on the same machine via socket due to the sheer volume)   **
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-** Python Modules:                                                                               **
-**   Eyed3                                                                                       **
-**   Musicdns                                                                                    **
-**   libpimp                                                                                     **
-**   mysqlclient                                                                                 **
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-** WORKS: ---                                                                                    **
-** Milestone 1: purge non-audiofiles, Unduplicate, Identify, Transcode, Organise                 **
-** Milestone 2: Fix Artistnames, Fix Albumtitles, Normalize                                      **
-** Milestone 3: Albumart, Lyrics, feat artists, Composer, writer, original                       **
-** Future Milestones: Acoustic Optimisation, GUI, web interface,                                 **
-**                    Atonome searching & downloading of missing songs                           **
-***************************************************************************************************
-***************************************************************************************************
+********************************************************************************
+********************************************************************************
+** Music Manager V0.0.0 pre-Alpha           (c) 2013-2017 Mattijs Snepvangers **
+** Suggestions are very welcome!!                       pegasus-ict@gmail.com **
+********************************************************************************
+** A Suite that can REALLY manage ALL aspects of a digital Music Collection   **
+** of ANY size                                                                **
+********************************************************************************
+** REQUIREMENTS:                                                              **
+**   Python 3.x                                                               **
+**   Lame codec                                                               **
+**   MySQL Server                                                             **
+********************************************************************************
+** Python Packages:                                                           **
+**   Eyed3, Musicdns, libpimp, mysqlclient                                    **
+********************************************************************************
+********************************************************************************
+** WORKS: N/A                                                                 **
+********************************************************************************
+** GOALS:                                                                     **
+** Milestone 1: purge non-audiofiles, Identify, Transcode, Organise,          **
+**              remove duplicates                                             **
+** Milestone 2: Fix Artistnames, Fix Albumtitles, Normalize                   **
+** Milestone 3: Albumart, Lyrics, feat artists, Composer, writer, original    **
+** Future Milestones: Acoustic Optimisation, GUI, web interface,              **
+**                    Android client, DLNA media server,                      **
+**                    Automagic searching & downloading of missing songs      **
+**                    MPD/Audacioas integration?                              **
+********************************************************************************
+********************************************************************************
 """
 import sys, re, os, shutil, mysql, musicbrainz, audiotools
 

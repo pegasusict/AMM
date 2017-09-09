@@ -1,8 +1,8 @@
 #!/usr/bin/env python3 -tt
 ################################################################################
-## Audiophiles Music Manager                                 VER0.0.1PREALPHA ##
-## (C)2017 Mattijs Snepvangers                            mattijs@ictlab.info ##
-## fsop.py                     Filesystem Operations         VER0.0.1PREALPHA ##
+## Audiophiles Music Manager                                 VER0.0.0PREALPHA ##
+## (C)2017 Mattijs Snepvangers                          pegasus.ict@gmail.com ##
+## fsop.py                     Filesystem Operations         VER0.0.0PREALPHA ##
 ## License: GPL v3                         Please keep my name in the credits ##
 ################################################################################
 
