@@ -3,7 +3,7 @@
 ********************************************************************************
 ** Audiophiles Music Manager                                 VER0.0.0PREALPHA **
 ** (C)2017 Mattijs Snepvangers                          pegasus.ict@gmail.com **
-** init.py                           AMM initializer         VER0.0.0PREALPHA **
+** init.py                       AMM initializer             VER0.0.0PREALPHA **
 ** License: MIT                            Please keep my name in the credits **
 ********************************************************************************
 """
@@ -15,6 +15,7 @@ def load_conf(cfg_file='amm.cfg'):
         result = False
     else:
         amm_config = parse_cfg_file(cfg_file)
+        result = True
     return result
 
 def get_conf():
