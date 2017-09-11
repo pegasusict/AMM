@@ -1,109 +1,67 @@
 #!/usr/bin/python3 -tt
-"""
-********************************************************************************
-********************************************************************************
-** Music Manager V0.0.0 pre-Alpha           (c) 2013-2017 Mattijs Snepvangers **
-** Suggestions are very welcome!!                       pegasus-ict@gmail.com **
-********************************************************************************
-** A Suite that can REALLY manage ALL aspects of a digital Music Collection   **
-** of ANY size                                                                **
-********************************************************************************
-** REQUIREMENTS:                                                              **
-**   Python 3.x                                                               **
-**   Lame codec                                                               **
-**   MySQL Server                                                             **
-********************************************************************************
-** Python Packages:                                                           **
-**   Eyed3, Musicdns, libpimp, mysqlclient                                    **
-********************************************************************************
-********************************************************************************
-** WORKS: N/A                                                                 **
-********************************************************************************
-** GOALS:                                                                     **
-** Milestone 1: purge non-audiofiles, Identify, Transcode, Organise,          **
-**              remove duplicates                                             **
-** Milestone 2: Fix Artistnames, Fix Albumtitles, Normalize                   **
-** Milestone 3: Albumart, Lyrics, feat artists, Composer, writer, original    **
-** Future Milestones: Acoustic Optimisation, GUI, web interface,              **
-**                    Android client, DLNA media server,                      **
-**                    Automagic searching & downloading of missing songs      **
-**                    MPD/Audacioas integration?                              **
-********************************************************************************
-********************************************************************************
-"""
-import sys, re, os, shutil, mysql, musicbrainz, audiotools
+### MAIN FUNCTIONS ###
+from pathlib import
+def scan_dir(rootdir):
+    """Scan recursively, store files in lists for further processing based on extension.
+    
+    """
+    audioExts = [mp3, lac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid, opus, au]
+    fileList = []
+    trashList = []
+    for root, subFolders, files in os.walk(rootdir):
+        for thisfile in files:
+            if PurePath(file).suffix not in audioExts:
+                trashList.append(file)
+            else :
+                fileList.append(os.path.join(root,thisfile))
+    return fileList
 
-### PREP functions #############################################################
-def parseini():
-def parseprefs():
-def dbhandler():
+def tag_parser(filelist):
+    for thisfile in filelist:
+        # demux tags
+        # check for musicIP : set flags 2 & 5
+        # check for fingerprint : set flags 2 & 4 else set flag 2
+        db_handler("update" , thisfile, tags, flags)
+    return
 
-### MAIN FUNCTIONS #############################################################
-def scandir(rootdir):
-  audioExts = [mp3,lac,m4a,aif,ogg,wma,wav,cda,mp2,ape,midi,mid,opus]
-  fileList = []
-  trashList = []
-  for root, subFolders, files in os.walk(rootdir):
-    for thisfile in files:
-      if file[-3:] not in audioExts : """find better option to isolate extension"""
-        trashList.append(file)
-      else :
-        fileList.append(os.path.join(root,thisfile))
-  return fileList
-def tagparser(filelist):
-  for thisfile in filelist:
-    # demux tags
-    # check for musicIP : set flags 2 & 5
-    # check for fingerprint : set flags 2 & 4 else set flag 2
-    dbhandler("update" , thisfile, tags, flags)
-  return
+def purge_dups():
 
-def purgedups():
+def mb_query():
 
-def MBquery():
+def cddb_query():
 
-def cddbquery():
+def get_albumart():
 
-def getalbumart():
-
-def getsongtext():
+def get_songtext():
 
 def transcode(fileentry):
-  trancodeprefs = prefs(trancode)
-  if transcodeprefs == 0:
-    transcodeprefs=lame_paranoid
+    trancodeprefs = prefs(trancode)
+    if transcodeprefs == 0:
+        transcodeprefs=lame_paranoid
 
-def volumenormalizer(fileEntry):
-  normalizeprefs = prefs(normalizing)
+def volume_normalizer(fileEntry):
+    normalizeprefs = prefs(normalizing)
 
-def rebuildCollection(): # reorganize dirstructure, move & rename files
+def report_builder():
 
-def addMissingSongs(): # To my own library
-
-def findMissingSongs(): # online
-
-def NASagent(): # find missing songs on BT, order NAS to download to special dir
-
-def reportbuilder():
-
-### MAIN #######################################################################
+### MAIN ###
 def main():
-  settings = parseini()
-  prefs = parseprefs()
-  sessiondata = prefs['session']
-  modulelist = scanmodules()
-  dbsession = dbhandler("init", sessiondata)
+    settings = parse_ini()
+    prefs = parse_prefs()
+    sessiondata = prefs['session']
+    modulelist = scan_modules()
+    dbsession = db_handler("init", sessiondata)
 # phase 1
-  basedir = prefs(basedir)
-  scandir(basedir)
+    basedir = prefs(basedir)
+    scan_dir(basedir)
 # phase 2
-  filelist = dbhandler("get", entries flagged "0")
-  newfilelist = tagparser(filelist)
-  del filelist
-  dbstatus = dbhandler("update", newfilelist)
+    filelist = db_handler("get", entries flagged "0")
+    newfilelist = tag_parser(filelist)
+    del filelist
+    dbstatus = db_handler("update", newfilelist)
 # phase 3
-  purgedups()
+    purge_dups()
 
-### Boilerplate ################################################################
+### Boilerplate ###
 if __name__ == "__main__":
-  main()
+    main()
