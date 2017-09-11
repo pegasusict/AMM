@@ -1,6 +1,8 @@
 #!/usr/bin/python3 -tt
+
 ### MAIN FUNCTIONS ###
-from pathlib import
+from pathlib import PurePath
+
 def scan_dir(rootdir):
     """Scan recursively, store files in lists for further processing based on extension.
     
@@ -18,14 +20,17 @@ def scan_dir(rootdir):
 
 def tag_parser(filelist):
     for thisfile in filelist:
-        # demux tags
-        # check for musicIP : set flags 2 & 5
-        # check for fingerprint : set flags 2 & 4 else set flag 2
+        """ demux tags
+        * check for musicIP : set flags 2 & 5
+        * check for fingerprint : set flags 2 & 4 
+        * else set flag 2
+        """
         db_handler("update" , thisfile, tags, flags)
     return
 
 def purge_dups():
-
+    """purge duplicate based on audio quality"""
+    
 def mb_query():
 
 def cddb_query():
