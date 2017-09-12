@@ -4,10 +4,12 @@
 from pathlib import PurePath
 
 def scan_dir(rootdir):
-    """Scan recursively, store files in lists for further processing based on extension.
-    
+    """Scan recursively, store files in lists for further processing
+    based on extension.
+
     """
-    audioExts = [mp3, lac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid, opus, au]
+    audioExts = [mp3, lac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
+                 opus, au]
     fileList = []
     trashList = []
     for root, subFolders, files in os.walk(rootdir):
@@ -16,13 +18,14 @@ def scan_dir(rootdir):
                 trashList.append(file)
             else :
                 fileList.append(os.path.join(root,thisfile))
+                # dirty needs fixing
     return fileList
 
 def tag_parser(filelist):
     for thisfile in filelist:
         """ demux tags
         * check for musicIP : set flags 2 & 5
-        * check for fingerprint : set flags 2 & 4 
+        * check for fingerprint : set flags 2 & 4
         * else set flag 2
         """
         db_handler("update" , thisfile, tags, flags)
@@ -30,7 +33,7 @@ def tag_parser(filelist):
 
 def purge_dups():
     """purge duplicate based on audio quality"""
-    
+
 def mb_query():
 
 def cddb_query():
@@ -67,6 +70,6 @@ def main():
 # phase 3
     purge_dups()
 
-### Boilerplate ###
-if __name__ == "__main__":
+# standard boilerplate
+if __name__ == '__main__':
     main()
