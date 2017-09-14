@@ -3,7 +3,7 @@
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
 ** (C)2017 Mattijs Snepvangers                  pegasus.ict@gmail.com **
-** init.py               AMM initializer             VER0.0.0PREALPHA **
+** init.py                   initializer             VER0.0.0PREALPHA **
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
