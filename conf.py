@@ -26,7 +26,7 @@ def get_conf():
     while not fsop.verify_dir_exists(source_dir):
         # ask again until we get a valid answer
         source_dir = input('Please enter a valid path: ')
-    amm_config{'source_dir'} = source_dir
+    amm_config['source_dir'] = source_dir
     target_dir = input('Please enter the target directory: ')
     while not(fsop.verify_dir_exists(target_dir)): # needs rewrite
         must_create_dir = input(
