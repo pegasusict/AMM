@@ -25,7 +25,7 @@ def get_albumart(albumArtist, albumTitle):
     search online for album art which goes with the combination of
     albumTitle/albumArtist"""
 
-def get_lyrics(artist/title):
+def get_lyrics(artist, title):
     """Download lyrics
     
     search online for lyrics which goes with the combination of
