@@ -9,6 +9,9 @@
 """
 import os
 
+fileList = []
+trashList = []
+
 def purge_dups():
     """purge duplicate based on audio quality
 
@@ -27,8 +30,6 @@ def scan_dir(rootdir):
     from pathlib import PurePath
     audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
                  mod, opus, au, aac]
-    fileList = []
-    trashList = []
     for root, subFolders, files in os.walk(rootdir):
         for thisfile in files:
             if PurePath(file).suffix not in audioExts:
@@ -36,7 +37,12 @@ def scan_dir(rootdir):
             else :
                 fileList.append(os.path.join(root,thisfile))
                 # dirty needs fixing
+        for thisFolder in subFolders:
+            scandir2(thisFolder)
     return
+
+def scandir2(folder):
+    """further investigate os.walk"""
 
 def verify_file_exists(path):
     result = os.path.isfile(path)
