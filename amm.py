@@ -21,15 +21,15 @@ def main():
     sessiondata = prefs['session']
     modulelist = scan_modules()
     dbsession = db_handler("init", sessiondata)
-# phase 1
+    # phase 1
     basedir = prefs(basedir)
     scan_dir(basedir)
-# phase 2
+    # phase 2
     filelist = db_handler("get", entries flagged "0")
     newfilelist = tag_parser(filelist)
     del filelist
     dbstatus = db_handler("update", newfilelist)
-# phase 3
+    # phase 3
     purge_dups()
 
 # standard boilerplate
