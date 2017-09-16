@@ -10,7 +10,7 @@
 
 def mb_query(fingerprint):
     """Query MusicBrainz with given fingerprint
-    
+
     interfaces with MB_API
     """
 
