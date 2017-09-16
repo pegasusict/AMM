@@ -10,13 +10,13 @@
 
 def tag_parser(fileList):
     """Parse tags and store in DB
-    
+
     check for fingerprint, else set flag 2
-    """    
+    """
     for thisFile in fileList:
         db_handler("update" , thisFile, tags, flags)
     return
-    
+
 def store_tags(tags, thisFile):
     import eyed3
 
@@ -30,11 +30,10 @@ def store_tags(tags, thisFile):
 audiofile.tag.save()
 
 def transcode(fileEntry):
+    """<<enter description>>
+
     """
-    
-    
-    """
-    trancodeprefs = prefs(trancode)
+    transcodeprefs = prefs(trancode)
     if transcodeprefs == 0:
         transcodeprefs = lame_paranoid
     
