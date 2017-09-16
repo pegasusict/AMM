@@ -36,7 +36,6 @@ def transcode(fileEntry):
     transcodeprefs = prefs(trancode)
     if transcodeprefs == 0:
         transcodeprefs = lame_paranoid
-    
 
 def volume_normalizer(fileEntry):
     normalizeprefs = prefs(normalizing)
