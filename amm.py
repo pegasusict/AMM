@@ -8,23 +8,27 @@
 ************************************************************************
 """
 # import libs
-import sys.argv as argv
+
 
 def report_builder():
 
 ### MAIN ###
 def main():
-    args = argv
-    # parse arguments
-    settings = parse_ini()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--debug", help="enable debug mode"
+                        action="store_true")
+    args=parser.parse_args()
+    if args.debug:
+        debugSwitch = True
+    #load config
     prefs = parse_prefs()
-    sessiondata = prefs['session']
-    modulelist = scan_modules()
-    dbsession = db_handler("init", sessiondata)
-    # phase 1
+    #modulelist = scan_modules() #???
+    #dbsession = db_handler("init", sessiondata)
+    # phase 0
     basedir = prefs(basedir)
-    scan_dir(basedir)
-    # phase 2
+    scan_dir(basedir)   ###include daemonizer functionality
+    # phase 1
     filelist = db_handler("get", entries flagged "0")
     newfilelist = tag_parser(filelist)
     del filelist
