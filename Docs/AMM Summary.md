@@ -2,7 +2,7 @@
 
 ### *configuration*:
 Check for config file
-of not present, run configuration wizard
+if not present, run configuration wizard
 
 ### *Phase 0*:
 Scan source dir(s)

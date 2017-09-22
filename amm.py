@@ -8,13 +8,13 @@
 ************************************************************************
 """
 # import libs
-
+import argparse
 
 def report_builder():
 
+
 ### MAIN ###
-def main():
-    import argparse
+def main() :
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", help="enable debug mode"
                         action="store_true")

@@ -18,7 +18,6 @@ def startDaemons() :
     InetC => mbClient, albumArtFetcher, lyricsFetcher
 
     """
-    if configLoaded == True
-    ### prepare daemons to be run
+    if configLoaded == True:
+        """prepare daemons to be run - qeue manager??"""
 
-    ### qeue manager??

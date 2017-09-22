@@ -33,7 +33,7 @@ def get_conf():
             'The target directory does not exist. Should I create it? (y/n)')
         if must_create_dir == 'y':
             fsop.create_dir(target_dir)
-        else
+        else :
             target_dir = input('Please enter a different target directory.')
     amm_config('target_dir') = target_dir
     return result
