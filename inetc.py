@@ -16,17 +16,18 @@ def mb_query(fingerprint):
 
 def cddb_query(cd_id):
     """Query cddb.org for information regarding cd_id(?)
-    
+
     """
 
 def get_albumart(albumArtist, albumTitle):
     """Download album art
-    
+
     search online for album art which goes with the combination of
     albumTitle/albumArtist"""
 
 def get_lyrics(artist, title):
     """Download lyrics
-    
+
     search online for lyrics which goes with the combination of
     title/artist"""
+

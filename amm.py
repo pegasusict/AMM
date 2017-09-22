@@ -12,6 +12,7 @@
 
 def report_builder():
 
+
 ### MAIN ###
 def main():
     import argparse
