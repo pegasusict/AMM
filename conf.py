@@ -38,7 +38,7 @@ def get_conf():
     amm_config('target_dir') = target_dir
     return result
 
-__main__():
+def __main__():
     if not load_conf()
         if not get_conf()
             exit('fatal config error')

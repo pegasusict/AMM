@@ -13,8 +13,7 @@ import argparse
 def report_builder():
 
 
-### MAIN ###
-def main() :
+def __main__() :
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", help="enable debug mode"
                         action="store_true")
@@ -39,4 +38,4 @@ def main() :
 
 # standard boilerplate
 if __name__ == '__main__':
-    main()
+    __main__()
