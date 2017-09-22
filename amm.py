@@ -23,13 +23,14 @@ def main():
         debugSwitch = True
     #load config
     prefs = parse_prefs()
-    #modulelist = scan_modules() #???
+    #modulelist = scan_modules()                        #???
     #dbsession = db_handler("init", sessiondata)
     # phase 0
     basedir = prefs(basedir)
-    scan_dir(basedir)   ###include daemonizer functionality
+    scanned_dir = scan_dir(basedir)   ###include daemonizer functionality
+    db_handler("store", scanned_dir, "flag='0'")
     # phase 1
-    filelist = db_handler("get", entries flagged "0")
+    filelist = db_handler("get", "flag='0'")
     newfilelist = tag_parser(filelist)
     del filelist
     dbstatus = db_handler("update", newfilelist)
