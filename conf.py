@@ -38,11 +38,8 @@ def get_conf():
     amm_config('target_dir') = target_dir
     return result
 
-__main__():
-    if not load_conf()
-        if not get_conf()
+def __main__():
+    if not load_conf():
+        if not get_conf():
             exit('fatal config error')
 
-# standard boilerplate
-if __name__ == '__main__':
-    main()
