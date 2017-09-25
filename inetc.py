@@ -30,4 +30,3 @@ def get_lyrics(artist, title):
 
     search online for lyrics which goes with the combination of
     title/artist"""
-

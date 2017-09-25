@@ -8,15 +8,19 @@
 ************************************************************************
 """
 # import libs
-import argparse
+import argparse, sys, locale, time
+from dialog import Dialog
 
 def report_builder():
 
 
-def __main__():
+def main():
+    """Audiophiles Music Manager"""
+    locale.setlocale(locale.LC_ALL,'')
+    d = Dialog.infobox("Please wait, initialising...")
     parser = argparse.ArgumentParser()
     parser.add_argument("--debug", help="enable debug mode"
-                        action="store_true")
+                        action="store_true" default=False)
     args=parser.parse_args()
     if args.debug:
         debugSwitch = True
@@ -38,4 +42,4 @@ def __main__():
 
 # standard boilerplate
 if __name__ == '__main__':
-    __main__()
+    main()

@@ -13,9 +13,7 @@ fileList = []
 trashList = []
 
 def purge_dups():
-    """purge duplicate based on audio quality
-
-    """
+    """purge duplicate based on audio quality"""
 
 def verify_dir_exists(path):
     result = os.path.isdir(path)
@@ -23,9 +21,7 @@ def verify_dir_exists(path):
 
 def scan_dir(rootdir):
     """Scan recursively, store files in lists for further processing
-    based on extension.
-
-    """
+    based on extension."""
     global fileList, trashList
     from pathlib import PurePath
     audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
@@ -56,7 +52,3 @@ def delete_file(file_to_be_deleted):
 fp = open(fname,'r')        # open for reading (must exist)
 fp = open(fname,'w')        # creates new file for writing
 fp = open(fname,'a')        # opens file for appending
-
-# standard boilerplate
-if __name__ == '__main__':
-    main()

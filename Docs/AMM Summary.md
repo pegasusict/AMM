@@ -39,3 +39,7 @@ Generate & show/email/store/upload report
 
 #### *Thinking about doing something with*:
 Find higher quality versions of low quality tracks ( torrent, ftp search, usenet, etc)
+
+### *Dependencies:*
+-[ ] pythondialog
+-[ ]

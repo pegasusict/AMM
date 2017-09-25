@@ -35,11 +35,5 @@ def get_conf():
             fsop.create_dir(target_dir)
         else :
             target_dir = input('Please enter a different target directory.')
-    amm_config('target_dir') = target_dir
+    target_dir = amm_config('target_dir')
     return result
-
-def __main__():
-    if not load_conf():
-        if not get_conf():
-            exit('fatal config error')
-
