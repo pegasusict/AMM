@@ -35,11 +35,11 @@ For each file in DB:
 Generate and store, display & opt email report \(templates?\)
 
 ### *Dependencies:*
-- [ ] pythondialog
-- [ ] configargparse / toml
-- [ ] path / pathtools
-- [ ] mysql.connector / mysldb
-- [ ] mutagen / mediainfodll / audioread / soundfile
-- [ ] acoustid
-- [ ] musicbrainzngs
-- [ ] sh
+* pythondialog
+* configargparse / toml
+* path / pathtools
+* mysql.connector / mysldb
+* mutagen / mediainfodll / audioread / soundfile
+* acoustid
+* musicbrainzngs
+* sh
