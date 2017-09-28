@@ -8,7 +8,8 @@
 ************************************************************************
 """
 ### import libs
-import argparse, sys, locale, time
+import argparse, sys, locale, time, afops, fsop, conf, inetc, daemonizer,
+       db_agent
 from dialog import Dialog
 
 def report_builder(reportType="display"):
@@ -18,7 +19,8 @@ def report_builder(reportType="display"):
     elif reportType == "html"
         ### html template
     else reportType = "text"
-        ### text
+        ### text template
+    return
 
 
 def main():
