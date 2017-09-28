@@ -12,8 +12,8 @@
 For each file:
 * \[ mutagen / mediainfodll / audioread / soundfile ] Parse & purge tags
 * \[ acoustid \] Generate audio fingerprint
-* \[ mediainfodll / audioread / soundfile \] Calculate audio quality based on codec, bitrate and channels
-* \[ mysql.connector / mysqldb \] Store file stats in DB \(size, type, length, codec, bitrate, tags, fingerprint, etc\)
+* \[ mediainfodll / audioread / soundfile \] Calculate audio _qualityIndex_ based on codec, bitrate and channels
+* \[ mysql.connector / mysqldb \] Store file stats in DB \(size, type, length, codec, bitrate, tags, fingerprint, qualityIndex etc\)
 
 
 ### *Phase 2:*
