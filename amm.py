@@ -8,8 +8,8 @@
 ************************************************************************
 """
 ### import libs
-import argparse, sys, locale, time, afops, fsop, conf, inetc, daemonizer,
-       db_agent
+import argparse, sys, locale, time
+import db_agent, afops, fsop, conf, inetc, daemonizer
 from dialog import Dialog
 
 def report_builder(reportType="display"):
