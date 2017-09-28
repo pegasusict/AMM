@@ -14,11 +14,11 @@ from dialog import Dialog
 
 def report_builder(reportType="display"):
     """reportbuilder"""
-    if reportType == "display"
+    if reportType == "display":
         ### display template
-    elif reportType == "html"
+    elif reportType == "html":
         ### html template
-    else reportType = "text"
+    else reportType = "text":
         ### text template
     return
 
