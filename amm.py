@@ -7,11 +7,18 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-# import libs
+### import libs
 import argparse, sys, locale, time
 from dialog import Dialog
 
-def report_builder():
+def report_builder(reportType="display"):
+    """reportbuilder"""
+    if reportType == "display"
+        ### display template
+    elif reportType == "html"
+        ### html template
+    else reportType = "text"
+        ### text
 
 
 def main():
@@ -23,21 +30,29 @@ def main():
     args=parser.parse_args()
     if args.debug:
         debugSwitch = True
-    #load config
+    ### init, load config
     prefs = parse_prefs()
     #modulelist = scan_modules()                        #???
     #dbsession = db_handler("init", sessiondata)
-    # phase 0
+    ### phase 0
     basedir = prefs(basedir)
     scanned_dir = scan_dir(basedir)   ###include daemonizer functionality
     db_handler("store", scanned_dir, "flag='0'")
-    # phase 1
+    ### phase 1
     filelist = db_handler("get", "flag='0'")
     newfilelist = tag_parser(filelist)
     del filelist
     dbstatus = db_handler("update", newfilelist)
-    # phase 3
+    ### phase 2
+    findDups()
+    ### phase 3
     purge_dups()
+    ### phase 4
+    transcode(fileEntry, quality)
+    insertTags()
+    ### phase 5
+    report_builder(reportType)
+
 
 # standard boilerplate
 if __name__ == '__main__':
