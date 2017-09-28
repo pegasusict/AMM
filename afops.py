@@ -19,7 +19,7 @@ def tag_parser(fileList):
 
 def generate_fingerprints(thisFileList):
     import acoustid
-    foreach fileEntry in thisFileList:
+    for fileEntry in thisFileList:
         acoustid.fingerprint_file(fileEntry)
     return thisFileList
 
