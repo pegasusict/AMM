@@ -8,6 +8,8 @@
 ************************************************************************
 """
 import fsop
+# import os
+amm_config = Null
 
 def load_conf(cfg_file='amm.cfg'):
     global amm_config
