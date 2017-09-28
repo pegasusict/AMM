@@ -7,7 +7,8 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-import fsop
+import fsop, os
+amm_config = Null
 
 def load_conf(cfg_file='amm.cfg'):
     global amm_config

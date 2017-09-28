@@ -15,7 +15,6 @@ def report_builder():
 
 
 def main():
-    """Audiophiles Music Manager"""
     locale.setlocale(locale.LC_ALL,'')
     d = Dialog.infobox("Please wait, initialising...")
     parser = argparse.ArgumentParser()
