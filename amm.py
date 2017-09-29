@@ -9,12 +9,12 @@
 """
 ### import libs
 import argparse, sys, locale, time
-import afops, fsop, conf, inetc, daemonizer
-from dialog import Dialog
+import afops, fsop, conf, inetc, daemonizer, ui
 from db_agent import db_handler
 ### define globals
 debugSwitch = False
-prefs = null
+uiStyle = True
+ammConfig = null
 
 
 def init():
@@ -22,19 +22,25 @@ def init():
 
     broke down main function to increase readability"""
     global debugSwitch
+    global uiStyle
     locale.setlocale(locale.LC_ALL,'')
-    d = Dialog.infobox("Please wait, initialising...")
     parser = argparse.ArgumentParser()
-    parser.add_argument("--debug", help="enable debug mode", action="store_true", default=False)
+    parser.add_argument("--dialog", help="Use Dialog ui",
+                        action="store_true", default=True)
+    parser.add_argument("--debug", help="enable debug mode",
+                        action="store_true", default=False)
     args=parser.parse_args()
     if args.debug:
         debugSwitch = True
+    if args.dialog:
+        uiStyle = "dialog"
+    d = Dialog.infobox("Please wait, initialising...")
     ### init, load /generate config
-    prefs = parse_prefs()
+    ammConfig = parse_prefs()
     dbHandle = db_handler("initialise")
 
 def find_n_purge_dups():
-    """find duplicate fingerprints in database and """
+    """find duplicate fingerprints in database"""
 
 def report_builder(reportType="display", reportData):
     """reportbuilder"""
@@ -52,37 +58,37 @@ def main():
     stagecomplete = "init"
     ### phase 0
     ## scan source dir
-    scanned_dir = fops.scan_dir(prefs['basedir'])
+    scanned_dir = fops.scan_dir(ammConfig['basedir'])
     ## add audiofiles to DB
-    dbHandle("store", scanned_dir['audiofiles'], "flag=0")
+    dbHandle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
     ## purge non-audio files
     for each fileEntry in scanned_dir['trash']:
         delete_file(fileEntry)
     del scanned_dir
-    stagecomplete = '0'
-    ### phase 1
+    stagecomplete = '1'
+    ### phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD
     ## parse & purge tags
-    filelist = dbHandle("get", "flag=0")
+    filelist = dbHandle("get", "stage_completed=1", limit=100) ### LOOP !!!
     newfilelist = tag_parser(filelist)
     del filelist
     afops.generate_fingerprints(newfilelist)
     ## calculate qualityIndex
     for each fileEntry in newfilelist:
         ### figure out what to get from where and how to compare codecs
-    dbstatus = dbHandle("update", newfilelist, "flag=1")
+    dbstatus = dbHandle("update", newfilelist, "stagecompleted=2")
     del newfilelist
-    stagecomplete = '1'
-    ### phase 2
+    stagecomplete = '2'
+    ### phase 3
     find_n_purge_dups()
     stagecomplete = '3'
-    ### phase 4
+    ### phase 5
     transcode(fileEntry, quality)
     insertTags(fileEntry, tags)
-    stagecomplete = '4'
-    ### phase 5
-    report_builder(reportType, reportData)
     stagecomplete = '5'
+    ### phase 6
+    report_builder(reportType, reportData)
+    stagecomplete = '6'
 
 # standard boilerplate
 if __name__ == '__main__':

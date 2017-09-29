@@ -8,11 +8,9 @@
 ************************************************************************
 """
 import fsop
-# import os
-amm_config = Null
 
 def load_conf(cfg_file='amm.cfg'):
-    global amm_config
+    global ammConfig
     if not fsop.verify_file_exists(cfg_file):
         result = False
     else:
@@ -21,7 +19,7 @@ def load_conf(cfg_file='amm.cfg'):
     return result
 
 def get_conf():
-    global amm_config
+    global ammConfig
     # ask for source dir
     source_dir = input('Please enter the source directory: ')
     # if the source dir does not exist
