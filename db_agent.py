@@ -1,4 +1,3 @@
-#!/usr/bin/env python3 -tt
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **

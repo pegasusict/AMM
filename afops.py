@@ -1,4 +1,3 @@
-#!/usr/bin/env python3 -tt
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -7,7 +6,7 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-
+blacklist = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
 #class AudioFile:
 #    def __init__(self, path):
 #        self.__path = path
