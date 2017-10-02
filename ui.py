@@ -8,10 +8,17 @@
 ************************************************************************
 """
 ### import libs
+class UserInterface
+    def __init__(uiStyle, uiElement, uiMessage):
+        self.__uiStyle = uiStyle
+        del uiStyle
+        self.__uiElement = uiElement
+        del uiElement
+        self.__uiMessage = uiMessage
+        del uiMessage
 
-def user_interface(uiStyle, uiElement, uiMessage):
-    if uiStyle == "dialog" :
-        from dialog import Dialog
-        infobox = Dialog.infobox(uiMessage)
-    elif uiStyle == "html" :
-        ### generate html interface (template)
+        if self.__uiStyle == "dialog" :
+            from dialog import Dialog
+            self.__infobox = Dialog.infobox(uiMessage)
+        elif self.__uiStyle == "html" :
+            ### generate html interface (template)
