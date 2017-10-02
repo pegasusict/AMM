@@ -8,7 +8,7 @@
 ************************************************************************
 """
 ### import libs
-class UserInterface
+class UserInterface :
     def __init__(uiStyle, uiElement, uiMessage):
         self.__uiStyle = uiStyle
         del uiStyle
