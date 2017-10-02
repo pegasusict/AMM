@@ -22,3 +22,4 @@ class UserInterface :
             self.__infobox = Dialog.infobox(uiMessage)
         elif self.__uiStyle == "html" :
             ### generate html interface (template)
+            self.output = "<html>" #etc etc
