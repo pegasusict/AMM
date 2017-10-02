@@ -5,7 +5,7 @@ auto_continue_multiline=true
 
 [file_prefs]
 final_new_line=true
-ensure_convert_new_lines=true
+ensure_convert_new_lines=false
 strip_trailing_spaces=true
 replace_tabs=true
 
@@ -15,7 +15,7 @@ indent_type=0
 indent_hard_tab_width=8
 detect_indent=false
 detect_indent_width=false
-indent_mode=1
+indent_mode=3
 
 [project]
 name=AMM
@@ -28,15 +28,16 @@ long_line_behaviour=2
 long_line_column=79
 
 [files]
-current_page=7
-FILE_NAME_0=534;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Famm.py;0;2
-FILE_NAME_1=278;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Finit.py;0;2
-FILE_NAME_2=26;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Ffsop.py;0;2
-FILE_NAME_3=953;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fafops.py;0;4
-FILE_NAME_4=551;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Finetc.py;0;4
-FILE_NAME_5=0;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2FLICENSE.md;0;2
-FILE_NAME_6=331;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2FREADME.md;0;2
-FILE_NAME_7=1201;Markdown;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2FDocs%2FAMM%20Summary.md;0;4
+current_page=1
+FILE_NAME_0=643;Markdown;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2FDocs%2FAMM%20Summary.md;0;2
+FILE_NAME_1=1693;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Famm.py;0;4
+FILE_NAME_2=490;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fui.py;0;2
+FILE_NAME_3=485;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fconf.py;0;2
+FILE_NAME_4=0;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Ffsops.py;0;2
+FILE_NAME_5=552;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fafops.py;0;2
+FILE_NAME_6=559;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Finetc.py;0;2
+FILE_NAME_7=823;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fdaemonizer.py;0;2
+FILE_NAME_8=487;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fdb_agent.py;0;2
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;

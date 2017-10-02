@@ -8,12 +8,18 @@
 ************************************************************************
 """
 
+#class AudioFile:
+#    def __init__(self, path):
+#        self.__path = path
+#        self.tags = []
+
 def tag_parser(fileList):
     """Parse tags and store in DB
 
     check for fingerprint, else set flag 1
     """
     for thisFile in fileList:
+
         db_handler("update" , thisFile, tags, flags)
     return
 

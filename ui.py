@@ -9,11 +9,9 @@
 """
 ### import libs
 
-
-
-
 def user_interface(uiStyle, uiElement, uiMessage):
-    if uiStyle == "dialog"
+    if uiStyle == "dialog" :
         from dialog import Dialog
         infobox = Dialog.infobox(uiMessage)
-    elif uiStyle == "html"
+    elif uiStyle == "html" :
+        ### generate html interface (template)

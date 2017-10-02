@@ -9,13 +9,11 @@
 """
 ### import libs
 import argparse, sys, locale, time
-import afops, fsop, conf, inetc, daemonizer, ui
+import afops, fsops, conf, inetc, daemonizer, ui
 from db_agent import db_handler
 ### define globals
 debugSwitch = False
 uiStyle = True
-ammConfig = null
-
 
 def init():
     """init function
@@ -38,6 +36,7 @@ def init():
     ### init, load /generate config
     ammConfig = parse_prefs()
     dbHandle = db_handler("initialise")
+    stagecomplete = "init"
 
 def find_n_purge_dups():
     """find duplicate fingerprints in database"""
@@ -45,17 +44,16 @@ def find_n_purge_dups():
 def report_builder(reportType="display", reportData):
     """reportbuilder"""
     ### determine what template to use
-    if reportType == "display":
+    if reportType == "display" :
         ### display template
-    elif reportType == "html":
+    elif reportType == "html" :
         ### html template
-    else reportType = "text":
+    else reportType = "text" :
         ### text template
     return generated_report
 
 def main():
     init()
-    stagecomplete = "init"
     ### phase 0
     ## scan source dir
     scanned_dir = fops.scan_dir(ammConfig['basedir'])
