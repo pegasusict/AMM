@@ -6,24 +6,20 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-import fsop
-ammConfig = null
+class AMMconfig :
+    def __init__(self) :
+        import fsops
+        cfg_file = 'ammConfig.cfg'
+        self.cfg = null
+        if not fsops.verify_file_exists(cfg_file):
+             self.cfgWizard()
 
-def load_conf(cfg_file='amm.cfg'):
-    global ammConfig
-    if not fsop.verify_file_exists(cfg_file):
-        result = False
-    else:
-        ammConfig = parse_cfg_file(cfg_file)
-        result = True
-    return result
 
-def get_conf():
-    global ammConfig
-    # ask for source dir
-    source_dir = input('Please enter the source directory: ')
-    # if the source dir does not exist
-    while not fsop.verify_dir_exists(source_dir):
+    def cfgWizard(self):
+        # ask for source dir
+        source_dir = input('Please enter the source directory: ')
+        # if the source dir does not exist
+        while not fsop.verify_dir_exists(source_dir):
         # ask again until we get a valid answer
         source_dir = input('Please enter a valid path: ')
     ammConfig['source_dir'] = source_dir

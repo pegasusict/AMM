@@ -9,18 +9,15 @@
 """
 ### import libs
 import argparse, sys, locale, time
-import afops, fsops, conf, inetc, daemonizer, ui
-from db_agent import db_handler
-### define globals
-debugSwitch = False
-uiStyle = True
+import lib/ui, lib/fsops, lib/conf, lib/inetc, lib/daemonizer, lib/afops
+import lib/db_agent
 
 def init():
     """init function
 
     broke down main function to increase readability"""
-    global debugSwitch
-    global uiStyle
+    global debugSwitch, uiStyle
+    global myUI,
     locale.setlocale(locale.LC_ALL,'')
     parser = argparse.ArgumentParser()
     parser.add_argument("--dialog", help="Use Dialog ui",
@@ -32,9 +29,10 @@ def init():
         debugSwitch = True
     if args.dialog:
         uiStyle = "dialog"
-    d = Dialog.infobox("Please wait, initialising...")
+    myUI = new UserInterface(uiStyle)
+    myUI.infobox("Please wait, initializing...")
     ### init, load /generate config
-    ammConfig = parse_prefs()
+    ammConfig = new AMMconfig()
     dbHandle = db_handler("initialise")
     stagecomplete = "init"
 

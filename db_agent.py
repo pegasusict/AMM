@@ -6,4 +6,7 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-# import libs
+class DBagent :
+    def __init__(self) :
+        self.dbConnectInfo = ammConfig.get(dbConnectInfo)
+
