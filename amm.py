@@ -9,8 +9,7 @@
 """
 ### import libs
 import argparse, sys, locale, time
-import lib/ui, lib/fsops, lib/conf, lib/inetc, lib/daemonizer, lib/afops
-import lib/db_agent
+from ammlib import *
 
 def init():
     """init function

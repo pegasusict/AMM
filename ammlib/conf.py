@@ -17,15 +17,12 @@ class AMMconfig :
 
     def cfgWizard(self):
         # ask for source dir
-        source_dir = input('Please enter the source directory: ')
-        # if the source dir does not exist
-        while not fsop.verify_dir_exists(source_dir):
-        # ask again until we get a valid answer
-        source_dir = input('Please enter a valid path: ')
-    ammConfig['source_dir'] = source_dir
-    target_dir = input('Please enter the target directory: ')
-    while not(fsop.verify_dir_exists(target_dir)): # needs rewrite
-        must_create_dir = input(
+        ammConfig['source_dir'] = myUI.selectDir("/media/",
+        'Please select the source directory: ')
+        ammConfig['target_dir'] = myUI.selectDir("/media/",
+        'Please enter the target directory: ')
+        while not(fsop.verify_dir_exists(target_dir)): # needs rewrite
+            must_create_dir = myUI.question(
             'The target directory does not exist. Should I create it? (y/n)')
         if must_create_dir == 'y':
             fsop.create_dir(target_dir)

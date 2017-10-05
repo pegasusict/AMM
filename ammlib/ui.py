@@ -15,13 +15,16 @@ class UserInterface :
             self.myDialog = new Dialog()
 
     def selectDir(self, rootDir, dialogtitle) :
-        dirSelect = Dialog.dselect(rootDir, 0, 0, title=dialogtitle)
-        if dirSelect[0] == 0 :
-            selectedDir = dirSelect[1]
+        selectedDir = myDialog.dselect(rootDir, height=None, width=None,
+                                       title=dialogtitle)
         return selectedDir
 
     def infoBox(self, message) :
-        self.__infobox = Dialog.infobox(message)
+        self.__infobox = myDialog.infobox(message, height=None, width=None)
+
+    def ynQuestion(self, question, buttons[yes_label="yes" no_label="no"]):
+        self.__ynQuestion = myDialog.yesno(question, height=None, width=None,
+                                           buttons)
 
 #        elif self.__uiStyle == "html" :
 #            ### generate html interface (template)
