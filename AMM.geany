@@ -28,14 +28,17 @@ long_line_behaviour=2
 long_line_column=79
 
 [files]
-current_page=1
+current_page=4
 FILE_NAME_0=643;Markdown;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2FDocs%2FAMM%20Summary.md;0;4
-FILE_NAME_1=740;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Famm.py;0;4
-FILE_NAME_2=1093;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fui.py;0;4
-FILE_NAME_3=714;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fconf.py;0;4
-FILE_NAME_4=546;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fdb_agent.py;0;4
-FILE_NAME_5=0;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Ffsops.py;0;4
-FILE_NAME_6=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fafops.py;0;4
+FILE_NAME_1=544;Python;0;EUTF-8;0;1;0;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Famm.py;0;4
+FILE_NAME_2=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Ffsops.py;0;4
+FILE_NAME_3=1204;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Fconf.py;0;4
+FILE_NAME_4=2401;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Fui.py;0;4
+FILE_NAME_5=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Fafops.py;0;4
+FILE_NAME_6=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Fdb_agent.py;0;4
+FILE_NAME_7=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Finetc.py;0;4
+FILE_NAME_8=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2Fdaemonizer.py;0;4
+FILE_NAME_9=78;Python;0;EUTF-8;0;1;1;%2Fhome%2Fpegasus%2FDesktop%2F%5B%20SPOOR%2011%20%5D%2F%5B%5B%5B%20Projects%20%5D%5D%5D%2FAMM%2Fammlib%2F__init__.py;0;4
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
