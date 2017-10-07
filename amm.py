@@ -16,7 +16,7 @@ def init():
 
     broke down main function to increase readability"""
     global debugSwitch, uiStyle
-    global myUI,
+    global myUI
     locale.setlocale(locale.LC_ALL,'')
     parser = argparse.ArgumentParser()
     parser.add_argument("--dialog", help="Use Dialog ui",

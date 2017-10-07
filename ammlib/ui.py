@@ -16,7 +16,7 @@ class UserInterface :
                                           compat='dialog', use_stdout=None, *,
                                           autowidgetsize=True,
                                           pass_args_via_file=None)
-# multi line text boxes
+### multi line text boxes
     def messageBox(self, message, kwargs[dialogtitle]) :
         result = myInterface.msgbox(message, height=None, width=None, kwargs)
         return result
@@ -34,13 +34,13 @@ class UserInterface :
         result = myInterface.editbox_str(initialText, height=None, width=None,
                                          args, kwargs)
         return result # returns a tuple (exitcode, text)
-    """
-    > def progressbox
-    > def programbox
-    > def tailbox
-    > def pause
-    """
-# progress indicators
+
+#    def progressbox
+#    def programbox
+#    def tailbox
+#    def pausebox
+
+### progress indicators
     def progressbar(self, message, percent=0, kwargs[dialogtitle]) :
         myInterface.guage_start(message, height=None, width=None, percent,
                                 kwargs)
@@ -65,15 +65,24 @@ class UserInterface :
         progress and resends the mixedguage command whenever one of the
         element values is changed"""
         return result
-# lists
-"""
-def buidlist"""
+### lists
+#    def buidList
+#    def checkList
+#    def menu
+#    def radioList
+#    def treeView
 
+### Single-line input fields
+#    def inputBox
+#    def inputMenu
+#    def passwordBox
 
+### Forms
+#    def form
+#    def mixedForm
+#    def PasswordForm
 
-
-
-
+### Selecting files and directories
     def selectDir(self, rootDir, dialogtitle) :
         selectedDir = myInterface.dselect(rootDir, height=None,
                                               width=None, title=dialogtitle)
@@ -82,10 +91,15 @@ def buidlist"""
                                                               selectedDir[2])
         return selectedDir
 
-    def infoBox(self, message) :
-        infobox = myInterface.infobox(message, height=None, width=None)
-        return infobox
+#    def selectFileDir(self, rootdir, dialogtitle)
+#        return result
 
+### Date and time
+#    def calendarBox
+#    def timeBox
+
+### Miscellaneous
+#    def rangeBox
     def ynQuestion(self, question, buttons[yes_label="Yes" no_label="No"]):
         self.__ynQuestion = myInterface.yesno(question, height=None,
                                               width=None, buttons)
