@@ -74,7 +74,8 @@ class UserInterface :
                  kwargs[dialogtitle]) :
         result = myInterface.buildlist(message, None, None, listheight,
                                        items, kwargs)
-        if result ==
+##        if result[0] = not
+
 #    def checkList
 #    def menu
 #    def radioList
