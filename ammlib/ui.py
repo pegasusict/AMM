@@ -16,29 +16,32 @@ class UserInterface :
                                           compat='dialog', use_stdout=None, *,
                                           autowidgetsize=True,
                                           pass_args_via_file=None)
+
 ### multi line text boxes
     def messageBox(self, message, kwargs[dialogtitle]) :
         result = myInterface.msgbox(message, height=None, width=None, kwargs)
         return result
-    def textbox(self, filePath) :
+    def textBox(self, filePath) :
         result = myInterface.textbox(filePath, height=None, width=None)
         return result
     def scrollBox(self, message, kwargs[dialogtitle]) :
         result = myInterface.scrollbox(message, height=None, width=None,
                                        kwargs)
         return result
-    def fileEditor(self, filePath, kwargs[dialogtitle]) :
-        result = myInterface.editbox(filePath, height=None, width=None, kwargs)
-        return result # returns a tuple (exitcode, text)
     def texteditor(self, initialText, args[None, None], kwargs[dialogtitle]) :
         result = myInterface.editbox_str(initialText, height=None, width=None,
                                          args, kwargs)
         return result # returns a tuple (exitcode, text)
+    def tailBox(self, filePath, kwargs[dialogtitle]) :
+        myInterface.tailbox(filePath, height=None, width=None, kwargs)
 
-#    def progressbox
-#    def programbox
-#    def tailbox
-#    def pausebox
+### Displaying transient messages
+    def announce(self, message, kwargs[dialogtitle]) :
+        result = myInterface.infobox(message, height=None, width=None, kwargs)
+    def countdown(self, message, timeOut, kwargs[dialogtitle]) :
+        # timeOut is secs(int)
+        result = myInterface.pause(message, height=None, width=None,
+                                   timeOut, kwargs)
 
 ### progress indicators
     def progressbar(self, message, percent=0, kwargs[dialogtitle]) :
@@ -65,8 +68,13 @@ class UserInterface :
         progress and resends the mixedguage command whenever one of the
         element values is changed"""
         return result
+
 ### lists
-#    def buidList
+    def buidList(self, message, listheight, items[(tag, item, status)],
+                 kwargs[dialogtitle]) :
+        result = myInterface.buildlist(message, None, None, listheight,
+                                       items, kwargs)
+        if result ==
 #    def checkList
 #    def menu
 #    def radioList
@@ -104,16 +112,7 @@ class UserInterface :
         self.__ynQuestion = myInterface.yesno(question, height=None,
                                               width=None, buttons)
 
-
-
-
-
-
-
-
-
-
-
+"""
 #        elif self.__uiStyle == "html" :
 #            ### generate html interface (template)
 #            self.output = "<html>" #etc etc
