@@ -28,10 +28,10 @@ def init():
         debugSwitch = True
     if args.dialog:
         uiStyle = "dialog"
-    myUI = new UserInterface(uiStyle)
+    myUI = UserInterface(uiStyle)
     myUI.infobox("Please wait, initializing...")
     ### init, load /generate config
-    ammConfig = new AMMconfig()
+    ammConfig = AMMconfig()
     dbHandle = db_handler("initialise")
     stagecomplete = "init"
 

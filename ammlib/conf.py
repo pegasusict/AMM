@@ -4,8 +4,8 @@
 ** (C)2017 Mattijs Snepvangers                  pegasus.ict@gmail.com **
 ** conf.py                   config manager          VER0.0.0PREALPHA **
 ** License: MIT                    Please keep my name in the credits **
-************************************************************************
-"""
+************************************************************************"""
+
 class AMMconfig :
     def __init__(self) :
         import fsops
@@ -21,12 +21,10 @@ class AMMconfig :
         'Please select the source directory: ')
         ammConfig['target_dir'] = myUI.selectDir("/media/",
         'Please enter the target directory: ')
-        while not(fsop.verify_dir_exists(target_dir)): # needs rewrite
+        while not(fsop.verify_dir_exists(ammConfig['target_dir'])): # needs rewrite
             must_create_dir = myUI.question(
             'The target directory does not exist. Should I create it? (y/n)')
         if must_create_dir == 'y':
-            fsop.create_dir(target_dir)
+            fsop.create_dir(ammConfig['target_dir'])
         else :
             target_dir = input('Please enter a different target directory.')
-    target_dir = ammConfig('target_dir')
-    return result

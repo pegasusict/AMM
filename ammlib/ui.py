@@ -12,10 +12,10 @@ class UserInterface :
         self.__uiStyle = uiStyle
         if self.__uiStyle == "dialog" :
             from dialog import Dialog
-            self.myInterface = new Dialog(dialog='dialog', DIALOGRC=None,
-                                          compat='dialog', use_stdout=None, *,
-                                          autowidgetsize=True,
-                                          pass_args_via_file=None)
+            self.myInterface = Dialog(dialog='dialog', DIALOGRC=None,
+                                      compat='dialog', use_stdout=None, *,
+                                      autowidgetsize=True,
+                                      pass_args_via_file=None)
 
 ### multi line text boxes
     def messageBox(self, message, kwargs[dialogtitle]) :
