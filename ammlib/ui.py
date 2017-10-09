@@ -9,14 +9,14 @@
 
 
 class UserInterface :
-    def __init__(self, uiStyle="dialog") :
+    def __init__(self, uiStyle = "dialog") :
         self.__uiStyle = uiStyle
         if self.__uiStyle == "dialog" :
             from dialog import Dialog
-            self.myInterface = Dialog( dialog = 'dialog', DIALOGRC = None,
-                                       compat = 'dialog', use_stdout = None, *,
-                                       autowidgetsize = True,
-                                       pass_args_via_file = None )
+            self.myInterface = Dialog(dialog = 'dialog', DIALOGRC = None,
+                                      compat = 'dialog', use_stdout = None, *,
+                                      autowidgetsize = True,
+                                      pass_args_via_file = True)
 
 ### multi line text boxes
     def messageBox(self, message, kwargs[dialogtitle]) :

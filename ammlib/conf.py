@@ -19,10 +19,15 @@ class AMMconfig :
         # ask for source dir
         ammConfig['source_dir'] = myUI.selectDir("/media/",
         'Please select the source directory: ')
+        must_create_dir = myUI.ynQuestion(
+              'Do you wish to create or select a target directory?'
+              buttons=[yes_label="create" no_label="select"])
+        if must_create_dir == 'y':
+            fsop.create_dir(ammConfig['target_dir'])
         ammConfig['target_dir'] = myUI.selectDir("/media/",
-        'Please enter the target directory: ')
-        while not(fsop.verify_dir_exists(ammConfig['target_dir'])): # needs rewrite
-            must_create_dir = myUI.question(
+        'Please select the target directory: ')
+        while not(fsop.verify_dir_exists(ammConfig['target_dir'])):
+            must_create_dir = myUI.ynQuestion(
             'The target directory does not exist. Should I create it? (y/n)')
         if must_create_dir == 'y':
             fsop.create_dir(ammConfig['target_dir'])
