@@ -20,8 +20,8 @@ class AMMconfig :
         ammConfig['source_dir'] = myUI.selectDir("/media/",
         'Please select the source directory: ')
         must_create_dir = myUI.ynQuestion(
-              'Do you wish to create or select a target directory?'
-              buttons=[yes_label="create" no_label="select"])
+              'Do you wish to create or select a target directory?',
+              buttons=[yes_label="create", no_label="select"])
         if must_create_dir == 'y':
             fsop.create_dir(ammConfig['target_dir'])
         ammConfig['target_dir'] = myUI.selectDir("/media/",
