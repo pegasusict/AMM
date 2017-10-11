@@ -8,7 +8,7 @@
 ************************************************************************
 """
 ### import libs
-import argparse, sys, locale, time
+import configargparse, sys, locale, time
 from ammlib import *
 
 def init():
@@ -18,7 +18,9 @@ def init():
     global debugSwitch, uiStyle
     global myUI
     locale.setlocale(locale.LC_ALL,'')
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(default_config_files=['/etc/AMM/*.conf',
+                                                           '~/.AMM/*.conf',
+                                                           './conf/*.conf'])
     parser.add_argument("--dialog", help="Use Dialog ui",
                         action="store_true", default=True)
     parser.add_argument("--debug", help="enable debug mode",
@@ -28,6 +30,10 @@ def init():
         debugSwitch = True
     if args.dialog:
         uiStyle = "dialog"
+    if args.lang == "nl":
+        uiLanguage = "nl"
+    else :
+        uiLanguage = "en"
     myUI = UserInterface(uiStyle)
     myUI.infobox("Please wait, initializing...")
     ### init, load /generate config
