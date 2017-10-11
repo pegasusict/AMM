@@ -65,9 +65,9 @@ class UserInterface :
         Succeeded, Failed, Passed, Completed, Done, Skipped,
         In Progress, Checked, N/A"""
         """>> ToDo:
-        Create an Object that automatically recalculates the total
-        progress and resends the mixedguage command whenever one of the
-        element values is changed"""
+        Create an Object that automatically recalculates total_progress
+        and resends the mixedguage command whenever one of the element
+        values (and thereby total_progress) is changed"""
         return result
 
 ### lists
@@ -75,7 +75,8 @@ class UserInterface :
                  kwargs[dialogtitle]) :
         result = myInterface.buildlist(message, None, None, listheight,
                                        items, kwargs)
-##        if result[0] = not
+        if result[0] != "DIALOG_OK" :
+            echo "oops, something went wrong..."
 
 #    def checkList
 #    def menu
@@ -93,9 +94,9 @@ class UserInterface :
 #    def PasswordForm
 
 ### Selecting files and directories
-    def selectDir(self, rootDir, dialogtitle) :
+    def selectDir(self, rootDir, kwargs[dialogtitle]) :
         selectedDir = myInterface.dselect(rootDir, height=None,
-                                              width=None, title=dialogtitle)
+                                          width=None, kwargs)
         if debugSwitch == True :
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
@@ -110,7 +111,8 @@ class UserInterface :
 
 ### Miscellaneous
 #    def rangeBox
-    def ynQuestion(self, question, buttons[yes_label="Yes" no_label="No"]):
+    def ynQuestion(self, question, buttons['yes_label'=uiLanguage['yes'],
+                   'no_label'=uiLanguage['no']], kwargs[dialogtitle]):
         self.__ynQuestion = myInterface.yesno(question, height=None,
                                               width=None, buttons)
 

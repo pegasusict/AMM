@@ -21,21 +21,24 @@ def init():
     parser = argparse.ArgumentParser(default_config_files=['/etc/AMM/*.conf',
                                                            '~/.AMM/*.conf',
                                                            './conf/*.conf'])
-    parser.add_argument("--dialog", help="Use Dialog ui",
+    parser.add_argument("--dialog", help=
+                        "Use Dialog Interface (default enabled)",
                         action="store_true", default=True)
     parser.add_argument("--debug", help="enable debug mode",
                         action="store_true", default=False)
+    parser.add_argument("--language",
+      help="select UI language. Valid options are \"nl\" or \"en\"(default)")
     args=parser.parse_args()
     if args.debug:
         debugSwitch = True
     if args.dialog:
         uiStyle = "dialog"
-    if args.lang == "nl":
+    if args.language == "nl":
         uiLanguage = "nl"
     else :
         uiLanguage = "en"
     myUI = UserInterface(uiStyle)
-    myUI.infobox("Please wait, initializing...")
+    myUI.infobox(uiLanguage['init'])
     ### init, load /generate config
     ammConfig = AMMconfig()
     dbHandle = db_handler("initialise")
