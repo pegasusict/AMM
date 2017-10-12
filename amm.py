@@ -54,10 +54,11 @@ def init():
     stagecomplete = "init"
 
 def mainmenu():
+    # construct the menus
+    echo 0
 
 def report_builder(reportType="display", reportData):
-    """reportbuilder"""
-    ### determine what template to use
+        ### determine what template to use
     if reportType == "display" :
         ### display template
     elif reportType == "html" :

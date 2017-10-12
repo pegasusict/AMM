@@ -22,7 +22,9 @@ def tag_parser(fileList):
         db_handler("update" , thisFile, tags, flags)
     return
 
-def trim_silences(thisFileList)
+def trim_silences(fileList):
+    for _file in filelist :
+        sh()
 
 def generate_fingerprints(thisFileList):
     import acoustid

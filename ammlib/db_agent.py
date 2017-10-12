@@ -26,3 +26,4 @@ class DBagent :
 
     def db_create(self, table[]):
         """ Function doc """
+        echo 2
