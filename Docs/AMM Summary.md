@@ -11,6 +11,7 @@
 ### *Phase 1:*
 For each file:
 * \[ mutagen / mediainfodll / audioread / soundfile ] Parse & purge tags
+* \[ soundfile? ] Trim silence from beginning and end
 * \[ acoustid \] Generate audio fingerprint
 * \[ mediainfodll / audioread / soundfile \] Calculate audio _qualityIndex_ based on codec, bitrate and channels
 * \[ mysql.connector / mysqldb \] Store file stats in DB \(size, type, length, codec, bitrate, tags, fingerprint, qualityIndex etc\)
@@ -26,7 +27,7 @@ For each file in DB:
 
 ### *Phase 4:*
 For each file in DB:
-* \[ sh\(*lame*\) \] Transcode using comparable mp3 vbr quality, Normalize audio levels, Trim silence from beginning and end
+* \[ sh\(*lame*\) \] Transcode using comparable mp3 vbr quality, Normalize audio levels
 * \[ mutagen \] Insert tags (inc “processed by AMM” & audio quality rating) & album cover & lyrics
 * *If albumartist == “various” and available tracks =< 50% : albumartist = artist and album = ”compilations“*
 * \[ path / pathtools \] Move to destination & rename in accordance with the chosen path/file naming scheme
