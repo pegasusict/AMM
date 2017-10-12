@@ -19,7 +19,8 @@ class AMMconfig :
         ammConfig['source_dir'] = myUI.selectDir("/media/",
                                                  'Please select the source \
                                                  directory: ')
-        kwargs = (yes_label="create", no_label="select")
+        kwargs[yes_label] = "create"
+        kwargs[no_label]="select"
         must_create_dir = MY_UI.ynQuestion('Do you wish to create or select \
                                           a target directory?', kwargs)
         if must_create_dir == 'y':
