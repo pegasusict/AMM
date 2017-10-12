@@ -15,18 +15,23 @@ blacklist = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
 def tag_parser(fileList):
     """Parse tags and store in DB
 
-    check for fingerprint, else set flag 1
+    check for fingerprint, set flag 2, else set flag 1
     """
     for thisFile in fileList:
 
         db_handler("update" , thisFile, tags, flags)
     return
 
+def trim_silences(thisFileList)
+
 def generate_fingerprints(thisFileList):
     import acoustid
     for fileEntry in thisFileList:
         acoustid.fingerprint_file(fileEntry)
     return thisFileList
+
+def find_n_purge_dups():
+    """find duplicate fingerprints in database"""
 
 def store_tags(tags, thisFile):
     import eyed3

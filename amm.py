@@ -55,9 +55,6 @@ def init():
 
 def mainmenu():
 
-def find_n_purge_dups():
-    """find duplicate fingerprints in database"""
-
 def report_builder(reportType="display", reportData):
     """reportbuilder"""
     ### determine what template to use
