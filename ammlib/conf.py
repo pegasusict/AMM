@@ -8,13 +8,10 @@
 
 class AMMconfig :
     def __init__(self) :
- #       import fsops
- #       cfg_file = 'ammConfig.cfg'
- #       if not fsops.verify_file_exists(cfg_file):
- #            self.cfgWizard()
+        #
 
-"""devise method to utilize configArgParse to read the files and figure
-   out how to proceed in case of missing files/arguments"""
+"""devise a method to utilize configArgParse to read the files and
+   figure out how to proceed in case of missing files/arguments"""
 
     def cfgWizard(self):
         # ask for source dir
@@ -34,4 +31,3 @@ class AMMconfig :
             fsop.create_dir(ammConfig['target_dir'])
         else :
             target_dir = input('Please enter a different target directory.')
-

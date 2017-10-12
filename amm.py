@@ -8,8 +8,17 @@
 ************************************************************************
 """
 ### import libs
-import configargparse, sys, locale, time
-from ammlib import *
+import configargparse
+import sys
+import locale
+import time
+from ammlib import fsops
+from ammlib import conf
+from ammlib import ui
+from ammlib import db_agent
+from ammlib import afops
+#from ammlib import inetc
+#from ammlib import daemonizer
 
 def init():
     """init function
@@ -44,6 +53,8 @@ def init():
     dbHandle = db_handler("initialise")
     stagecomplete = "init"
 
+def mainmenu():
+
 def find_n_purge_dups():
     """find duplicate fingerprints in database"""
 
@@ -60,9 +71,10 @@ def report_builder(reportType="display", reportData):
 
 def main():
     init()
+    mainmenu()
     ### phase 0
     ## scan source dir
-    scanned_dir = fops.scan_dir(ammConfig['basedir'])
+    scanned_dir = fsops.scan_dir(ammConfig['basedir'])
     ## add audiofiles to DB
     dbHandle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
@@ -76,6 +88,7 @@ def main():
     filelist = dbHandle("get", "stage_completed=1", limit=100) ### LOOP !!!
     newfilelist = tag_parser(filelist)
     del filelist
+    afops.stripSilences(newfilelist)
     afops.generate_fingerprints(newfilelist)
     ## calculate qualityIndex
     for each fileEntry in newfilelist:
