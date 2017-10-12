@@ -8,25 +8,26 @@
 ************************************************************************
 """
 ### import libs
-import configargparse
 import sys
 import locale
 import time
-from ammlib import fsops
-from ammlib import conf
-from ammlib import ui
-from ammlib import db_agent
-from ammlib import afops
-#from ammlib import inetc
-#from ammlib import daemonizer
+import configargparse
+
+import fsops
+import conf
+import ui
+#import db_agent
+#import afops
+#import inetc
+#import daemonizer
 
 def init():
     """init function
 
     broke down main function to increase readability"""
-    global debugSwitch, uiStyle
-    global myUI
-    locale.setlocale(locale.LC_ALL,'')
+    global DEBUG_SWITCH, UI_STYLE
+    global MY_UI
+    locale.setlocale(locale.LC_ALL, '')
     parser = argparse.ArgumentParser(default_config_files=['/etc/AMM/*.conf',
                                                            '~/.AMM/*.conf',
                                                            './conf/*.conf'])
@@ -36,36 +37,37 @@ def init():
     parser.add_argument("--debug", help="enable debug mode",
                         action="store_true", default=False)
     parser.add_argument("--language",
-      help="select UI language. Valid options are \"nl\" or \"en\"(default)")
-    args=parser.parse_args()
+                        help="select UI language. \
+                        Valid options are \"nl\" or \"en\"(default)")
+    args = parser.parse_args()
     if args.debug:
-        debugSwitch = True
+        DEBUG_SWITCH = True
     if args.dialog:
-        uiStyle = "dialog"
+        UI_STYLE = "dialog"
     if args.language == "nl":
-        uiLanguage = "nl"
-    else :
-        uiLanguage = "en"
-    myUI = UserInterface(uiStyle)
-    myUI.infobox(uiLanguage['init'])
+        UI_LANGUAGE = "nl"
+    else:
+        UI_LANGUAGE = "en"
+    MY_UI = UserInterface(uiStyle)
+    MY_UI.infobox(uiLanguage['init'])
     ### init, load /generate config
-    ammConfig = AMMconfig()
-    dbHandle = db_handler("initialise")
-    stagecomplete = "init"
+    AMM_CONFIG = AMMconfig()
+    DB_HANDLE = db_handler("initialise")
+
 
 def mainmenu():
     # construct the menus
-    echo 0
+    echo("blah")
 
-def report_builder(reportType="display", reportData):
+def report_builder(reportType, reportData):
         ### determine what template to use
-    if reportType == "display" :
-        ### display template
-    elif reportType == "html" :
-        ### html template
-    else reportType = "text" :
-        ### text template
-    return generated_report
+    if reportType == "display":
+        echo('### display template')
+    elif reportType == "html":
+        echo('### html template')
+    else:                        # reportType = "text"
+        echo('### text template')
+    return result
 
 def main():
     init()
@@ -77,7 +79,7 @@ def main():
     dbHandle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
     ## purge non-audio files
-    for each fileEntry in scanned_dir['trash']:
+    for fileEntry in scanned_dir['trash']:
         delete_file(fileEntry)
     del scanned_dir
     stagecomplete = '1'
@@ -89,7 +91,8 @@ def main():
     afops.stripSilences(newfilelist)
     afops.generate_fingerprints(newfilelist)
     ## calculate qualityIndex
-    for each fileEntry in newfilelist:
+    for fileEntry in newfilelist:
+        echo('we must do something')
         ### figure out what to get from where and how to compare codecs
     dbstatus = dbHandle("update", newfilelist, "stagecompleted=2")
     del newfilelist

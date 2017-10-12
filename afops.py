@@ -23,7 +23,7 @@ def tag_parser(fileList):
     return
 
 def trim_silences(fileList):
-    for _file in filelist :
+    for _file in filelist:
         sh()
 
 def generate_fingerprints(thisFileList):
@@ -45,7 +45,7 @@ def store_tags(tags, thisFile):
     audiofile.tag.title = u"Hollow"
     audiofile.tag.track_num = 2
 
-audiofile.tag.save()
+    audiofile.tag.save()
 
 def transcode(fileEntry):
     """<<enter description>>

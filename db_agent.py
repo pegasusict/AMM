@@ -7,12 +7,12 @@
 ************************************************************************
 """
 class DBagent :
-    def __init__(self) :
+    def __init__(self):
         self.dbConnectInfo = ammConfig.get(dbConnectInfo)
         import mysql.connector as dba
         from mysql.connector import errorcode as dba_errorcode
 
-    def db_connect(self, DBhost, DBport=3306, DBuser, DBpass, DB) :
+    def db_connect(self, DBhost, DBport=3306, DBuser, DBpass, DB):
         #connect to database, display error if something goes wrong
         try:
             __myDB = dba.connect(DBuser, DBpass, DBhost, DB)
@@ -24,6 +24,6 @@ class DBagent :
             else:
                 print(dba_error)
 
-    def db_create(self, table[]):
+    def db_create(self, table):
         """ Function doc """
-        echo 2
+        echo("blah")

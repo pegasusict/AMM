@@ -8,10 +8,10 @@
 """
 
 
-class UserInterface :
-    def __init__(self, uiStyle = "dialog") :
+class UserInterface:
+    def __init__(self, uiStyle = "dialog"):
         self.__uiStyle = uiStyle
-        if self.__uiStyle == "dialog" :
+        if self.__uiStyle == "dialog":
             from dialog import Dialog
             self.myInterface = Dialog(dialog = 'dialog', DIALOGRC = None,
                                       compat = 'dialog', use_stdout = None, *,
@@ -19,40 +19,40 @@ class UserInterface :
                                       pass_args_via_file = True)
 
 ### multi line text boxes
-    def messageBox(self, message, kwargs[dialogtitle]) :
+    def messageBox(self, message, kwargs[dialogtitle]):
         result = myInterface.msgbox(message, height=None, width=None, kwargs)
         return result
-    def textBox(self, filePath) :
+    def textBox(self, filePath):
         result = myInterface.textbox(filePath, height=None, width=None)
         return result
-    def scrollBox(self, message, kwargs[dialogtitle]) :
+    def scrollBox(self, message, kwargs[dialogtitle]):
         result = myInterface.scrollbox(message, height=None, width=None,
                                        kwargs)
         return result
-    def texteditor(self, initialText, args[None, None], kwargs[dialogtitle]) :
+    def texteditor(self, initialText, args[None, None], kwargs[dialogtitle]):
         result = myInterface.editbox_str(initialText, height=None, width=None,
                                          args, kwargs)
         return result # returns a tuple (exitcode, text)
-    def tailBox(self, filePath, kwargs[dialogtitle]) :
+    def tailBox(self, filePath, kwargs[dialogtitle]):
         myInterface.tailbox(filePath, height=None, width=None, kwargs)
 
 ### Displaying transient messages
-    def announce(self, message, kwargs[dialogtitle]) :
+    def announce(self, message, kwargs[dialogtitle]):
         result = myInterface.infobox(message, height=None, width=None, kwargs)
-    def countdown(self, message, timeOut, kwargs[dialogtitle]) :
+    def countdown(self, message, timeOut, kwargs[dialogtitle]):
         # timeOut is secs(int)
         result = myInterface.pause(message, height=None, width=None,
                                    timeOut, kwargs)
 
 ### progress indicators
-    def progressbar(self, message, percent=0, kwargs[dialogtitle]) :
+    def progressbar(self, message, percent=0, kwargs[dialogtitle]):
         myInterface.guage_start(message, height=None, width=None, percent,
                                 kwargs)
         """ToDo: Create ProgressBarObject to enclose guage & guageupdate
            and to automatically call guagestop at 100%"""
-    def progressbarUpdate(self, percent=10, message, updateMessage=False) :
+    def progressbarUpdate(self, percent=10, message, updateMessage=False):
         myInterface.guage_update(percent, message, updateMessage)
-    def progressbarStop(self) :
+    def progressbarStop(self):
         result = myInterface.guage_stop()
         return result
     def multiProgressbar(self, message, percent=0, elements=[],
@@ -72,10 +72,10 @@ class UserInterface :
 
 ### lists
     def buidList(self, message, listheight, items[(tag, item, status)],
-                 kwargs[dialogtitle]) :
+                 kwargs[dialogtitle]):
         result = myInterface.buildlist(message, None, None, listheight,
                                        items, kwargs)
-        if result[0] != "DIALOG_OK" :
+        if result[0] != "DIALOG_OK":
             echo "oops, something went wrong..."
 
 #    def checkList
@@ -94,10 +94,10 @@ class UserInterface :
 #    def PasswordForm
 
 ### Selecting files and directories
-    def selectDir(self, rootDir, kwargs[dialogtitle]) :
+    def selectDir(self, rootDir, kwargs[dialogtitle]):
         selectedDir = myInterface.dselect(rootDir, height=None,
                                           width=None, kwargs)
-        if debugSwitch == True :
+        if debugSwitch == True:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
         return selectedDir
