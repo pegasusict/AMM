@@ -12,7 +12,7 @@ class DBagent :
         import mysql.connector as dba
         from mysql.connector import errorcode as dba_errorcode
 
-    def db_connect(self, DBhost, DBport, DBuser, DBpass, DB):
+    def db_connect(self):
         if DBport != 3306:
             DBhost = DBHost + ":" + DBport
         #connect to database, display error if something goes wrong

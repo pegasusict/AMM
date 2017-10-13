@@ -13,25 +13,29 @@ import locale
 #import time
 import configargparse as argparse
 
-import fsops
-import conf
-import ui
-import db_agent
-import afops
-#import inetc
-#import daemonizer
+import lib.fsops as fsops
+import lib.conf as conf
+import lib.ui as ui
+import lib.db_agent as ui
+import lib.afops as afops
+#import lib.inetc as inetc
+#import lib.daemonizer as daemonizer
+import lib.reportbuilder as reportbuilder
 
-DEBUG_SWITCH = False
-UI_STYLE = "dialog"
-UI_LANGUAGE = "en"
+debugswitch = False
+ui_style = "dialog"
+ui_language = "en"
+AMM_TITLE = "Audiophiles Music Manager"
+MY_UI = None
 
 def init():
     """init function
 
     broke down main function to increase readability"""
-    global DEBUG_SWITCH
-    global UI_STYLE
+    global debugswitch
+    global ui_style
     global MY_UI
+    global ui_language
     locale.setlocale(locale.LC_ALL, '')
     parser = argparse.ArgumentParser(default_config_files=['/etc/AMM/*.conf',
                                                            '~/.AMM/*.conf',
@@ -46,33 +50,23 @@ def init():
                         Valid options are \"nl\" or \"en\"(default)")
     args = parser.parse_args()
     if args.debug:
-        DEBUG_SWITCH = True
+        debugswitch = True
     if args.dialog:
         UI_STYLE = "dialog"
     if args.language == "nl":
-        UI_LANGUAGE = "nl"
+        ui_language = "nl"
     else:
-        UI_LANGUAGE = "en"
-    MY_UI = ui.UserInterface(uiStyle)
-    MY_UI.infobox(UI_LANGUAGE['init'])
+        ui_language = "en"
+    MY_UI = ui.UserInterface(ui_style)
+    MY_UI.announce(ui_language['init'], AMM_TITLE)
     ### init, load /generate config
-    AMM_CONFIG = conf.AMMconfig()
-    DB_HANDLE = db_agent.db_handler("initialise")
+    amm_config = conf.AMMconfig()
+    db_handle = db_agent.db_connect()
 
 
 def mainmenu():
-    # construct the menus
-    echo("blah")
-
-def report_builder(reportType, reportData):
-        ### determine what template to use
-    if reportType == "display":
-        echo('### display template')
-    elif reportType == "html":
-        echo('### html template')
-    else:                        # reportType = "text"
-        echo('### text template')
-    return result
+    """menu constructor"""
+    print "work in progress"
 
 def main():
     init()
@@ -80,6 +74,7 @@ def main():
     ### phase 0
     ## scan source dir
     scanned_dir = fsops.scan_dir(ammConfig['basedir'])
+    report_builder(section="scanned_src", scanned_dir)
     ## add audiofiles to DB
     DB_HANDLE("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
@@ -97,9 +92,9 @@ def main():
     afops.generate_fingerprints(newfilelist)
     ## calculate qualityIndex
     for fileEntry in newfilelist:
-        echo('we must do something')
+        print 'we must do something'
         ### figure out what to get from where and how to compare codecs
-    dbstatus = DB_HANDLE("update", newfilelist, "stagecompleted=2")
+    DB_HANDLE("update", newfilelist, "stagecompleted=2")
     del newfilelist
     #stagecomplete = '2'
     ### phase 3
