@@ -85,19 +85,20 @@ if __name__ == '__main__':
     db_handle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
     ## purge non-audio files
-    for fileEntry in scanned_dir['trash']:
-        delete_file(fileEntry)
+    for file_entry in scanned_dir['trash']:
+        delete_file(file_entry)
     del scanned_dir
     #stagecomplete = '1'
-    ### phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD
+    ### phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD(s)
     ## parse & purge tags
     filelist = db_handle("get", "stage_completed=1", limit=1000) ### LOOP !!!
     newfilelist = tag_parser(filelist)
     del filelist
-    afops.stripSilences(newfilelist)
+    afops.normalize_audio(newfilelist)
+    afops.strip_silences(newfilelist)
     afops.generate_fingerprints(newfilelist)
     ## calculate qualityIndex
-    for fileEntry in newfilelist:
+    for file_entry in newfilelist:
         print 'we must do something'
         ### figure out what to get from where and how to compare codecs
     db_handle("update", newfilelist, "stagecompleted=2")
@@ -107,8 +108,8 @@ if __name__ == '__main__':
     afops.find_n_purge_dups()
     #stagecomplete = '3'
     ### phase 4
-    transcode(fileEntry, quality)
-    insertTags(fileEntry, tags)
+    transcode(file_entry, quality)
+    insertTags(file_entry, tags)
     #stagecomplete = '4'
     ### phase 5
     reportbuilder.report_data(reportSection, reportData)

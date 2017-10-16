@@ -8,12 +8,10 @@
 
 class AMMconfig :
     def __init__(self):
-        # blah
-
-
-    # ToDo:
-    #   devise a method to utilize configArgParse to read the files and
-    #   figure out how to proceed in case of missing files/arguments
+        # ToDo:
+        #   devise a method to utilize configArgParse to read the files and
+        #   figure out how to proceed in case of missing files/arguments
+        own = self
 
     @classmethod
     def cfgWizard(self):
