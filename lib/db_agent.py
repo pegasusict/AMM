@@ -27,6 +27,7 @@ class DBagent :
             else:
                 print(dba_error)
 
+    @classmethod
     def db_create(self, table):
         """ Function doc """
         echo("blah")

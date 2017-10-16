@@ -16,7 +16,7 @@ import configargparse as argparse
 import lib.fsops as fsops
 import lib.conf as conf
 import lib.ui as ui
-import lib.db_agent as ui
+import lib.db_agent as dba
 import lib.afops as afops
 #import lib.inetc as inetc
 #import lib.daemonizer as daemonizer
@@ -61,7 +61,7 @@ def init():
     MY_UI.announce(ui_language['init'], AMM_TITLE)
     ### init, load /generate config
     amm_config = conf.AMMconfig()
-    db_handle = db_agent.db_connect()
+    db_handle = dba.db_connect()
 
 
 def mainmenu():
@@ -69,14 +69,16 @@ def mainmenu():
     print "work in progress"
 
 def main():
+    """docstring required according to pylint"""
     init()
     mainmenu()
     ### phase 0
     ## scan source dir
     scanned_dir = fsops.scan_dir(ammConfig['basedir'])
-    report_builder(section="scanned_src", scanned_dir)
+    reportsection = "scanned_src"
+    reportbuilder.report_builder(reportsection, scanned_dir)
     ## add audiofiles to DB
-    DB_HANDLE("store", scanned_dir['audiofiles'], "stage_completed=1")
+    db_handle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
     ## purge non-audio files
     for fileEntry in scanned_dir['trash']:
@@ -85,7 +87,7 @@ def main():
     #stagecomplete = '1'
     ### phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD
     ## parse & purge tags
-    filelist = DB_HANDLE("get", "stage_completed=1", limit=100) ### LOOP !!!
+    filelist = db_handle("get", "stage_completed=1", limit=100) ### LOOP !!!
     newfilelist = tag_parser(filelist)
     del filelist
     afops.stripSilences(newfilelist)
@@ -94,7 +96,7 @@ def main():
     for fileEntry in newfilelist:
         print 'we must do something'
         ### figure out what to get from where and how to compare codecs
-    DB_HANDLE("update", newfilelist, "stagecompleted=2")
+   db_handle("update", newfilelist, "stagecompleted=2")
     del newfilelist
     #stagecomplete = '2'
     ### phase 3
@@ -105,7 +107,7 @@ def main():
     insertTags(fileEntry, tags)
     #stagecomplete = '4'
     ### phase 5
-    report_builder(reportType, reportData)
+    reportbuilder.report_builder(reportType, reportData)
     #stagecomplete = '5'
 
 # standard boilerplate

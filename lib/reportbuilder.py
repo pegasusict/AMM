@@ -8,18 +8,21 @@
 ************************************************************************
 """
 
-def __init__(self):
-    """initialising report generator"""
+class report_builder
+    @classmethod
+    def __init__(self):
+        """initialising report generator"""
 
-def append_report_data(self, data_type, data_tuple):
-    """collect all the chunks"""
+    @classmethod
+    def append_report_data(self, data_type, data_tuple):
+        """collect all the chunks"""
 
-
-def render_report(self, reportType):
-    """reportbuilder info, more to come"""
-    #if reportType == "display":
-    #    print '### display template'
-    #elif reportType == "html":
-    #    print '### html template'
-    #else:                        # reportType = "text"
-    #    print '### text template'
+    @classmethod
+    def render_report(self, reportType):
+        """reportbuilder info, more to come"""
+        #if reportType == "display":
+        #    print '### display template'
+        #elif reportType == "html":
+        #    print '### html template'
+        #else:                        # reportType = "text"
+        #    print '### text template'

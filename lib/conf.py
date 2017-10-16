@@ -11,9 +11,11 @@ class AMMconfig :
         # blah
         echo(1)
 
-    """devise a method to utilize configArgParse to read the files and
+    """ToDo: \
+        devise a method to utilize configArgParse to read the files and \
         figure out how to proceed in case of missing files/arguments"""
 
+    @classmethod
     def cfgWizard(self):
         # ask for source dir
         ammConfig['source_dir'] = myUI.selectDir("/media/",
@@ -33,5 +35,3 @@ class AMMconfig :
             'The target directory does not exist. Should I create it? (y/n)')
         if must_create_dir == 'y':
             fsops.create_dir(ammConfig['target_dir'])
-        else :
-            target_dir = input('Please enter a different target directory.')
