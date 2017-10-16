@@ -60,6 +60,7 @@ class UserInterface:
         height = None
         width = None
         result = myInterface.infobox(message, height, width, kwargs)
+        return result
     @classmethod
     def countdown(self, message, timeOut, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
@@ -67,7 +68,7 @@ class UserInterface:
         width = None
         # timeOut is secs(int)
         result = myInterface.pause(message, height, width, timeOut, kwargs)
-
+        return result
 ### progress indicators
     @classmethod
     def progressbar(self, message, percent, dialogtitle):
@@ -77,8 +78,8 @@ class UserInterface:
         height = None
         width = None
         myInterface.guage_start(message, height, width, percent, kwargs)
-        """ToDo: Create ProgressBarObject to enclose guage & guageupdate \
-           and to automatically call guagestop at 100%"""
+        #ToDo: Create ProgressBarObject to enclose guage & guageupdate
+        #  and to automatically call guagestop at 100%"""
     @classmethod
     def progressbarUpdate(self, percent, message, updateMessage=False):
         myInterface.guage_update(percent, message, updateMessage)
@@ -97,15 +98,16 @@ class UserInterface:
             percent = 0
         result = myInterface.mixedguage(message, height, width,
                                         percent, elements, kwargs)
-        """elements[] is a list of tuples consisting of (tag, value) \
-        possible values are: \
-        a percentage (-25 equals 25%) or \
-        Succeeded, Failed, Passed, Completed, Done, Skipped, \
-        In Progress, Checked, N/A"""
-        """>> ToDo: \
-        Create an Object that automatically recalculates total_progress \
-        and resends the mixedguage command whenever one of the element \
-        values (and thereby total_progress) is changed"""
+        # elements[] is a list of tuples consisting of (tag, value)
+        #   possible values are:
+        #   a percentage (-25 equals 25%) or
+        #   Succeeded, Failed, Passed, Completed, Done, Skipped,
+        #   In Progress, Checked, N/A
+        # ToDo:
+        #   Create an Object that automatically recalculates
+        #   total_progress and resends the mixedguage command
+        #   whenever one of the element values (and thereby
+        #   total_progress) is changed
         return result
 
 ### lists

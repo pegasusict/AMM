@@ -11,9 +11,9 @@ class AMMconfig :
         # blah
         echo(1)
 
-    """ToDo: \
-        devise a method to utilize configArgParse to read the files and \
-        figure out how to proceed in case of missing files/arguments"""
+    # ToDo:
+    #   devise a method to utilize configArgParse to read the files and
+    #   figure out how to proceed in case of missing files/arguments
 
     @classmethod
     def cfgWizard(self):

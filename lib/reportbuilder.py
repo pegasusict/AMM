@@ -8,7 +8,7 @@
 ************************************************************************
 """
 
-class report_builder
+class report_builder:
     @classmethod
     def __init__(self):
         """initialising report generator"""

@@ -87,7 +87,7 @@ def main():
     #stagecomplete = '1'
     ### phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD
     ## parse & purge tags
-    filelist = db_handle("get", "stage_completed=1", limit=100) ### LOOP !!!
+    filelist = db_handle("get", "stage_completed=1", limit=1000) ### LOOP !!!
     newfilelist = tag_parser(filelist)
     del filelist
     afops.stripSilences(newfilelist)
@@ -96,7 +96,7 @@ def main():
     for fileEntry in newfilelist:
         print 'we must do something'
         ### figure out what to get from where and how to compare codecs
-   db_handle("update", newfilelist, "stagecompleted=2")
+    db_handle("update", newfilelist, "stagecompleted=2")
     del newfilelist
     #stagecomplete = '2'
     ### phase 3
