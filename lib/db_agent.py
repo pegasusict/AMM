@@ -6,11 +6,11 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-my_sql = None
-my_sql_errorcode = None
 
 class db_agent :
     def __init__(self):
+        my_sql = None
+        my_sql_errorcode = None
         self.dbConnectInfo = ammConfig.get(dbConnectInfo)
         import mysql.connector as my_sql
         from mysql.connector import errorcode as my_sql_errorcode

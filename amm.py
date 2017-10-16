@@ -17,9 +17,9 @@ ammConfig = None
 db_handle = None
 
 ### import libs
-import sys
+#import sys
 import locale
-import time
+#import time
 import configargparse as argparse
 
 import lib.fsops as fsops
@@ -27,8 +27,8 @@ import lib.conf as conf
 import lib.ui as ui
 import lib.db_agent as dba
 import lib.afops as afops
-import lib.inetc as inetc
-import lib.daemonizer as daemonizer
+#import lib.inetc as inetc
+#import lib.daemonizer as daemonizer
 import lib.reportbuilder as reportbuilder
 
 
