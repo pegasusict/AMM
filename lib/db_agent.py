@@ -6,11 +6,14 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-class DBagent :
+my_sql = None
+my_sql_errorcode = None
+
+class db_agent :
     def __init__(self):
         self.dbConnectInfo = ammConfig.get(dbConnectInfo)
-        import mysql.connector as dba
-        from mysql.connector import errorcode as dba_errorcode
+        import mysql.connector as my_sql
+        from mysql.connector import errorcode as my_sql_errorcode
 
     @classmethod
     def db_connect(self):
@@ -18,14 +21,14 @@ class DBagent :
             DBhost = DBHost + ":" + DBport
         #connect to database, display error if something goes wrong
         try:
-            __myDB = dba.connect(DBuser, DBpass, DBhost, DB)
-        except dba.Error as dba_error:
-            if dba_error == dba_errorcode.ER_ACCESS_DENIED_ERROR:
+            __myDB = my_sql.connect(DBuser, DBpass, DBhost, DB)
+        except my_sql.Error as my_sql_error:
+            if my_sql_error == my_sql_errorcode.ER_ACCESS_DENIED_ERROR:
                 print("Authentication error")
-            elif dba_error == dba_errorcode.ER_BAD_DB_ERROR:
+            elif my_sql_error == my_sql_errorcode.ER_BAD_DB_ERROR:
                 print("Database does not exist")
             else:
-                print(dba_error)
+                print(my_sql_error)
 
     @classmethod
     def db_create(self, table):

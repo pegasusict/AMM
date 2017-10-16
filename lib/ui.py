@@ -181,7 +181,7 @@ class UserInterface:
         width = None
         self.__ynQuestion = myInterface.yesno(question, height, width, buttons)
 
-"""
+
 #        elif self.__uiStyle == "html" :
 #            ### generate html interface (template)
 #            self.output = "<html>" #etc etc
@@ -190,4 +190,3 @@ class UserInterface:
 #                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
 #                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
 #                                    "4 DIALOG_ITEM_HELP")
-"""

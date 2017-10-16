@@ -7,10 +7,19 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
+### Defining variables...
+debugswitch = False
+ui_style = "dialog"
+ui_language = "en"
+AMM_TITLE = "Audiophiles Music Manager"
+MY_UI = None
+ammConfig = None
+db_handle = None
+
 ### import libs
-#import sys
+import sys
 import locale
-#import time
+import time
 import configargparse as argparse
 
 import lib.fsops as fsops
@@ -18,15 +27,10 @@ import lib.conf as conf
 import lib.ui as ui
 import lib.db_agent as dba
 import lib.afops as afops
-#import lib.inetc as inetc
-#import lib.daemonizer as daemonizer
+import lib.inetc as inetc
+import lib.daemonizer as daemonizer
 import lib.reportbuilder as reportbuilder
 
-debugswitch = False
-ui_style = "dialog"
-ui_language = "en"
-AMM_TITLE = "Audiophiles Music Manager"
-MY_UI = None
 
 def init():
     """init function
@@ -52,7 +56,7 @@ def init():
     if args.debug:
         debugswitch = True
     if args.dialog:
-        UI_STYLE = "dialog"
+        ui_style = "dialog"
     if args.language == "nl":
         ui_language = "nl"
     else:
@@ -68,15 +72,15 @@ def mainmenu():
     """menu constructor"""
     print "work in progress"
 
-def main():
-    """docstring required according to pylint"""
+# standard boilerplate
+if __name__ == '__main__':
     init()
     mainmenu()
     ### phase 0
     ## scan source dir
     scanned_dir = fsops.scan_dir(ammConfig['basedir'])
     reportsection = "scanned_src"
-    reportbuilder.report_builder(reportsection, scanned_dir)
+    reportbuilder.append_report_data(reportsection, scanned_dir)
     ## add audiofiles to DB
     db_handle("store", scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
@@ -107,9 +111,5 @@ def main():
     insertTags(fileEntry, tags)
     #stagecomplete = '4'
     ### phase 5
-    reportbuilder.report_builder(reportType, reportData)
+    reportbuilder.report_data(reportSection, reportData)
     #stagecomplete = '5'
-
-# standard boilerplate
-if __name__ == '__main__':
-    main()

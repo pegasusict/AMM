@@ -9,7 +9,7 @@
 class AMMconfig :
     def __init__(self):
         # blah
-        echo(1)
+
 
     # ToDo:
     #   devise a method to utilize configArgParse to read the files and
