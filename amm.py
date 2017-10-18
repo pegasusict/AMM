@@ -16,12 +16,11 @@ MY_UI = None
 ammConfig = None
 db_handle = None
 
-### import libs
 #import sys
 import locale
 #import time
 import configargparse as argparse
-
+### load my own code
 import lib.fsops as fsops
 import lib.conf as conf
 import lib.ui as ui
@@ -31,7 +30,6 @@ import lib.afops as afops
 #import lib.daemonizer as daemonizer
 import lib.reportbuilder as reportbuilder
 
-
 def init():
     """init function
 
@@ -40,33 +38,7 @@ def init():
     global ui_style
     global MY_UI
     global ui_language
-    locale.setlocale(locale.LC_ALL, '')
-    parser = argparse.ArgumentParser(default_config_files=['/etc/AMM/*.conf',
-                                                           '~/.AMM/*.conf',
-                                                           './conf/*.conf'])
-    parser.add_argument("--dialog", help=
-                        "Use Dialog Interface (default enabled)",
-                        action="store_true", default=True)
-    parser.add_argument("--debug", help="enable debug mode",
-                        action="store_true", default=False)
-    parser.add_argument("--language",
-                        help="select UI language. \
-                        Valid options are \"nl\" or \"en\"(default)")
-    args = parser.parse_args()
-    if args.debug:
-        debugswitch = True
-    if args.dialog:
-        ui_style = "dialog"
-    if args.language == "nl":
-        ui_language = "nl"
-    else:
-        ui_language = "en"
-    MY_UI = ui.UserInterface(ui_style)
-    MY_UI.announce(ui_language['init'], AMM_TITLE)
-    ### init, load /generate config
-    amm_config = conf.AMMconfig()
     db_handle = dba.db_connect()
-
 
 def mainmenu():
     """menu constructor"""
