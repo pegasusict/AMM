@@ -6,68 +6,64 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-
+# ToDo:
+#  -replace all kwargs by their contens
+#  - reread complete pythondialog documentation
+#
+#
+########################################################################
+#           self.dialog.exitcodes = ("0 DIALOG_OK", "1 DIALOG_CANCEL",
+#                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
+#                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
+#                                    "4 DIALOG_ITEM_HELP")
 
 class UserInterface:
-    def __init__(self, uiStyle = "dialog"):
+    def __init__(self, uiStyle="dialog"):
         self.__uiStyle = uiStyle
         if self.__uiStyle == "dialog":
             from dialog import Dialog
-            #asterisk = "*"
-            self.myInterface = Dialog(dialog=self.__uiStyle, DIALOGRC=None, compat=self.__uiStyle, use_stdout=None, autowidgetsize=True, pass_args_via_file=True)
+            self.myInterface = Dialog(dialog=self.__uiStyle, DIALOGRC=None,
+                                      compat=self.__uiStyle, use_stdout=None,
+                                      autowidgetsize=True,
+                                      pass_args_via_file=True)
 
 ### multi line text boxes
     @classmethod
     def messageBox(self, message, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        result = myInterface.msgbox(message, height, width, kwargs)
+        result = myInterface.msgbox(message, kwargs)
         return result
     @classmethod
     def textBox(self, filePath):
-        height = None
-        width = None
-        result = myInterface.textbox(filePath, height, width)
+        result = myInterface.textbox(filePath)
         return result
     @classmethod
     def scrollBox(self, message, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        result = myInterface.scrollbox(message, height, width, kwargs)
+        result = myInterface.scrollbox(message, kwargs)
         return result
     @classmethod
     def texteditor(self, initialText, args, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
         args = [None, None]
-        height = None
-        width = None
-        result = myInterface.editbox_str(initialText, height, width,
-                                         args, kwargs)
+        result = myInterface.editbox_str(initialText, args, kwargs)
         return result # returns a tuple (exitcode, text)
     @classmethod
     def tailBox(self, filePath, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        myInterface.tailbox(filePath, height, width, kwargs)
+        myInterface.tailbox(filePath, kwargs)
 
 ### Displaying transient messages
     @classmethod
     def announce(self, message, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        result = myInterface.infobox(message, height, width, kwargs)
+        result = myInterface.infobox(message, kwargs)
         return result
     @classmethod
     def countdown(self, message, timeOut, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
         # timeOut is secs(int)
-        result = myInterface.pause(message, height, width, timeOut, kwargs)
+        result = myInterface.pause(message, timeOut, kwargs)
         return result
 ### progress indicators
     @classmethod
@@ -75,9 +71,7 @@ class UserInterface:
         if percent == '':
             percent = 0
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        myInterface.guage_start(message, height, width, percent, kwargs)
+        myInterface.guage_start(message, percent, kwargs)
         #ToDo: Create ProgressBarObject to enclose guage & guageupdate
         #  and to automatically call guagestop at 100%"""
     @classmethod
@@ -92,12 +86,9 @@ class UserInterface:
     @classmethod
     def multiProgressbar(self, message, percent, elements, dialogtitle):
         kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
         if percent == '':
             percent = 0
-        result = myInterface.mixedguage(message, height, width,
-                                        percent, elements, kwargs)
+        result = myInterface.mixedguage(message, percent, elements, kwargs)
         # elements[] is a list of tuples consisting of (tag, value)
         #   possible values are:
         #   a percentage (-25 equals 25%) or
@@ -116,12 +107,9 @@ class UserInterface:
         # items[(tag, item, status)]
         kwargs['dialogtitle'] = dialogtitle
         listheight = None
-        height = None
-        width = None
-        result = myInterface.buildlist(message, height, width, listheight,
-                                       items, kwargs)
+        result = myInterface.buildlist(message, listheight, items, kwargs)
         if result[0] != "DIALOG_OK":
-            print("oops, something went wrong...")
+            print"oops, something went wrong..."
         else:
             return result[1]
     @classmethod
@@ -129,12 +117,9 @@ class UserInterface:
         # chhoices[(tag, item, status)]
         kwargs['dialogtitle'] = dialogtitle
         listheight = None
-        height = None
-        width = None
-        result = myInterface.checklist(message, height, width, listheight,
-                                       choices, kwargs)
+        result = myInterface.checklist(message, listheight, choices, kwargs)
         if result[0] != "DIALOG_OK":
-            print("oops, something went wrong...")
+            print"oops, something went wrong..."
         else:
             return result[1]
     @classmethod
@@ -142,18 +127,31 @@ class UserInterface:
         # choices[(tag, item)] where tag = shortname, item = description
         kwargs['dialogtitle'] = dialogtitle
         menuheight = None
-        height = None
-        width = None
-        result = myInterface.menu(message, height, width, menuheight,
-                                       choices, kwargs)
+        result = myInterface.menu(message, menuheight, choices, kwargs)
+        if result[0] != "DIALOG_OK":
+            print"oops, something went wrong..."
+        else:
+            return result[1]
+    @classmethod
+    def radioList(self, message, choices, dialogtitle):
+        # choices[(tag, item)] where tag = shortname, item = description
+        kwargs['dialogtitle'] = dialogtitle
+        list_height = None
+        result = myInterface.menu(message, list_height, choices, kwargs)
         if result[0] != "DIALOG_OK":
             print("oops, something went wrong...")
         else:
             return result[1]
-#    @classmethod
-#    def radioList
-#    @classmethod
-#    def treeView
+    @classmethod
+    def treeView(self, message, choices, dialogtitle):
+        # choices[(tag, item)] where tag = shortname, item = description
+        kwargs['dialogtitle'] = dialogtitle
+        menuheight = None
+        result = myInterface.menu(message, menuheight, choices, kwargs)
+        if result[0] != "DIALOG_OK":
+            print("oops, something went wrong...")
+        else:
+            return result[1]
 
 ### Single-line input fields
 #    @classmethod
@@ -173,17 +171,15 @@ class UserInterface:
 
 ### Selecting files and directories
     @classmethod
-    def selectDir(self, rootDir, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        selectedDir = myInterface.dselect(rootDir, height, width, kwargs)
+    def selectDir(self, rootDir, title):
+        selectedDir = myInterface.dselect(rootDir, title)
         if debugSwitch == True:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
         return selectedDir
+
 #    @classmethod
-#    def selectFileDir(self, rootdir, dialogtitle)
+#    def selectFileDir(self, rootdir, title)
 #        return result
 
 ### Date and time
@@ -196,22 +192,9 @@ class UserInterface:
 #    @classmethod
 #    def rangeBox
     @classmethod
-    def ynQuestion(self, question, buttons, dialogtitle):
+    def ynQuestion(self, question, buttons, title):
         if buttons['yes_label'] == '':
             buttons['yes_label'] = ui_language['yes']
         if buttons['no_label'] == '':
             buttons['no_label'] = ui_language['no']
-        kwargs['dialogtitle'] = dialogtitle
-        height = None
-        width = None
-        self.__ynQuestion = myInterface.yesno(question, height, width, buttons)
-
-
-#        elif self.__uiStyle == "html" :
-#            ### generate html interface (template)
-#            self.output = "<html>" #etc etc
-########################################################################
-#           self.dialog.exitcodes = ("0 DIALOG_OK", "1 DIALOG_CANCEL",
-#                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
-#                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
-#                                    "4 DIALOG_ITEM_HELP")
+        self.__ynQuestion = myInterface.yesno(question, buttons, title)
