@@ -112,19 +112,44 @@ class UserInterface:
 
 ### lists
     @classmethod
-    def buidList(self, message, listheight, items, dialogtitle):
+    def buidList(self, message, items, dialogtitle):
         # items[(tag, item, status)]
         kwargs['dialogtitle'] = dialogtitle
+        listheight = None
         height = None
         width = None
         result = myInterface.buildlist(message, height, width, listheight,
                                        items, kwargs)
         if result[0] != "DIALOG_OK":
-            echo("oops, something went wrong...")
-#    @classmethod
-#    def checkList
-#    @classmethod
-#    def menu
+            print("oops, something went wrong...")
+        else:
+            return result[1]
+    @classmethod
+    def checkList(self, message, choices, dialogtitle):
+        # chhoices[(tag, item, status)]
+        kwargs['dialogtitle'] = dialogtitle
+        listheight = None
+        height = None
+        width = None
+        result = myInterface.checklist(message, height, width, listheight,
+                                       choices, kwargs)
+        if result[0] != "DIALOG_OK":
+            print("oops, something went wrong...")
+        else:
+            return result[1]
+    @classmethod
+    def menuList(self, message, choices, dialogtitle):
+        # choices[(tag, item)] where tag = shortname, item = description
+        kwargs['dialogtitle'] = dialogtitle
+        menuheight = None
+        height = None
+        width = None
+        result = myInterface.menu(message, height, width, menuheight,
+                                       choices, kwargs)
+        if result[0] != "DIALOG_OK":
+            print("oops, something went wrong...")
+        else:
+            return result[1]
 #    @classmethod
 #    def radioList
 #    @classmethod
