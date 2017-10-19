@@ -8,23 +8,28 @@
 ************************************************************************
 """
 ### Defining variables...
-debugswitch = False
+debugswitch = True
 ui_style = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
 MY_UI = None
-ammConfig = None
+amm_config = None
 db_handle = None
 
 #import sys
 #import time
 
 ### load my own code
-import lib.fsops as fsops
-import lib.conf as conf
-
-import lib.db_agent as dba
-import lib.afops as afops
+#import lib.fsops as fsops
+#import lib.conf as conf
+import lib.ui as ui
+#import lib.db_agent as dba
+#import lib.afops as afops
 #import lib.inetc as inetc
 #import lib.daemonizer as daemonizer
-import lib.reportbuilder as reportbuilder
+#import lib.reportbuilder as reportbuilder
+
+print("testing...")
+testdata['message'] = "hello"
+testdata['title'] = "test title"
+result = MY_UI.announce(**testdata)

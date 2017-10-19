@@ -100,7 +100,7 @@ class UserInterface:
         listheight = None
         result = myInterface.buildlist(message, listheight, items, title)
         if result[0] != "DIALOG_OK":
-            print"oops, something went wrong..."
+            print("oops, something went wrong...")
         else:
             return result[1]
     @classmethod
@@ -109,7 +109,7 @@ class UserInterface:
         listheight = None
         result = myInterface.checklist(message, listheight, choices, title)
         if result[0] != "DIALOG_OK":
-            print"oops, something went wrong..."
+            print("oops, something went wrong...")
         else:
             return result[1]
     @classmethod
@@ -118,7 +118,7 @@ class UserInterface:
         menuheight = None
         result = myInterface.menu(message, menuheight, choices, title)
         if result[0] != "DIALOG_OK":
-            print"oops, something went wrong..."
+            print("oops, something went wrong...")
         else:
             return result[1]
     @classmethod
