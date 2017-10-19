@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 -tt
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -43,7 +43,8 @@ def init():
 
 def mainmenu():
     """menu constructor"""
-    print "work in progress"
+    kwargsmessage = , choices, title
+    MY_UI.menuList(**kwargs)
 
 # standard boilerplate
 if __name__ == '__main__':

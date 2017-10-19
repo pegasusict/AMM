@@ -43,30 +43,29 @@ class AMMconfig :
 
     @classmethod
     def sysinit(self, amm_config):
-        if amm_config == None:
+        if amm_config == None: # is this check valid?
             amm_config['runWizard'] = True
 
     @classmethod
     def cfgWizard(self):
-        # check DB connection, if not available try default settings
-        announce_msg = ui_language["trydb"]
+        ### check DB connection, if not available try default settings
+        kwargs = ui_language["trydb"]
         announce_title = ui_language["wait"]
         MY_UI.announce(announce_msg, announce_title)
-        # if default DB settings don't work, ask for DB info, providing
-        #  default answers where applicable
+        ### if default DB settings don't work, ask for DB info, providing
+        #    default answers where applicable
         amm_config
-        # ask for source dir
+        ### ask for source dir
         amm_config['source_dir'] = myUI.selectDir("/media/",
                                                  'Please select the source \
                                                  directory: ')
-        # create or select target directory
-        yes_label = ui_language["create"]
-        no_label = uilanguage["select"]
+        ### create or select target directory
+        kwargs['yes_label'] = ui_language["create"]
+        kwargs['no_label'] = uilanguage["select"]
         must_create_dir = MY_UI.ynQuestion('Do you wish to create or select \
-                                           a target directory?',
-                                           yes_label, no_label)
-        # if directory needs to be created, select dir wherein to
-        #   create targetdir
+                                           a target directory?', **kwargs)
+        ### if directory needs to be created, select dir wherein to
+        #    create targetdir
         if must_create_dir == 'y':
             amm_config['base_dir'] = MY_UI.selectDir("/media/",
                                                     'Please select the \
@@ -78,6 +77,13 @@ class AMMconfig :
             amm_config['target_dir'] = MY_UI.selectDir("/media/",
                                                       'Please select the \
                                                       target directory:')
-        # select output structure
+        ### select output filetype & quality,
+        #    default "mp3, lame preset: paranoid (where possible)"
 
-        #
+        ### select output structure
+        # default:<firstAlphaNumChar>/<artist>/(<year>) <album>/
+
+        ### select included info (lyrics, albumart, mood)
+        #    default: lyrics, albumart,
+
+        ### whether to purge collection of live music (default: yes)
