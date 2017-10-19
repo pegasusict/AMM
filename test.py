@@ -30,6 +30,10 @@ import lib.ui as ui
 #import lib.reportbuilder as reportbuilder
 
 print("testing...")
+MY_UI = lib.ui.UserInterface()
 testdata['message'] = "hello"
 testdata['title'] = "test title"
-result = MY_UI.announce(**testdata)
+try:
+    result = MY_UI.announce(**testdata)
+except Exception, e:
+    print str(e)
