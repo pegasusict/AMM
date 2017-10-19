@@ -8,11 +8,14 @@
 
 class AMMconfig :
     def __init__(self):
+        import lib.fsops as fsops
         # ToDo:
         #   devise a method to utilize configArgParse to read the files
         #   and figure out how to proceed in case of missing files or
         #   arguments
+        import locale
         locale.setlocale(locale.LC_ALL, '')
+        import configargparse as argparse
         parser = argparse.ArgumentParser(
               default_config_files=['/etc/AMM/*.conf', '~/.AMM/*.conf',
                                     './conf/*.conf'])
@@ -33,34 +36,48 @@ class AMMconfig :
             ui_language = "nl"
         else:
             ui_language = "en"
+        import lib.ui as ui
         MY_UI = ui.UserInterface(ui_style)
         MY_UI.announce(ui_language['init'], AMM_TITLE)
-        ### init, load /generate config
-        amm_config = conf.AMMconfig()
 
 
     @classmethod
-    def sysinit(self, ammConfig):
-        if ammConfig == None:
-            ammConfig['runWizard'] = True
+    def sysinit(self, amm_config):
+        if amm_config == None:
+            amm_config['runWizard'] = True
 
     @classmethod
-    def cfgWizard(self): ## needs complete rewrite
+    def cfgWizard(self):
+        # check DB connection, if not available try default settings
+        announce_msg = ui_language["trydb"]
+        announce_title = ui_language["wait"]
+        MY_UI.announce(announce_msg, announce_title)
+        # if default DB settings don't work, ask for DB info, providing
+        #  default answers where applicable
+        amm_config
         # ask for source dir
-        ammConfig['source_dir'] = myUI.selectDir("/media/",
+        amm_config['source_dir'] = myUI.selectDir("/media/",
                                                  'Please select the source \
                                                  directory: ')
-        kwargs[yes_label] = "create"
-        kwargs[no_label]="select"
+        # create or select target directory
+        yes_label = ui_language["create"]
+        no_label = uilanguage["select"]
         must_create_dir = MY_UI.ynQuestion('Do you wish to create or select \
-                                          a target directory?', kwargs)
+                                           a target directory?',
+                                           yes_label, no_label)
+        # if directory needs to be created, select dir wherein to
+        #   create targetdir
         if must_create_dir == 'y':
-            fsops.create_dir(ammConfig['target_dir'])
-        ammConfig['target_dir'] = MY_UI.selectDir("/media/",
-                                                 'Please select the target \
-                                                 directory: ')
-        while not(fsops.verify_dir_exists(ammConfig['target_dir'])):
-            must_create_dir = MY_UI.ynQuestion(
-            'The target directory does not exist. Should I create it? (y/n)')
-        if must_create_dir == 'y':
-            fsops.create_dir(ammConfig['target_dir'])
+            amm_config['base_dir'] = MY_UI.selectDir("/media/",
+                                                    'Please select the \
+                                                    directory wherein to \
+                                                    create the target \
+                                                    directory:')
+            fsops.create_dir(amm_config['target_dir'])
+        else:
+            amm_config['target_dir'] = MY_UI.selectDir("/media/",
+                                                      'Please select the \
+                                                      target directory:')
+        # select output structure
+
+        #

@@ -7,7 +7,7 @@
 ************************************************************************
 """
 # ToDo:
-#  -replace all kwargs by their contens
+#  -replace all title by their content
 #  - reread complete pythondialog documentation
 #
 #
@@ -29,49 +29,42 @@ class UserInterface:
 
 ### multi line text boxes
     @classmethod
-    def messageBox(self, message, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
-        result = myInterface.msgbox(message, kwargs)
+    def messageBox(self, message, title):
+        result = myInterface.msgbox(message, title)
         return result
     @classmethod
     def textBox(self, filePath):
         result = myInterface.textbox(filePath)
         return result
     @classmethod
-    def scrollBox(self, message, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
-        result = myInterface.scrollbox(message, kwargs)
+    def scrollBox(self, message, title):
+        result = myInterface.scrollbox(message, title)
         return result
     @classmethod
-    def texteditor(self, initialText, args, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
+    def texteditor(self, initialText, args, title):
         args = [None, None]
-        result = myInterface.editbox_str(initialText, args, kwargs)
+        result = myInterface.editbox_str(initialText, args, title)
         return result # returns a tuple (exitcode, text)
     @classmethod
-    def tailBox(self, filePath, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
-        myInterface.tailbox(filePath, kwargs)
+    def tailBox(self, filePath, title):
+        myInterface.tailbox(filePath, title)
 
 ### Displaying transient messages
     @classmethod
-    def announce(self, message, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
-        result = myInterface.infobox(message, kwargs)
+    def announce(self, message, title):
+        result = myInterface.infobox(message, title)
         return result
     @classmethod
-    def countdown(self, message, timeOut, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
+    def countdown(self, message, timeOut, title):
         # timeOut is secs(int)
-        result = myInterface.pause(message, timeOut, kwargs)
+        result = myInterface.pause(message, timeOut, title)
         return result
 ### progress indicators
     @classmethod
-    def progressbar(self, message, percent, dialogtitle):
+    def progressbar(self, message, percent, title):
         if percent == '':
             percent = 0
-        kwargs['dialogtitle'] = dialogtitle
-        myInterface.guage_start(message, percent, kwargs)
+        myInterface.guage_start(message, percent, title)
         #ToDo: Create ProgressBarObject to enclose guage & guageupdate
         #  and to automatically call guagestop at 100%"""
     @classmethod
@@ -84,11 +77,10 @@ class UserInterface:
         result = myInterface.guage_stop()
         return result
     @classmethod
-    def multiProgressbar(self, message, percent, elements, dialogtitle):
-        kwargs['dialogtitle'] = dialogtitle
+    def multiProgressbar(self, message, percent, elements, title):
         if percent == '':
             percent = 0
-        result = myInterface.mixedguage(message, percent, elements, kwargs)
+        result = myInterface.mixedguage(message, percent, elements, title)
         # elements[] is a list of tuples consisting of (tag, value)
         #   possible values are:
         #   a percentage (-25 equals 25%) or
@@ -103,51 +95,46 @@ class UserInterface:
 
 ### lists
     @classmethod
-    def buidList(self, message, items, dialogtitle):
+    def buidList(self, message, items, title):
         # items[(tag, item, status)]
-        kwargs['dialogtitle'] = dialogtitle
         listheight = None
-        result = myInterface.buildlist(message, listheight, items, kwargs)
+        result = myInterface.buildlist(message, listheight, items, title)
         if result[0] != "DIALOG_OK":
             print"oops, something went wrong..."
         else:
             return result[1]
     @classmethod
-    def checkList(self, message, choices, dialogtitle):
+    def checkList(self, message, choices, title):
         # chhoices[(tag, item, status)]
-        kwargs['dialogtitle'] = dialogtitle
         listheight = None
-        result = myInterface.checklist(message, listheight, choices, kwargs)
+        result = myInterface.checklist(message, listheight, choices, title)
         if result[0] != "DIALOG_OK":
             print"oops, something went wrong..."
         else:
             return result[1]
     @classmethod
-    def menuList(self, message, choices, dialogtitle):
+    def menuList(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
-        kwargs['dialogtitle'] = dialogtitle
         menuheight = None
-        result = myInterface.menu(message, menuheight, choices, kwargs)
+        result = myInterface.menu(message, menuheight, choices, title)
         if result[0] != "DIALOG_OK":
             print"oops, something went wrong..."
         else:
             return result[1]
     @classmethod
-    def radioList(self, message, choices, dialogtitle):
+    def radioList(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
-        kwargs['dialogtitle'] = dialogtitle
         list_height = None
-        result = myInterface.menu(message, list_height, choices, kwargs)
+        result = myInterface.menu(message, list_height, choices, title)
         if result[0] != "DIALOG_OK":
             print("oops, something went wrong...")
         else:
             return result[1]
     @classmethod
-    def treeView(self, message, choices, dialogtitle):
+    def treeView(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
-        kwargs['dialogtitle'] = dialogtitle
         menuheight = None
-        result = myInterface.menu(message, menuheight, choices, kwargs)
+        result = myInterface.menu(message, menuheight, choices, title)
         if result[0] != "DIALOG_OK":
             print("oops, something went wrong...")
         else:

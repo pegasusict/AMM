@@ -17,13 +17,12 @@ ammConfig = None
 db_handle = None
 
 #import sys
-import locale
 #import time
-import configargparse as argparse
+
 ### load my own code
 import lib.fsops as fsops
 import lib.conf as conf
-import lib.ui as ui
+
 import lib.db_agent as dba
 import lib.afops as afops
 #import lib.inetc as inetc
@@ -38,6 +37,8 @@ def init():
     global ui_style
     global MY_UI
     global ui_language
+    ### init, load /generate config
+    amm_config = conf.AMMconfig()
     db_handle = dba.db_connect()
 
 def mainmenu():

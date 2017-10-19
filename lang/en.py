@@ -10,4 +10,9 @@
 lang['init'] = "Please wait, initialising..."
 lang['yes'] = "yes"
 lang['no'] = "no"
+lang['wait'] = "Please wait..."
+lang['trydb'] = "Trying to connect to the database..."
+lang['ok'] = "okay"
+lang['cancel'] = "cancel"
+
 #lang['']
