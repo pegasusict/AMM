@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -87,3 +88,10 @@ class AMMconfig :
         #    default: lyrics, albumart,
 
         ### whether to purge collection of live music (default: yes)
+
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

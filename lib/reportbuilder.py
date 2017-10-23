@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 -tt
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -26,3 +26,9 @@ class report_builder:
         #    print '### html template'
         #else:                        # reportType = "text"
         #    print '### text template'
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

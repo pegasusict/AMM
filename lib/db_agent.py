@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -34,3 +35,9 @@ class db_agent :
     def db_create(self, table):
         """ Function doc """
         echo("blah")
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -47,7 +48,14 @@ def delete_file(file_to_be_deleted):
     os.unlink(file_to_be_deleted)
     return True
 
-###
-fp = open(fname,'r')        # open for reading (must exist)
-fp = open(fname,'w')        # creates new file for writing
-fp = open(fname,'a')        # opens file for appending
+# # #
+# fp = open(fname,'r')        # open for reading (must exist)
+# fp = open(fname,'w')        # creates new file for writing
+# fp = open(fname,'a')        # opens file for appending
+
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

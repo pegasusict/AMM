@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -57,3 +58,9 @@ def transcode(fileEntry):
 
 def volume_normalizer(fileEntry):
     prefs('normalizing')
+
+def main():
+    # test function for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

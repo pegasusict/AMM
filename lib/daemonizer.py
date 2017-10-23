@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -20,3 +21,9 @@ def startDaemons() :
     if configLoaded == True:
         #    """prepare daemons to be run - qeue manager??"""
         return True
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ************************************************************************
 ** Audiophiles Music Manager                         VER0.0.0PREALPHA **
@@ -6,12 +7,8 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-# ToDo:
-#  -replace all title by their content
-#  - reread complete pythondialog documentation
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#
-########################################################################
 #           self.dialog.exitcodes = ("0 DIALOG_OK", "1 DIALOG_CANCEL",
 #                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
 #                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
@@ -27,29 +24,29 @@ class UserInterface:
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
 
-### multi line text boxes
+# # # multi line text boxes
     @classmethod
-    def messageBox(self, message, title):
+    def message_box(self, message, title):
         result = myInterface.msgbox(message, title)
         return result
     @classmethod
-    def textBox(self, filePath):
+    def text_box(self, filePath):
         result = myInterface.textbox(filePath)
         return result
     @classmethod
-    def scrollBox(self, message, title):
+    def scroll_box(self, message, title):
         result = myInterface.scrollbox(message, title)
         return result
     @classmethod
-    def texteditor(self, initialText, args, title):
+    def text_editor(self, initialText, args, title):
         args = [None, None]
         result = myInterface.editbox_str(initialText, args, title)
         return result # returns a tuple (exitcode, text)
     @classmethod
-    def tailBox(self, filePath, title):
+    def tail_box(self, filePath, title):
         myInterface.tailbox(filePath, title)
 
-### Displaying transient messages
+# # # Displaying transient messages
     @classmethod
     def announce(self, message, title):
         result = myInterface.infobox(message, title)
@@ -59,25 +56,25 @@ class UserInterface:
         # timeOut is secs(int)
         result = myInterface.pause(message, timeOut, title)
         return result
-### progress indicators
+# # # progress indicators
     @classmethod
-    def progressbar(self, message, percent, title):
+    def progress_bar(self, message, percent, title):
         if percent == '':
             percent = 0
         myInterface.guage_start(message, percent, title)
-        #ToDo: Create ProgressBarObject to enclose guage & guageupdate
+        # # # ToDo: Create progressBarObject to enclose guage & guageupdate
         #  and to automatically call guagestop at 100%"""
     @classmethod
-    def progressbarUpdate(self, percent, message, updateMessage=False):
+    def progress_bar_update(self, percent, message, updateMessage=False):
         myInterface.guage_update(percent, message, updateMessage)
         if percent == '':
             percent = 10
     @classmethod
-    def progressbarStop(self):
+    def progress_bar_stop(self):
         result = myInterface.guage_stop()
         return result
     @classmethod
-    def multiProgressbar(self, message, percent, elements, title):
+    def multi_progress_bar(self, message, percent, elements, title):
         if percent == '':
             percent = 0
         result = myInterface.mixedguage(message, percent, elements, title)
@@ -93,9 +90,9 @@ class UserInterface:
         #   total_progress) is changed
         return result
 
-### lists
+# # # lists
     @classmethod
-    def buidList(self, message, items, title):
+    def buid_list(self, message, items, title):
         # items[(tag, item, status)]
         listheight = None
         result = myInterface.buildlist(message, listheight, items, title)
@@ -104,7 +101,7 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def checkList(self, message, choices, title):
+    def check_list(self, message, choices, title):
         # chhoices[(tag, item, status)]
         listheight = None
         result = myInterface.checklist(message, listheight, choices, title)
@@ -113,7 +110,7 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def menuList(self, message, choices, title):
+    def menu_list(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
         menuheight = None
         result = myInterface.menu(message, menuheight, choices, title)
@@ -122,7 +119,7 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def radioList(self, message, choices, title):
+    def radio_list(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
         list_height = None
         result = myInterface.menu(message, list_height, choices, title)
@@ -131,7 +128,7 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def treeView(self, message, choices, title):
+    def tree_view(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
         menuheight = None
         result = myInterface.menu(message, menuheight, choices, title)
@@ -140,25 +137,25 @@ class UserInterface:
         else:
             return result[1]
 
-### Single-line input fields
+# # # Single-line input fields
 #    @classmethod
-#    def inputBox
+#    def input_box
 #    @classmethod
-#    def inputMenu
+#    def input_menu
 #    @classmethod
-#    def passwordBox
+#    def password_box
 
-### Forms
+# # # Forms
 #    @classmethod
 #    def form
 #    @classmethod
-#    def mixedForm
+#    def mixed_form
 #    @classmethod
-#    def PasswordForm
+#    def password_form
 
-### Selecting files and directories
+# # # Selecting files and directories
     @classmethod
-    def selectDir(self, rootDir, title):
+    def select_dir(self, rootDir, title):
         selectedDir = myInterface.dselect(rootDir, title)
         if debugSwitch == True:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
@@ -166,22 +163,29 @@ class UserInterface:
         return selectedDir
 
 #    @classmethod
-#    def selectFileDir(self, rootdir, title)
+#    def select_file_or_dir(self, rootdir, title)
 #        return result
 
-### Date and time
+# # # Date and time
 #    @classmethod
-#    def calendarBox
+#    def calendar_box
 #    @classmethod
-#    def timeBox
+#    def time_box
 
-### Miscellaneous
+# # # Miscellaneous
 #    @classmethod
-#    def rangeBox
+#    def range_box
     @classmethod
-    def ynQuestion(self, question, buttons, title):
+    def yn_question(self, question, buttons, title):
         if buttons['yes_label'] == '':
             buttons['yes_label'] = ui_language['yes']
         if buttons['no_label'] == '':
             buttons['no_label'] = ui_language['no']
-        self.__ynQuestion = myInterface.yesno(question, buttons, title)
+        result = myInterface.yesno(question, buttons, title)
+        return result
+
+def main():
+    # testfunction for this module
+
+# standard boilerplate
+if __name__ == '__main__': main()

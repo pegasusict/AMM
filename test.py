@@ -12,28 +12,32 @@ debugswitch = True
 ui_style = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
-MY_UI = None
-amm_config = None
-db_handle = None
+#MY_UI = None
+#amm_config = None
+#db_handle = None
 
-#import sys
-#import time
+# import sys
+# import time
 
-### load my own code
-#import lib.fsops as fsops
-#import lib.conf as conf
+# # # load my own code
+# import lib.fsops as fsops
+# import lib.conf as conf
 import lib.ui as ui
-#import lib.db_agent as dba
-#import lib.afops as afops
-#import lib.inetc as inetc
-#import lib.daemonizer as daemonizer
-#import lib.reportbuilder as reportbuilder
+# import lib.db_agent as dba
+# import lib.afops as afops
+# import lib.inetc as inetc
+# import lib.daemonizer as daemonizer
+# import lib.reportbuilder as reportbuilder
 
-print("testing...")
-MY_UI = lib.ui.UserInterface()
-testdata['message'] = "hello"
-testdata['title'] = "test title"
-try:
-    result = MY_UI.announce(**testdata)
-except Exception, e:
-    print str(e)
+def main():
+    print("testing...")
+    MY_UI = lib.ui.UserInterface('dialog')
+    kwargs['message'] = "hello"
+    kwargs['title'] = "test title"
+    try:
+        result = MY_UI.announce(**kwargs)
+    except Exception, e:
+        print str(e)
+
+# standard boilerplate
+if __name__ == '__main__': main()
