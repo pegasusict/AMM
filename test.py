@@ -29,6 +29,29 @@ import lib.ui as ui
 # import lib.daemonizer as daemonizer
 # import lib.reportbuilder as reportbuilder
 
+def dummyfunction()
+    pass
+
+def inclusive_range(*args):
+    # generator function
+    numargs = len(args)
+    if numargs < 1: raise TypeError('Requires at least one argument')
+    if numargs == 1:
+        stop = args[0]
+        start = 0
+        step = 1
+    elif numargs == 2:
+        (start, stop) = args
+        step = 1
+    elif numargs == 3:
+        (start, stop, step) = args
+    else: raise TypeError('inclusive_range expected at most 3 arguments, got\
+                          {}'.format(numargs)
+    i = start
+    while i <= stop:
+        yield i  # pass on value and continue with loop
+        i += step
+
 def main():
     print("testing...")
     MY_UI = lib.ui.UserInterface('dialog')

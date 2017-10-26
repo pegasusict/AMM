@@ -13,6 +13,7 @@
 #                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
 #                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
 #                                    "4 DIALOG_ITEM_HELP")
+# TODO: check Lynda vid 1203 & 1204!!!!
 
 class UserInterface:
     def __init__(self, uiStyle="dialog"):
@@ -138,20 +139,26 @@ class UserInterface:
             return result[1]
 
 # # # Single-line input fields
-#    @classmethod
-#    def input_box
-#    @classmethod
-#    def input_menu
-#    @classmethod
-#    def password_box
+    @classmethod
+    def input_box
+        pass
+    @classmethod
+    def input_menu
+        pass
+    @classmethod
+    def password_box
+        pass
 
 # # # Forms
-#    @classmethod
-#    def form
-#    @classmethod
-#    def mixed_form
-#    @classmethod
-#    def password_form
+   @classmethod
+    def form
+        pass
+    @classmethod
+    def mixed_form
+        pass
+    @classmethod
+    def password_form
+        pass
 
 # # # Selecting files and directories
     @classmethod
@@ -162,19 +169,22 @@ class UserInterface:
                                                               selectedDir[2])
         return selectedDir
 
-#    @classmethod
-#    def select_file_or_dir(self, rootdir, title)
-#        return result
+    @classmethod
+    def select_file_or_dir(self, rootdir, title)
+        pass
 
 # # # Date and time
-#    @classmethod
-#    def calendar_box
-#    @classmethod
-#    def time_box
+    @classmethod
+    def calendar_box
+        pass
+    @classmethod
+    def time_box
+        pass
 
 # # # Miscellaneous
-#    @classmethod
-#    def range_box
+    @classmethod
+    def range_box
+        pass
     @classmethod
     def yn_question(self, question, buttons, title):
         if buttons['yes_label'] == '':
