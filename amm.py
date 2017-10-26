@@ -20,6 +20,7 @@ db_handle = None
 # import time
 
 # # # load my own code
+import lib.exceptions
 import lib.fsops as fsops
 import lib.conf as conf
 
@@ -43,10 +44,11 @@ def init():
 
 def mainmenu():
     """menu constructor"""
-    choices = [("wizard", "run the configuration wizard"),
-               ("scan", "scan source directory for audiofiles"),
-               ("reports", "View reports of previoius runs") # only if useful
-               ]
+    choices = {wizard, "run the configuration wizard",
+               scan, "scan source directory for audiofiles"
+               }
+    if reportbuilder.number_of_reports > 0 :
+        choices.append{"reports", "View reports of previoius runs"}
     kwargs=(message, choices, title)
     MY_UI.menu_list(**kwargs)
 

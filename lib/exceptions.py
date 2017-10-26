@@ -49,17 +49,14 @@ class InputError(Error):
         self.expression = expression
         self.message = message
 
-class TransitionError(Error):
-    """Raised when an operation attempts a state transition that's not
-    allowed.
+class ProgrammerError(Error):
+    """Exception raised for errors caused by the writer of this software
 
     Attributes:
-        previous -- state at beginning of transition
-        next -- attempted new state
-        message -- explanation of why the specific transition is not allowed
+        expression -- expression where the mistake took place
+        message -- explanation of the error
     """
 
-    def __init__(self, previous, next, message):
-        self.previous = previous
-        self.next = next
+    def __init__(self, expression, message="My maker has made a doo doo"):
+        self.expression = expression
         self.message = message

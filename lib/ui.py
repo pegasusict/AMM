@@ -24,6 +24,11 @@ class UserInterface:
                                       compat=self.__uiStyle, use_stdout=None,
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
+        else:
+            raise TypeError
+
+
+
 
 # # # multi line text boxes
     @classmethod
