@@ -12,9 +12,9 @@ debugswitch = False
 ui_style = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
-MY_UI = None
-ammConfig = None
-db_handle = None
+# MY_UI = None
+# ammConfig = None
+# db_handle = None
 
 # import sys
 # import time
@@ -48,7 +48,7 @@ def mainmenu():
                scan, "scan source directory for audiofiles"
                }
     if reportbuilder.number_of_reports > 0 :
-        choices.append{"reports", "View reports of previoius runs"}
+        choices.append{reports, "View reports of previous runs"}
     kwargs=(message, choices, title)
     MY_UI.menu_list(**kwargs)
 

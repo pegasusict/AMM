@@ -30,8 +30,7 @@ try:
 except <blabla>Error as error:
     do_something(error)
 finally
-    do_something_else()
-"""
+    do_something_else()   """
 
 class Error(Exception):
     """Base class for exceptions in this module."""

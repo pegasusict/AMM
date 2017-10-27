@@ -10,8 +10,8 @@
 
 class db_agent :
     def __init__(self):
-        my_sql = None
-        my_sql_errorcode = None
+        # my_sql = None
+        # my_sql_errorcode = None
         self.dbConnectInfo = ammConfig.get(dbConnectInfo)
         import mysql.connector as my_sql
         from mysql.connector import errorcode as my_sql_errorcode
@@ -38,6 +38,7 @@ class db_agent :
 
 def main():
     # testfunction for this module
+    pass
 
 # standard boilerplate
 if __name__ == '__main__': main()

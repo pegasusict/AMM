@@ -35,6 +35,7 @@ def generate_fingerprints(thisFileList):
 
 def find_n_purge_dups():
     """find duplicate fingerprints in database"""
+    pass
 
 def store_tags(tags, thisFile):
     import eyed3
@@ -61,6 +62,7 @@ def volume_normalizer(fileEntry):
 
 def main():
     # test function for this module
+    pass
 
 # standard boilerplate
 if __name__ == '__main__': main()

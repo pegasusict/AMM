@@ -11,11 +11,13 @@ import os
 # with open("myfile.txt") as f:
 #    for line in f:
 #        print(line, end="")
-fileList = []
-trashList = []
+
+# fileList = []
+# trashList = []
 
 def purge_dups():
     """purge duplicate based on audio quality"""
+    pass
 
 def verify_dir_exists(path):
     result = os.path.isdir(path)
@@ -36,11 +38,8 @@ def scan_dir(rootdir):
                 fileList.append(os.path.join(root,thisfile))
                 # dirty needs fixing
         for thisFolder in subFolders:
-            scandir2(thisFolder)
+            scandir(thisFolder) # FIX THIS
     return
-
-def scandir2(folder):
-    """further investigate os.walk"""
 
 def verify_file_exists(path):
     result = os.path.isfile(path)

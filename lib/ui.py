@@ -201,6 +201,7 @@ class UserInterface:
 
 def main():
     # testfunction for this module
+    pass
 
 # standard boilerplate
 if __name__ == '__main__': main()

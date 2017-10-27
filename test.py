@@ -29,7 +29,7 @@ import lib.ui as ui
 # import lib.daemonizer as daemonizer
 # import lib.reportbuilder as reportbuilder
 
-def dummyfunction()
+def dummyfunction():
     pass
 
 def inclusive_range(*args):
