@@ -12,9 +12,9 @@ debugswitch = True
 ui_style = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
-#MY_UI = None
-#amm_config = None
-#db_handle = None
+# MY_UI = None
+# amm_config = dict()
+# db_handle = None
 
 # import sys
 # import time

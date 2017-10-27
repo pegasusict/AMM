@@ -57,6 +57,7 @@ def delete_file(file_to_be_deleted):
 
 def main():
     # testfunction for this module
+    pass
 
 # standard boilerplate
 if __name__ == '__main__': main()

@@ -25,9 +25,16 @@ class UserInterface:
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
         else:
-            raise TypeError
+            raise TypeError('Other ui styles are not available yet, need to \
+                            use dialog for now')
+    @classmethod
+    def ui_builder(self, dialogtype, **kwargs):
 
-
+        dialogtypes = dict(message = "msgbox",
+                           textbox = "textbox",
+                           scrollbox = "scrollbox",
+                           texteditor = "editbox_str",
+                            )
 
 
 # # # multi line text boxes
@@ -145,24 +152,24 @@ class UserInterface:
 
 # # # Single-line input fields
     @classmethod
-    def input_box
+    def input_box():
         pass
     @classmethod
-    def input_menu
+    def input_menu():
         pass
     @classmethod
-    def password_box
+    def password_box():
         pass
 
 # # # Forms
    @classmethod
-    def form
+    def form():
         pass
     @classmethod
-    def mixed_form
+    def mixed_form():
         pass
     @classmethod
-    def password_form
+    def password_form():
         pass
 
 # # # Selecting files and directories
@@ -175,20 +182,20 @@ class UserInterface:
         return selectedDir
 
     @classmethod
-    def select_file_or_dir(self, rootdir, title)
+    def select_file_or_dir(self, rootdir, title):
         pass
 
 # # # Date and time
     @classmethod
-    def calendar_box
+    def calendar_box():
         pass
     @classmethod
-    def time_box
+    def time_box():
         pass
 
 # # # Miscellaneous
     @classmethod
-    def range_box
+    def range_box():
         pass
     @classmethod
     def yn_question(self, question, buttons, title):

@@ -11,26 +11,26 @@
 # except IOError as error
 # except ValueError as error
 
-"""
-Exception construct:
-
-Try:
-    <code>
-Except <blabla>Error as error:
-    print("something went wrong: ", error)
-finally:
-    print("goodbye cruel world!")
-
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-home made exception:
-
-try:
-    raise <blabla>Error
-except <blabla>Error as error:
-    do_something(error)
-finally
-    do_something_else()   """
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Exception construct:
+#
+# Try:
+#     <code>
+# Except <blabla>Error as error:
+#     print("something went wrong: ", error)
+# finally:
+#     print("goodbye cruel world!")
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+# home made exception:
+#
+# try:
+#     raise <blabla>Error
+# except <blabla>Error as error:
+#     do_something(error)
+# finally
+#     do_something_else()
 
 class Error(Exception):
     """Base class for exceptions in this module."""
