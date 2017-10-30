@@ -20,7 +20,8 @@ class UserInterface:
         self.__uiStyle = uiStyle
         if self.__uiStyle == "dialog":
             from dialog import Dialog
-            self.myInterface = Dialog(dialog=self.__uiStyle, DIALOGRC=None,
+            self.myInterface = Dialog(dialog=self.__uiStyle,
+                                      DIALOGRC=./dialog.rc,
                                       compat=self.__uiStyle, use_stdout=None,
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
@@ -32,12 +33,17 @@ class UserInterface:
 
         dialogtypes = dict(message = "msgbox",
                            textbox = "textbox",
-                           scrollbox = "scrollbox",
-                           texteditor = "editbox_str",
-                            )
+                           text_editor = "editbox_str",
+                           announce = "",
+                           countdown = "",
+                           progress_bar = "",
+                           progress_bar_update = "",
+                           progress_bar_stop = "",
+                           multi_progress_bar = "",
+                           build_list
 
+                           )
 
-# # # multi line text boxes
     @classmethod
     def message_box(self, message, title):
         result = myInterface.msgbox(message, title)
@@ -47,19 +53,10 @@ class UserInterface:
         result = myInterface.textbox(filePath)
         return result
     @classmethod
-    def scroll_box(self, message, title):
-        result = myInterface.scrollbox(message, title)
-        return result
-    @classmethod
     def text_editor(self, initialText, args, title):
         args = [None, None]
         result = myInterface.editbox_str(initialText, args, title)
         return result # returns a tuple (exitcode, text)
-    @classmethod
-    def tail_box(self, filePath, title):
-        myInterface.tailbox(filePath, title)
-
-# # # Displaying transient messages
     @classmethod
     def announce(self, message, title):
         result = myInterface.infobox(message, title)
@@ -69,14 +66,11 @@ class UserInterface:
         # timeOut is secs(int)
         result = myInterface.pause(message, timeOut, title)
         return result
-# # # progress indicators
     @classmethod
     def progress_bar(self, message, percent, title):
         if percent == '':
             percent = 0
         myInterface.guage_start(message, percent, title)
-        # # # ToDo: Create progressBarObject to enclose guage & guageupdate
-        #  and to automatically call guagestop at 100%"""
     @classmethod
     def progress_bar_update(self, percent, message, updateMessage=False):
         myInterface.guage_update(percent, message, updateMessage)
@@ -102,10 +96,8 @@ class UserInterface:
         #   whenever one of the element values (and thereby
         #   total_progress) is changed
         return result
-
-# # # lists
     @classmethod
-    def buid_list(self, message, items, title):
+    def build_list(self, message, items, title):
         # items[(tag, item, status)]
         listheight = None
         result = myInterface.buildlist(message, listheight, items, title)
@@ -123,15 +115,6 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def menu_list(self, message, choices, title):
-        # choices[(tag, item)] where tag = shortname, item = description
-        menuheight = None
-        result = myInterface.menu(message, menuheight, choices, title)
-        if result[0] != "DIALOG_OK":
-            print("oops, something went wrong...")
-        else:
-            return result[1]
-    @classmethod
     def radio_list(self, message, choices, title):
         # choices[(tag, item)] where tag = shortname, item = description
         list_height = None
@@ -141,17 +124,6 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def tree_view(self, message, choices, title):
-        # choices[(tag, item)] where tag = shortname, item = description
-        menuheight = None
-        result = myInterface.menu(message, menuheight, choices, title)
-        if result[0] != "DIALOG_OK":
-            print("oops, something went wrong...")
-        else:
-            return result[1]
-
-# # # Single-line input fields
-    @classmethod
     def input_box():
         pass
     @classmethod
@@ -160,8 +132,6 @@ class UserInterface:
     @classmethod
     def password_box():
         pass
-
-# # # Forms
    @classmethod
     def form():
         pass
@@ -171,8 +141,6 @@ class UserInterface:
     @classmethod
     def password_form():
         pass
-
-# # # Selecting files and directories
     @classmethod
     def select_dir(self, rootDir, title):
         selectedDir = myInterface.dselect(rootDir, title)
@@ -180,20 +148,9 @@ class UserInterface:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
         return selectedDir
-
     @classmethod
     def select_file_or_dir(self, rootdir, title):
         pass
-
-# # # Date and time
-    @classmethod
-    def calendar_box():
-        pass
-    @classmethod
-    def time_box():
-        pass
-
-# # # Miscellaneous
     @classmethod
     def range_box():
         pass
