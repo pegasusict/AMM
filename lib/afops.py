@@ -49,7 +49,7 @@ def store_tags(tags, thisFile):
 
     audiofile.tag.save()
 
-def transcode(fileEntry):
+def transcode(fileEntry, quality="SACD"):
     """<<enter description>>
 
     """
