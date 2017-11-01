@@ -30,19 +30,28 @@ class UserInterface:
                             use dialog for now')
     @classmethod
     def ui_builder(self, dialogtype, **kwargs):
-
+        from collections import namedtuple
         dialogtypes = dict(message = "msgbox",
                            textbox = "textbox",
                            text_editor = "editbox_str",
-                           announce = "",
-                           countdown = "",
-                           progress_bar = "",
-                           progress_bar_update = "",
-                           progress_bar_stop = "",
-                           multi_progress_bar = "",
-                           build_list
-
+                           announce = "infobox",
+                           countdown = "pause",
+                           progress_bar = "guage_start",
+                           progress_bar_update = "guage_update",
+                           progress_bar_stop = "guage_stop",
+                           multi_progress_bar = "mixedguage",
+                           build_list = "buildlist",
+                           checklist = "checklist",
+                           radiolist = "radiolist",
+                           inputbox = "inputbox",
+                           inputmenu = "inputmenu",
+                           passwordbox = "passwordbox",
+                           form = "form",
+                           selectdir = "dselect",
+                           selectfd = "fselect",
+                           yn_question = 'yesno'
                            )
+        dialogs = namedtuple()
 
     @classmethod
     def message_box(self, message, title):
@@ -123,38 +132,12 @@ class UserInterface:
             print("oops, something went wrong...")
         else:
             return result[1]
-    @classmethod
-    def input_box():
-        pass
-    @classmethod
-    def input_menu():
-        pass
-    @classmethod
-    def password_box():
-        pass
-   @classmethod
-    def form():
-        pass
-    @classmethod
-    def mixed_form():
-        pass
-    @classmethod
-    def password_form():
-        pass
-    @classmethod
     def select_dir(self, rootDir, title):
         selectedDir = myInterface.dselect(rootDir, title)
         if debugSwitch == True:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
         return selectedDir
-    @classmethod
-    def select_file_or_dir(self, rootdir, title):
-        pass
-    @classmethod
-    def range_box():
-        pass
-    @classmethod
     def yn_question(self, question, buttons, title):
         if buttons['yes_label'] == '':
             buttons['yes_label'] = ui_language['yes']
