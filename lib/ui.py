@@ -21,7 +21,7 @@ class UserInterface:
         if self.__uiStyle == "dialog":
             from dialog import Dialog
             self.myInterface = Dialog(dialog=self.__uiStyle,
-                                      DIALOGRC=./dialog.rc,
+                                      DIALOGRC="./dialog.rc",
                                       compat=self.__uiStyle, use_stdout=None,
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
