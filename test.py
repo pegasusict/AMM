@@ -45,8 +45,8 @@ def inclusive_range(*args):
         step = 1
     elif numargs == 3:
         (start, stop, step) = args
-    else: raise TypeError('inclusive_range expected at most 3 arguments, got\
-                          {}'.format(numargs)
+    else:
+        raise TypeError('inclusive_range expected at most 3 arguments, got {}.'.format(numargs)
     i = start
     while i <= stop:
         yield i  # pass on value and continue with loop
