@@ -50,12 +50,12 @@ class AMMconfig :
     @classmethod
     def cfgWizard(self):
         ### check DB connection, if not available try default settings
-        kwargs = ui_language["trydb"]
-        announce_title = ui_language["wait"]
-        MY_UI.announce(announce_msg, announce_title)
+        message = ui_language["trydb"]
+        title = ui_language["wait"]
+        MY_UI(announce, (message, title))
         ### if default DB settings don't work, ask for DB info, providing
         #    default answers where applicable
-        amm_config
+        checkDBsettings()
         ### ask for source dir
         amm_config['source_dir'] = myUI.selectDir("/media/",
                                                  'Please select the source \
