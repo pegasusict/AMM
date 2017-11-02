@@ -33,7 +33,7 @@ def generate_fingerprints(thisFileList):
         acoustid.fingerprint_file(fileEntry)
     return thisFileList
 
-def find_n_purge_dups():
+def find_n_purge_dups(file_list):
     """find duplicate fingerprints in database"""
     pass
 
@@ -49,13 +49,14 @@ def store_tags(tags, thisFile):
 
     audiofile.tag.save()
 
-def transcode(fileEntry, quality):
+def transcode(file_path, quality):
     """<<enter description>>
 
     """
-    transcodeprefs = prefs(trancode)
+    transcodeprefs = prefs(transcode)
     if transcodeprefs == 0:
-        transcodeprefs = lame_paranoid
+        transcodeprefs = "paranoid"
+    sh("lame --preset {} ".format transcodeprefs)
 
 def volume_normalizer(fileEntry):
     prefs('normalizing')

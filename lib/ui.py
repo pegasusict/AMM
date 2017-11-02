@@ -51,13 +51,10 @@ class UserInterface:
                            selectfd = "fselect",
                            yn_question = 'yesno'
                            )
-        dependencies = namedtuple('dependencies', ['name', 'text',
-                                                   'title'=None,
-                                                   'path'=False, 'ok'='ok',
-                                                   'cancel'='cancel',
-                                                   'extra'=False,
-                                                   'help'=False, 'yes'=False,
-                                                   'no'=False, ] )
+        dependencies = namedtuple('dependencies',
+                                    ['name', 'text', 'title', 'path', 'ok',
+                                     'cancel', 'extra', 'yes', 'no']
+                                  )
     @classmethod
     def form(self, fields(fieldname, default_value, fieldlength=32)):
         if len(fields) > 8: cols = 2
