@@ -29,9 +29,6 @@ import lib.ui as ui
 # import lib.daemonizer as daemonizer
 # import lib.reportbuilder as reportbuilder
 
-def dummyfunction():
-    pass
-
 def inclusive_range(*args):
     # generator function
     numargs = len(args)

@@ -51,7 +51,26 @@ class UserInterface:
                            selectfd = "fselect",
                            yn_question = 'yesno'
                            )
-        dialogs = namedtuple()
+        dependencies = namedtuple('dependencies', ['name', 'text',
+                                                   'title'=None,
+                                                   'path'=False, 'ok'='ok',
+                                                   'cancel'='cancel',
+                                                   'extra'=False,
+                                                   'help'=False, 'yes'=False,
+                                                   'no'=False, ] )
+    @classmethod
+    def form(self, fields(fieldname, default_value, fieldlength=32)):
+        if len(fields) > 8: cols = 2
+        else: cols = 1
+        col = 1
+        row = 1
+        for fieldname in fields:
+            if row > rows / cols:
+                col = 2
+                row = row - rows // cols
+            elements.append(fieldname, row, col, )
+
+
 
     @classmethod
     def message_box(self, message, title):
