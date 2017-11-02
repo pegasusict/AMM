@@ -20,8 +20,7 @@ def purge_dups():
     pass
 
 def verify_dir_exists(path):
-    result = os.path.isdir(path)
-    return result
+    return os.path.isdir(path)
 
 def scan_dir(rootdir):
     """Scan recursively, store files in lists for further processing
@@ -39,7 +38,7 @@ def scan_dir(rootdir):
                 # dirty needs fixing
         for thisFolder in subFolders:
             scandir(thisFolder) # FIX THIS
-    return
+
 
 def verify_file_exists(path):
     result = os.path.isfile(path)
