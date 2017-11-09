@@ -38,6 +38,7 @@ def scan_dir(rootdir):
                 # dirty needs fixing
         for thisFolder in subFolders:
             scandir(thisFolder) # FIX THIS
+    return fileList
 
 
 def verify_file_exists(path):

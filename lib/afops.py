@@ -56,7 +56,8 @@ def transcode(file_path, quality):
     transcodeprefs = prefs(transcode)
     if transcodeprefs == 0:
         transcodeprefs = "paranoid"
-    sh("lame --preset {} ".format transcodeprefs)
+    shline = "lame --preset " + transcodeprefs
+    sh(shline)
 
 def volume_normalizer(fileEntry):
     prefs('normalizing')
