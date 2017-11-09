@@ -12,7 +12,7 @@ class report_builder:
     @classmethod
     def __init__(self):
         """initialising report generator"""
-        self.reportdata: dict = Null
+        self.reportdata: dict = []
         self.valid_subjects: list = ["purged_files"]
 
     @classmethod

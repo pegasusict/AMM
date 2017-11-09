@@ -10,19 +10,19 @@
 # # # Defining variables...
 DEBUG_SWITCH: bool = False
 UI_STYLE: str = "dialog"
-ui_language = "en"
-AMM_TITLE = "Audiophiles Music Manager"
-MY_UI: str = None
-ammConfig = dict()
+UI_LANGUAGE = "en"
+PACKAGE_TITLE = "Audiophiles Music Manager"
+# MY_UI: str = ""
+AMM_CONFIG = dict()
 db_handle: object = None
 
 # import sys
 # import time
 
 # # # load my own code
-import lib.exceptions as exceptions
+# import lib.exceptions as exceptions
 import lib.fsops as fsops
-import lib.conf as conf
+# import lib.conf as conf
 
 import lib.db_agent as dba
 import lib.afops as afops
@@ -39,7 +39,7 @@ def init():
     global MY_UI
     global ui_language
     # # # init, load /generate config
-    # amm_config = conf.amm_config()
+    amm_config = conf.amm_config()
     db_handle = dba.db_connect()
 
 def mainmenu():

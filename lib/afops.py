@@ -52,11 +52,13 @@ def find_n_purge_dups(file_list):
     dupfiles = dba.get("mb_id duplicates, sort desc by quality index")
     duplicatesfound = len(dupfiles)
     reportbuilder.update(duplicates_found=duplicatesfound)
-    while  > 1
+    while duplicatesfound > 1
         for thisfile in dupfiles:
             dba.delete_row(thisfile)
             fsops.delete_file(thisfile)
             filesize = thisfile["fsize"]
+            delete(dupfiles(thisfile))
+            duplicatesfound = len(dupfiles)
             reportbuilder.update(reclaimed_space=filesize, purgedfiles)
 
 def transcode(file_path, quality):
