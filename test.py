@@ -8,8 +8,8 @@
 ************************************************************************
 """
 ### Defining variables...
-debugswitch = True
-ui_style = "dialog"
+DEBUG_SWITCH = True
+UI_STYLE = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
 # MY_UI = None

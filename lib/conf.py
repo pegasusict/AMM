@@ -30,15 +30,15 @@ class AMMconfig :
                             Valid options are \"nl\" or \"en\"(default)")
         args = parser.parse_args()
         if args.debug:
-            debugswitch = True
+            DEBUG_SWITCH = True
         if args.dialog:
-            ui_style = "dialog"
+            UI_STYLE = "dialog"
         if args.language == "nl":
             ui_language = "nl"
         else:
             ui_language = "en"
         import lib.ui as ui
-        MY_UI = ui.UserInterface(ui_style)
+        MY_UI = ui.UserInterface(UI_STYLE)
         MY_UI.announce(ui_language['init'], AMM_TITLE)
 
 

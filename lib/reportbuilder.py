@@ -12,20 +12,34 @@ class report_builder:
     @classmethod
     def __init__(self):
         """initialising report generator"""
+        self.reportdata: dict = Null
+        self.valid_subjects: list = ["purged_files"]
 
     @classmethod
-    def append_report_data(self, data_type, data_tuple):
-        """collect all the chunks"""
+    def update(self, kwargs):
+        """reportdata collector"""
+        for key, value in kwargs:
+            if key not in self.valid_subjects:
+                raise TypeError("update recieved an unknown subject: \
+                {}".format(key)
+            else:
+                field = self.reportdata[key]
+                if type(field) == int or type(field) == float:
+                    self.reportdata[key] =+ value
+                else:
+                    self.reportdata[key] = self.reportdata[key] + value
 
     @classmethod
     def render_report(self, reportType):
         """reportbuilder info, more to come"""
+        ###TODO###
         #if reportType == "display":
         #    print '### display template'
         #elif reportType == "html":
         #    print '### html template'
         #else:                        # reportType = "text"
         #    print '### text template'
+        pass
 
 def main():
     # testfunction for this module

@@ -8,19 +8,19 @@
 ************************************************************************
 """
 # # # Defining variables...
-debugswitch = False
-ui_style = "dialog"
+DEBUG_SWITCH: bool = False
+UI_STYLE: str = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
-# MY_UI = None
-# ammConfig = None
-# db_handle = None
+MY_UI: str = None
+ammConfig = dict()
+db_handle: object = None
 
 # import sys
 # import time
 
 # # # load my own code
-import lib.exceptions
+import lib.exceptions as exceptions
 import lib.fsops as fsops
 import lib.conf as conf
 
@@ -34,12 +34,12 @@ def init():
     """init function
 
     broke down main function to increase readability"""
-    global debugswitch
-    global ui_style
+    global DEBUG_SWITCH
+    global UI_STYLE
     global MY_UI
     global ui_language
     # # # init, load /generate config
-    amm_config = conf.amm_config()
+    # amm_config = conf.amm_config()
     db_handle = dba.db_connect()
 
 def mainmenu():

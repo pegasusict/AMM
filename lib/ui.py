@@ -160,7 +160,7 @@ class UserInterface:
             return result[1]
     def select_dir(self, rootDir, title):
         selectedDir = myInterface.dselect(rootDir, title)
-        if debugSwitch == True:
+        if DEBUG_SWITCH == True:
             debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
                                                               selectedDir[2])
         return selectedDir

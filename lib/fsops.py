@@ -15,10 +15,6 @@ import os
 # fileList = []
 # trashList = []
 
-def purge_dups():
-    """purge duplicate based on audio quality"""
-    pass
-
 def verify_dir_exists(path):
     return os.path.isdir(path)
 
