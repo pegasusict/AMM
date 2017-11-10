@@ -18,6 +18,9 @@ class db_agent :
 
     @classmethod
     def db_connect(self):
+        """connect to DB
+
+        """
         if DBport != 3306:
             DBhost = DBHost + ":" + DBport
         #connect to database, display error if something goes wrong
@@ -33,12 +36,13 @@ class db_agent :
 
     @classmethod
     def db_create(self, table):
-        """ Function doc """
+        """ create DB, tables and structure """
         echo("blah")
 
 def main():
-    # testfunction for this module
+    """testfunction for this module"""
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

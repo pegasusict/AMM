@@ -12,7 +12,7 @@ DEBUG_SWITCH: bool = False
 UI_STYLE: str = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
-# MY_UI: str = ""
+MY_UI: str = ""
 AMM_CONFIG = dict()
 db_handle: object = None
 
@@ -37,7 +37,7 @@ def init():
     global DEBUG_SWITCH
     global UI_STYLE
     global MY_UI
-    global ui_language
+    global UI_LANGUAGE
     # # # init, load /generate config
     amm_config = conf.amm_config()
     db_handle = dba.db_connect()
@@ -95,4 +95,5 @@ def main():
     # stagecomplete = '5'
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

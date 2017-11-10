@@ -39,16 +39,22 @@ class AMMconfig :
             ui_language = "en"
         import lib.ui as ui
         MY_UI = ui.UserInterface(UI_STYLE)
-        MY_UI.announce(ui_language['init'], AMM_TITLE)
+        MY_UI.announce(ui_language['init'], PACKAGE_TITLE)
 
 
     @classmethod
     def sysinit(self, amm_config):
-        if amm_config == None: # is this check valid?
+        """system initialiser
+
+        """
+        if amm_config == None: ###CHECK###
             amm_config['runWizard'] = True
 
     @classmethod
     def cfgWizard(self):
+        """Configuration Wizard
+
+        """
         ### check DB connection, if not available try default settings
         message = ui_language["trydb"]
         title = ui_language["wait"]
@@ -89,10 +95,12 @@ class AMMconfig :
 
         ### whether to purge collection of live music (default: yes)
 
-
 def main():
-    # testfunction for this module
+    """testfunction for this module
+
+    """
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

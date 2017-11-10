@@ -19,12 +19,13 @@ def startDaemons() :
 
     """
     if configLoaded == True:
-        #    """prepare daemons to be run - qeue manager??"""
+        ###TODO### prepare daemons to be run - qeue manager??
         return True
 
 def main():
-    # testfunction for this module
+    """ testfunction for this module"""
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

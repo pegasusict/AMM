@@ -8,19 +8,19 @@
 ************************************************************************
 """
 import os
-# with open("myfile.txt") as f:
-#    for line in f:
-#        print(line, end="")
-
 # fileList = []
 # trashList = []
 
 def verify_dir_exists(path):
+    """verify whether a directory exists
+
+    """
     return os.path.isdir(path)
 
 def scan_dir(rootdir):
-    """Scan recursively, store files in lists for further processing
-    based on extension."""
+    """Scans rootdir recursively
+
+    store files in lists for further processing based on extension."""
     global fileList, trashList
     from pathlib import PurePath
     audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
@@ -36,24 +36,24 @@ def scan_dir(rootdir):
             scandir(thisFolder) # FIX THIS
     return fileList
 
-
 def verify_file_exists(path):
+    """verify file existence at "path"
+
+    """
     result = os.path.isfile(path)
     return result
 
 def delete_file(file_to_be_deleted):
+    """delete file_to_be_deleted
+
+    """
     os.unlink(file_to_be_deleted)
     return True
 
-# # #
-# fp = open(fname,'r')        # open for reading (must exist)
-# fp = open(fname,'w')        # creates new file for writing
-# fp = open(fname,'a')        # opens file for appending
-
-
 def main():
-    # testfunction for this module
+    """testfunction for this module"""
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

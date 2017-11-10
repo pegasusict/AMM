@@ -45,8 +45,9 @@ def get_lyrics(artist, title):
     pass
 
 def main():
-    # testfunction for this module
+    """testfunction for this module"""
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
