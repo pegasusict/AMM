@@ -8,7 +8,6 @@
 ************************************************************************
 """
 ### Defining variables...
-DEBUG_SWITCH = True
 UI_STYLE = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
@@ -23,6 +22,7 @@ AMM_TITLE = "Audiophiles Music Manager"
 # import lib.fsops as fsops
 # import lib.conf as conf
 import lib.ui as ui
+# import lib.debugger
 # import lib.db_agent as dba
 # import lib.afops as afops
 # import lib.inetc as inetc

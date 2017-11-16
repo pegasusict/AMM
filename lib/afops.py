@@ -59,7 +59,8 @@ def find_n_purge_dups(file_list):
             filesize = thisfile["fsize"]
             delete(dupfiles(thisfile))
             duplicatesfound = len(dupfiles)
-            reportbuilder.update(reclaimed_space=filesize, purgedfiles)
+            reclaimed_space = filesize
+            reportbuilder.update(reclaimed_space, purgedfiles)
 
 def transcode(file_path, quality):
     """transcodes file to quality setting

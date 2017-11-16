@@ -8,7 +8,7 @@
 ************************************************************************
 """
 # # # Defining variables...
-DEBUG_SWITCH: bool = False
+debug_switch: bool = False
 UI_STYLE: str = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
@@ -34,7 +34,7 @@ def init():
     """init function
 
     broke down main function to increase readability"""
-    global DEBUG_SWITCH
+    global debug_switch
     global UI_STYLE
     global MY_UI
     global UI_LANGUAGE

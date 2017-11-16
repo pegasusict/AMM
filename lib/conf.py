@@ -8,6 +8,9 @@
 ************************************************************************"""
 
 class AMMconfig :
+    """Configuration Suite
+
+    handles configfiles, arguments and database info"""
     def __init__(self):
         import lib.fsops as fsops
         # ToDo:
@@ -30,7 +33,9 @@ class AMMconfig :
                             Valid options are \"nl\" or \"en\"(default)")
         args = parser.parse_args()
         if args.debug:
-            DEBUG_SWITCH = True
+            debug_switch = True
+            import lib.debugger as debugger
+            deBugger = debugger.deBUGger()
         if args.dialog:
             UI_STYLE = "dialog"
         if args.language == "nl":
