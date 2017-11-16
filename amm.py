@@ -13,7 +13,7 @@ UI_STYLE: str = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
 MY_UI: str = ""
-AMM_CONFIG = dict()
+# amm_config = dict()
 db_handle: object = None
 
 # import sys
@@ -47,8 +47,8 @@ def mainmenu():
     choices = {wizard, "run the configuration wizard",
                scan, "scan source directory for audiofiles"
                }
-    if reportbuilder.number_of_reports > 0 :
-        choices.append['reports'] = "View reports of previous runs"
+    # if reportbuilder.number_of_reports > 0 :
+    #     choices.append['reports'] = "View reports of previous runs"
     kwargs=(message, choices, title)
     MY_UI.menu_list(**kwargs)
 

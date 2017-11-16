@@ -28,6 +28,7 @@ class UserInterface:
         else:
             raise TypeError('Other ui styles are not available yet, need to \
                             use dialog for now')
+##############################################################################
     @classmethod
     def ui_builder(self, dialogtype, **kwargs):
         from collections import namedtuple
@@ -56,30 +57,6 @@ class UserInterface:
                                      'cancel', 'extra', 'yes', 'no']
                                   )
     @classmethod
-    def form(self, fields):
-        #(fieldname, default_value, fieldlength=32)
-        numfields = len(fields)
-        if numfields == 0:
-            raise TypeError('from expected at least 1 field, got \
-            {}.'.format(numfields)
-
-            except ValueError as error:
-                print("fields cannot be 0")
-        elif fieldname == 0:
-            fieldlength = 32
-        if len(fields) > 8: cols = 2
-        else: cols = 1
-        col = 1
-        row = 1
-        for fieldname in fields:
-            if row > rows / cols:
-                col = 2
-                row = row - rows // cols
-            elements.append(fieldname, row, col, )
-
-
-
-    @classmethod
     def message_box(self, message, title):
         result = myInterface.msgbox(message, title)
         return result
@@ -101,22 +78,28 @@ class UserInterface:
         # timeOut is secs(int)
         result = myInterface.pause(message, timeOut, title)
         return result
+##############################################################################
+
+##############################################################################
     @classmethod
-    def progress_bar(self, message, percent, title):
+    def progressbar(self, bar_type, message, percent, title, **kwargs):
+        pass
+    @classmethod
+    def progress_bar(self, message, percent, title): #
         if percent == '':
             percent = 0
         myInterface.guage_start(message, percent, title)
     @classmethod
-    def progress_bar_update(self, percent, message, updateMessage=False):
+    def progress_bar_update(self, percent, message, updateMessage=False): #
         myInterface.guage_update(percent, message, updateMessage)
         if percent == '':
             percent = 10
     @classmethod
-    def progress_bar_stop(self):
+    def progress_bar_stop(self): #
         result = myInterface.guage_stop()
         return result
     @classmethod
-    def multi_progress_bar(self, message, percent, elements, title):
+    def multi_progress_bar(self, message, percent, elements, title): #
         if percent == '':
             percent = 0
         result = myInterface.mixedguage(message, percent, elements, title)
@@ -131,8 +114,38 @@ class UserInterface:
         #   whenever one of the element values (and thereby
         #   total_progress) is changed
         return result
+##############################################################################
+
+##############################################################################
     @classmethod
-    def build_list(self, message, items, title):
+    def form(self, fields):
+        #(fieldname, default_value, fieldlength=32)
+        numfields = len(fields)
+        if numfields == 0:
+            raise TypeError('from expected at least 1 field, got \
+            {}.'.format(numfields)
+
+            except ValueError as error:
+                print("fields cannot be 0")
+        elif fieldname == 0:
+            fieldlength = 32
+        if len(fields) > 8: cols = 2
+        else: cols = 1
+        col = 1
+        row = 1
+        for fieldname in fields:
+            if row > rows / cols:
+                col = 2
+                row = row - rows // cols
+            elements.append(fieldname, row, col, )
+##############################################################################
+
+##############################################################################
+    @classmethod
+    def list_builder(self, message, items, title):
+        pass
+    @classmethod
+    def build_list(self, message, items, title): #
         # items[(tag, item, status)]
         listheight = None
         result = myInterface.buildlist(message, listheight, items, title)
@@ -141,8 +154,8 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def check_list(self, message, choices, title):
-        # chhoices[(tag, item, status)]
+    def check_list(self, message, choices, title): #
+        # choices[(tag, item, status)]
         listheight = None
         result = myInterface.checklist(message, listheight, choices, title)
         if result[0] != "DIALOG_OK":
@@ -150,7 +163,7 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def radio_list(self, message, choices, title):
+    def radio_list(self, message, choices, title): #
         # choices[(tag, item)] where tag = shortname, item = description
         list_height = None
         result = myInterface.menu(message, list_height, choices, title)
@@ -158,6 +171,9 @@ class UserInterface:
             print("oops, something went wrong...")
         else:
             return result[1]
+##############################################################################
+
+##############################################################################
     def select_dir(self, rootDir, title):
         selectedDir = myInterface.dselect(rootDir, title)
         if debug_switch == True:
@@ -171,10 +187,12 @@ class UserInterface:
             buttons['no_label'] = ui_language['no']
         result = myInterface.yesno(question, buttons, title)
         return result
+##############################################################################
 
 def main():
     # testfunction for this module
     pass
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
