@@ -12,8 +12,9 @@ class AMMconfig :
 
     handles configfiles, arguments and database info"""
     def __init__(self):
-        import lib.fsops as fsops
-        # ToDo:
+        # import lib.fsops as fsops
+        ###TODO###
+
         #   devise a method to utilize configArgParse to read the files
         #   and figure out how to proceed in case of missing files or
         #   arguments
@@ -46,7 +47,6 @@ class AMMconfig :
         MY_UI = ui.UserInterface(UI_STYLE)
         MY_UI.announce(ui_language['init'], PACKAGE_TITLE)
 
-
     @classmethod
     def sysinit(self):
         """system initialiser
@@ -56,7 +56,7 @@ class AMMconfig :
             self.['runWizard'] = True
 
     @classmethod
-    def cfgWizard(self):
+    def cfg_wizard(self):
         """Configuration Wizard
 
         """
@@ -100,7 +100,7 @@ class AMMconfig :
 
         ### whether to purge collection of live music (default: yes)
 
-def main():
+def main(): ###TODO###
     """testfunction for this module
 
     """
