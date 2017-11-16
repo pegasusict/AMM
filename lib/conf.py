@@ -43,12 +43,12 @@ class AMMconfig :
 
 
     @classmethod
-    def sysinit(self, amm_config):
+    def sysinit(self):
         """system initialiser
 
         """
-        if amm_config == None: ###CHECK###
-            amm_config['runWizard'] = True
+        if self.config == None: ###FIX###
+            self.['runWizard'] = True
 
     @classmethod
     def cfgWizard(self):

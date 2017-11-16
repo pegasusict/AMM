@@ -22,7 +22,7 @@ db_handle: object = None
 # # # load my own code
 # import lib.exceptions as exceptions
 import lib.fsops as fsops
-# import lib.conf as conf
+import lib.conf as conf
 
 import lib.db_agent as dba
 import lib.afops as afops
@@ -39,7 +39,7 @@ def init():
     global MY_UI
     global UI_LANGUAGE
     # # # init, load /generate config
-    amm_config = conf.amm_config()
+    amm_config = conf.AMMconfig()
     db_handle = dba.db_connect()
 
 def mainmenu():
