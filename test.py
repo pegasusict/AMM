@@ -60,4 +60,5 @@ def main():
         print str(e)
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

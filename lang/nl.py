@@ -14,6 +14,7 @@ lang['wait'] = "Even geduld aub..."
 lang['trydb'] = "Proberen te verbinden met de database..."
 lang['create'] = "aanmaken"
 lang['select'] = "selecteren"
-lang['ok'] = "okee"
+lang['ok'] = "ok"
 lang['cancel'] = "annuleren"
+
 #lang['']

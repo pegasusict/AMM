@@ -16,3 +16,12 @@ email_filter = re.compile(
     [a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*
     @ (?:(?=[a-z0-9-]{1,63}\.)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+
     (?=[a-z0-9-]{1,63}\z)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z$", IGNORECASE)""")
+
+def main():
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
+
+# standard boilerplate
+if __name__ == '__main__':
+    main()

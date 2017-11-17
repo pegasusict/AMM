@@ -9,6 +9,9 @@
 """
 
 class db_agent :
+    """Database agent
+
+    will manage and interface with SQLite or MySQL DB"""
     def __init__(self):
         # my_sql = None
         # my_sql_errorcode = None
@@ -25,7 +28,7 @@ class db_agent :
             DBhost = DBHost + ":" + DBport
         #connect to database, display error if something goes wrong
         try:
-            __myDB = my_sql.connect(DBuser, DBpass, DBhost, DB)
+            __my_db = my_sql.connect(DBuser, DBpass, DBhost, DB)
         except my_sql.Error as my_sql_error:
             if my_sql_error == my_sql_errorcode.ER_ACCESS_DENIED_ERROR:
                 print("Authentication error")
@@ -35,13 +38,14 @@ class db_agent :
                 print(my_sql_error)
 
     @classmethod
-    def db_create(self, table):
+    def db_create(self, sql_struct):
         """ create DB, tables and structure """
-        echo("blah")
+        pass
 
 def main():
-    """testfunction for this module"""
-    pass
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
 if __name__ == '__main__':

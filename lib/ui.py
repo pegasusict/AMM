@@ -13,7 +13,7 @@
 #                                    "-1 DIALOG_ESC", "-1 DIALOG_ERROR",
 #                                    "3 DIALOG_EXTRA", "2 DIALOG_HELP",
 #                                    "4 DIALOG_ITEM_HELP")
-# TODO: check Lynda vid 1203 & 1204!!!!
+###TODO### check Lynda vid 1203 & 1204!!!!
 
 class UserInterface:
     def __init__(self, uiStyle="dialog"):
@@ -190,8 +190,9 @@ class UserInterface:
 ##############################################################################
 
 def main():
-    # testfunction for this module
-    pass
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
 if __name__ == '__main__':

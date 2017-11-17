@@ -12,6 +12,8 @@ lang['yes'] = "yes"
 lang['no'] = "no"
 lang['wait'] = "Please wait..."
 lang['trydb'] = "Trying to connect to the database..."
+lang['create'] = "create"
+lang['select'] = "select"
 lang['ok'] = "okay"
 lang['cancel'] = "cancel"
 

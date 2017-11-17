@@ -13,11 +13,8 @@ class AMMconfig :
     handles configfiles, arguments and database info"""
     def __init__(self):
         # import lib.fsops as fsops
-        ###TODO###
-
-        #   devise a method to utilize configArgParse to read the files
-        #   and figure out how to proceed in case of missing files or
-        #   arguments
+        ###TODO### devise a method to utilize configArgParse to read the files
+        # and figure out how to proceed in case of missing files or arguments
         import locale
         locale.setlocale(locale.LC_ALL, '')
         import configargparse as argparse
@@ -53,7 +50,7 @@ class AMMconfig :
 
         """
         if self.config == None: ###FIX###
-            self.['runWizard'] = True
+            self.runWizard = True
 
     @classmethod
     def cfg_wizard(self):
@@ -100,11 +97,10 @@ class AMMconfig :
 
         ### whether to purge collection of live music (default: yes)
 
-def main(): ###TODO###
-    """testfunction for this module
-
-    """
-    pass
+def main():
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
 if __name__ == '__main__':

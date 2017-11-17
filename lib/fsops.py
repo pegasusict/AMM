@@ -25,19 +25,18 @@ def scan_dir(rootdir):
     from pathlib import PurePath
     audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
                  mod, opus, au, aac]
-    for root, subFolders, files in os.walk(rootdir):
+    for root, subfolders, files in os.walk(rootdir):
         for thisfile in files:
             if PurePath(file).suffix not in audioExts:
                 trashList.append(file)
             else :
                 fileList.append(os.path.join(root,thisfile))
-                # dirty needs fixing
-        for thisFolder in subFolders:
-            scandir(thisFolder) # FIX THIS
-    return fileList
+                ###TODO### dirty needs fixing
+        # for this_folder in subfolders:
+            # scandir(this_folder)
 
 def verify_file_exists(path):
-    """verify file existence at "path"
+    """verify "path" to be a file
 
     """
     result = os.path.isfile(path)
@@ -51,8 +50,9 @@ def delete_file(file_to_be_deleted):
     return True
 
 def main():
-    """testfunction for this module"""
-    pass
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
 if __name__ == '__main__':

@@ -7,24 +7,24 @@
 ** License: MIT                    Please keep my name in the credits **
 ************************************************************************
 """
-blacklist = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
+BLACK_LIST = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
 #class AudioFile:
 #    def __init__(self, path):
 #        self.__path = path
 #        self.tags = []
 
-def tag_parser(fileList):
+def tag_parser(file_list):
     """Parse tags and store in DB
 
     check for fingerprint, set flag 2, else set flag 1
     """
     for this_file in file_list:
         ###TODO### parse & purge tags, check for MBID or acoustid fingerprint
-        if fingerprint:
+        if fingerprint(this_file):
             flag = "2"
         else:
             flag = "1"
-        db_handler("update" , thisFile, tags, flag)
+        db_handler("update" , this_file, tags, flag)
     return
 
 def trim_silences(file_list):
@@ -44,11 +44,11 @@ def generate_fingerprints(this_file_list):
         new_file_list[file_entry] = acoustid.fingerprint_file(file_entry)
     return new_file_list
 
-def find_n_purge_dups(file_list):
+def find_n_purge_dups():
     """find duplicate fingerprints in database
 
     """
-    ###TODO###
+    ###TODO### find duplicate MBIDs in DB
     dupfiles = dba.get("mb_id duplicates, sort desc by quality index")
     duplicatesfound = len(dupfiles)
     reportbuilder.update(duplicates_found=duplicatesfound)
@@ -67,9 +67,13 @@ def transcode(file_path, quality):
 
     """
     transcodeprefs = prefs(transcode)
+    if filetype(filepath) != "mp3":
+        new_filepath = filepath[-3] + "mp3" ###CHECK###
+    else:
+        new_filepath = filepath
     if transcodeprefs == 0:
         transcodeprefs = "paranoid"
-    shline = "lame --preset " + transcodeprefs
+    shline = "lame --preset " + transcodeprefs + file_path + new_filepath
     sh(shline)
 
 def store_tags(tags, thisFile):
@@ -95,10 +99,10 @@ def volume_normalizer(fileEntry):
     pass
 
 def main():
-    """test function for this module
-
-    """
-    pass
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

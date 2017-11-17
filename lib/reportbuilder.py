@@ -32,7 +32,7 @@ class report_builder:
     @classmethod
     def render_report(self, reportType):
         """reportbuilder info, more to come"""
-        ###TODO###
+        ###TODO### devise a way to generate the report properly
         #if reportType == "display":
         #    print '### display template'
         #elif reportType == "html":
@@ -42,8 +42,10 @@ class report_builder:
         pass
 
 def main():
-    # testfunction for this module
-    pass
+    """just in case somebody wants to test this file by itself"""
+    print("It works!!! ;-)")
+    ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
