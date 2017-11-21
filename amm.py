@@ -9,10 +9,10 @@
 """
 # # # Defining variables...
 debug_switch: bool = False
-UI_STYLE: str = "dialog"
+ui_style: str = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
-MY_UI: str = ""
+my_ui: str = ""
 # amm_config = dict()
 db_handle: object = None
 
@@ -35,8 +35,8 @@ def init():
 
     broke down main function to increase readability"""
     global debug_switch
-    global UI_STYLE
-    global MY_UI
+    global ui_style
+    global my_ui
     global UI_LANGUAGE
     # # # init, load /generate config
     amm_config = conf.AMMconfig()
@@ -50,7 +50,7 @@ def mainmenu():
     # if reportbuilder.number_of_reports > 0 :
     #     choices.append['reports'] = "View reports of previous runs"
     kwargs=(message, choices, title)
-    MY_UI.menu_list(**kwargs)
+    my_ui.menu_list(**kwargs)
 
 def main():
     init()

@@ -8,10 +8,10 @@
 ************************************************************************
 """
 ### Defining variables...
-UI_STYLE = "dialog"
+ui_style = "dialog"
 ui_language = "en"
 AMM_TITLE = "Audiophiles Music Manager"
-# MY_UI = None
+# my_ui = None
 # amm_config = dict()
 # db_handle = None
 
@@ -51,11 +51,11 @@ def inclusive_range(*args):
 
 def main():
     print("testing...")
-    MY_UI = lib.ui.UserInterface('dialog')
+    my_ui = lib.ui.UserInterface('dialog')
     kwargs['message'] = "hello"
     kwargs['title'] = "test title"
     try:
-        result = MY_UI.announce(**kwargs)
+        result = my_ui.announce(**kwargs)
     except Exception, e:
         print str(e)
 

@@ -13,13 +13,13 @@ class report_builder:
     def __init__(self):
         """initialising report generator"""
         self.reportdata: dict = []
-        self.valid_subjects: list = ["purged_files"]
+        self._valid_subjects: list = ["purged_files", "reclaimed space"]
 
     @classmethod
     def update(self, kwargs):
         """reportdata collector"""
         for key, value in kwargs:
-            if key not in self.valid_subjects:
+            if key not in self._valid_subjects:
                 raise TypeError("update recieved an unknown subject: \
                 {}".format(key)
             else:

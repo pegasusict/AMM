@@ -11,7 +11,7 @@ import os
 # fileList = []
 # trashList = []
 
-def verify_dir_exists(path):
+def is_this_a_dir(path):
     """verify whether a directory exists
 
     """
@@ -25,17 +25,17 @@ def scan_dir(rootdir):
     from pathlib import PurePath
     audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
                  mod, opus, au, aac]
-    for root, subfolders, files in os.walk(rootdir):
+    for root, files in os.walk(rootdir): ###CHECK### subfolders?
         for thisfile in files:
-            if PurePath(file).suffix not in audioExts:
-                trashList.append(file)
+            if PurePath(thisfile).suffix not in audioExts:
+                trashList.append(thisfile)
             else :
                 fileList.append(os.path.join(root,thisfile))
                 ###TODO### dirty needs fixing
         # for this_folder in subfolders:
             # scandir(this_folder)
 
-def verify_file_exists(path):
+def is_this_a_file(path):
     """verify "path" to be a file
 
     """

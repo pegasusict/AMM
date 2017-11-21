@@ -20,8 +20,8 @@ class deBUGger():
 
     @classmethod
     def debug_this(self, **kwargs):
-        for k as v in kwargs:
-            debugline = k + ": " + v + "\n"
+        for key, value in kwargs:
+            debugline = key + ": " + value + "\n"
             this.debuglog =+ debugline ###CHECK###
 
 def main():

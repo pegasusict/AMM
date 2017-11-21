@@ -30,19 +30,19 @@ class AMMconfig :
                             help="select UI language. \
                             Valid options are \"nl\" or \"en\"(default)")
         args = parser.parse_args()
-        if args.debug:
-            debug_switch = True
-            import lib.debugger as debugger
-            deBugger = debugger.deBUGger()
+        # if args.debug:
+            # debug_switch = True
+            # import lib.debugger as deBugger
+            # debugger = deBugger.deBUGger()
         if args.dialog:
-            UI_STYLE = "dialog"
+            ui_style = "dialog"
         if args.language == "nl":
             ui_language = "nl"
         else:
             ui_language = "en"
         import lib.ui as ui
-        MY_UI = ui.UserInterface(UI_STYLE)
-        MY_UI.announce(ui_language['init'], PACKAGE_TITLE)
+        my_ui = ui.UserInterface(ui_style)
+        my_ui.announce(ui_language['init'], PACKAGE_TITLE)
 
     @classmethod
     def sysinit(self):
@@ -60,7 +60,7 @@ class AMMconfig :
         ### check DB connection, if not available try default settings
         message = ui_language["trydb"]
         title = ui_language["wait"]
-        MY_UI(announce, (message, title))
+        my_ui(announce, (message, title))
         ### if default DB settings don't work, ask for DB info, providing
         #    default answers where applicable
         checkDBsettings()
@@ -71,19 +71,19 @@ class AMMconfig :
         ### create or select target directory
         kwargs['yes_label'] = ui_language["create"]
         kwargs['no_label'] = uilanguage["select"]
-        must_create_dir = MY_UI.ynQuestion('Do you wish to create or select \
+        must_create_dir = my_ui.ynQuestion('Do you wish to create or select \
                                            a target directory?', **kwargs)
         ### if directory needs to be created, select dir wherein to
         #    create targetdir
         if must_create_dir == 'y':
-            amm_config['base_dir'] = MY_UI.selectDir("/media/",
+            amm_config['base_dir'] = my_ui.selectDir("/media/",
                                                     'Please select the \
                                                     directory wherein to \
                                                     create the target \
                                                     directory:')
             fsops.create_dir(amm_config['target_dir'])
         else:
-            amm_config['target_dir'] = MY_UI.selectDir("/media/",
+            amm_config['target_dir'] = my_ui.selectDir("/media/",
                                                       'Please select the \
                                                       target directory:')
         ### select output filetype & quality,

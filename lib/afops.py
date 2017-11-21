@@ -8,10 +8,6 @@
 ************************************************************************
 """
 BLACK_LIST = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
-#class AudioFile:
-#    def __init__(self, path):
-#        self.__path = path
-#        self.tags = []
 
 def tag_parser(file_list):
     """Parse tags and store in DB
@@ -103,6 +99,5 @@ def main():
     print("It works!!! ;-)")
     ###TODO### do something with the various methods/functions of this file
 
-# standard boilerplate
 if __name__ == '__main__':
     main()

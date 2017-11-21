@@ -121,15 +121,15 @@ class UserInterface:
     def form(self, fields):
         #(fieldname, default_value, fieldlength=32)
         numfields = len(fields)
-        if numfields == 0:
-            raise TypeError('from expected at least 1 field, got \
-            {}.'.format(numfields)
+        #if numfields == 0:
+        #    raise TypeError('form expected at least 1 field, got \
+        #    {}.'.format(numfields)
 
-            except ValueError as error:
-                print("fields cannot be 0")
-        elif fieldname == 0:
-            fieldlength = 32
-        if len(fields) > 8: cols = 2
+        #except ValueError as error:
+           #print("fields cannot be 0")
+        #elif fieldname == 0:
+        #    fieldlength = 32
+        if numfields > 8: cols = 2
         else: cols = 1
         col = 1
         row = 1
