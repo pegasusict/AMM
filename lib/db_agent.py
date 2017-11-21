@@ -8,7 +8,7 @@
 ************************************************************************
 """
 
-class db_agent :
+class DBagent :
     """Database agent
 
     will manage and interface with SQLite or MySQL DB"""
@@ -20,15 +20,15 @@ class db_agent :
         from mysql.connector import errorcode as my_sql_errorcode
 
     @classmethod
-    def db_connect(self):
+    def _connect(self):
         """connect to DB
 
         """
-        if DBport != 3306:
-            DBhost = DBHost + ":" + DBport
+        if db_port != 3306:
+            db_host = db_host + ":" + db_port
         #connect to database, display error if something goes wrong
         try:
-            __my_db = my_sql.connect(DBuser, DBpass, DBhost, DB)
+            __my_db = my_sql.connect(DBuser, DBpass, db_host, DB)
         except my_sql.Error as my_sql_error:
             if my_sql_error == my_sql_errorcode.ER_ACCESS_DENIED_ERROR:
                 print("Authentication error")

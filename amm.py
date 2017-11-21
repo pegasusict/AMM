@@ -52,7 +52,7 @@ def mainmenu():
     kwargs=(message, choices, title)
     my_ui.menu_list(**kwargs)
 
-def main():
+def __main__():
     init()
     mainmenu()
     # # # phase 0
@@ -96,4 +96,4 @@ def main():
 
 # standard boilerplate
 if __name__ == '__main__':
-    main()
+    __main__()

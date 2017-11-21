@@ -9,16 +9,16 @@
 """
 # import libs
 
-def startDaemons() :
+def start_daemons() :
     """Deamonizer start
 
     Daemons needed:
-    FSOP/AFOPS => indexer/tagParser/dupsPurger/fingerprintGenerator/transcoder
-    qualityCalc
+    FSOPS => indexer
+    AFOPS => tagParser/dupsPurger/fingerprintGenerator/transcoder/qualityCalc
     InetC => mbClient, albumArtFetcher, lyricsFetcher
 
     """
-    if configLoaded == True:
+    if config_loaded == True:
         ###TODO### prepare daemons to be run - qeue manager??
         return True
 

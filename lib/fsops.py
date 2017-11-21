@@ -23,11 +23,11 @@ def scan_dir(rootdir):
     store files in lists for further processing based on extension."""
     global fileList, trashList
     from pathlib import PurePath
-    audioExts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
-                 mod, opus, au, aac]
+    audio_exts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
+                 mod, opus, au, aac, cue]
     for root, files in os.walk(rootdir): ###CHECK### subfolders?
         for thisfile in files:
-            if PurePath(thisfile).suffix not in audioExts:
+            if PurePath(thisfile).suffix not in audio_exts:
                 trashList.append(thisfile)
             else :
                 fileList.append(os.path.join(root,thisfile))

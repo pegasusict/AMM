@@ -49,11 +49,11 @@ def find_n_purge_dups():
     duplicatesfound = len(dupfiles)
     reportbuilder.update(duplicates_found=duplicatesfound)
     while duplicatesfound > 1:
-        for thisfile in dupfiles:
-            dba.delete_row(thisfile)
-            fsops.delete_file(thisfile)
-            filesize = thisfile["fsize"]
-            delete(dupfiles(thisfile))
+        for this_file in dupfiles:
+            dba.delete_row(this_file)
+            fsops.delete_file(this_file)
+            filesize = this_file["fsize"]
+            delete(dupfiles(this_file))
             duplicatesfound = len(dupfiles)
             reclaimed_space = filesize
             reportbuilder.update(reclaimed_space, purgedfiles)
@@ -72,13 +72,13 @@ def transcode(file_path, quality):
     shline = "lame --preset " + transcodeprefs + file_path + new_filepath
     sh(shline)
 
-def store_tags(tags, thisFile):
+def store_tags(tags, this_file):
     """retrieves tag data from database and writes it to the file
 
     """
     import eyed3
     ###TODO### retrieve tag data from database
-    # audiofile = eyed3.load(thisFile)
+    # audiofile = eyed3.load(this_file)
     # audiofile.tag.artist = u"Integrity"
     # audiofile.tag.album = u"Humanity Is The Devil"
     # audiofile.tag.album_artist = u"Integrity"
@@ -87,7 +87,7 @@ def store_tags(tags, thisFile):
 
     audiofile.tag.save()
 
-def volume_normalizer(fileEntry):
+def volume_normalizer(file_entry):
     """normalizes the volume to maximum without clipping
 
     """
