@@ -8,8 +8,8 @@
 ************************************************************************
 """
 import os
-# fileList = []
-# trashList = []
+# file_list = []
+# trash_list = []
 
 def is_this_a_dir(path):
     """verify whether a directory exists
@@ -21,16 +21,18 @@ def scan_dir(rootdir):
     """Scans rootdir recursively
 
     store files in lists for further processing based on extension."""
-    global fileList, trashList
+    global file_list, trash_list
     from pathlib import PurePath
     audio_exts = [mp3, flac, m4a, aif, ogg, wma, wav, cda, mp2, ape, midi, mid,
                  mod, opus, au, aac, cue]
     for root, files in os.walk(rootdir): ###CHECK### subfolders?
         for thisfile in files:
-            if PurePath(thisfile).suffix not in audio_exts:
-                trashList.append(thisfile)
+            PurePath(thisfile).suffix
+            if file_ext not in audio_exts:
+                trash_list.append(thisfile)
             else :
-                fileList.append(os.path.join(root,thisfile))
+
+                file_list.append(os.path.join(root,thisfile))
                 ###TODO### dirty needs fixing
         # for this_folder in subfolders:
             # scandir(this_folder)

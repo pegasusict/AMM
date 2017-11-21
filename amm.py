@@ -57,9 +57,10 @@ def __main__():
     mainmenu()
     # # # phase 0
     # # scan source dir
-    scanned_dir = fsops.scan_dir(amm_config['basedir'])
+    fsops.scan_dir(amm_config['basedir'])
     reportsection = "scanned_src"
-    reportbuilder.append_report_data(reportsection, scanned_dir)
+    reportbuilder.append_report_data(reportsection, file_list)
+
     ## add audiofiles to DB
     db_handle.store(scanned_dir['audiofiles'], "stage_completed=1")
     del scanned_dir['audiofiles']
@@ -70,18 +71,18 @@ def __main__():
     # stagecomplete = '1'
     # # # phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD(s)
     # # parse & purge tags
-    filelist = db_handle.get("stage_completed=1", limit=1000) ### LOOP !!!
-    newfilelist = afops.tags_parser(filelist)
-    del filelist
-    afops.normalize_audio(newfilelist)
-    afops.strip_silences(newfilelist)
-    afops.generate_fingerprints(newfilelist)
+    file_list = db_handle.get("stage_completed=1", limit=1000) ### LOOP !!!
+    newfile_list = afops.tags_parser(file_list)
+    del file_list
+    afops.normalize_audio(newfile_list)
+    afops.strip_silences(newfile_list)
+    afops.generate_fingerprints(newfile_list)
     # # calculate qualityIndex
-    for file_entry in newfilelist:
+    for file_entry in newfile_list:
         afops.rate_quality(file_entry)
         # # # figure out what to get from where and how to compare codecs
-    db_handle.update(newfilelist, "stagecompleted=2")
-    del newfilelist
+    db_handle.update(newfile_list, "stagecompleted=2")
+    del newfile_list
     # stagecomplete = '2'
     # # # phase 3
     afops.find_n_purge_dups()
