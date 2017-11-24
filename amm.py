@@ -39,7 +39,7 @@ def init():
     global my_ui
     global UI_LANGUAGE
     # # # init, load /generate config
-    amm_config = conf.AMMconfig()
+    # amm_config = conf.AMMconfig()
     db_handle = dba.db_connect()
 
 def mainmenu():
