@@ -8,10 +8,10 @@
 ************************************************************************
 """
 
-class deBUGger():
+class DeBugger():
     """debugger...
 
-    generates debug log"""
+    generates debug log and feedback with high verbosity"""
     def __init__(self):
         import time
         timestamp = time.strftime("%Y%m%d-%H%M%S")
@@ -20,6 +20,9 @@ class deBUGger():
 
     @classmethod
     def debug_this(self, **kwargs):
+        """method to be called by other objects to provide debugging info
+
+        """
         for key, value in kwargs:
             debugline = key + ": " + value + "\n"
             this.debuglog =+ debugline ###CHECK###

@@ -31,30 +31,21 @@ def scan_dir(rootdir):
             if file_ext not in audio_exts:
                 trash_list.append(thisfile)
             else :
-
                 file_list.append(os.path.join(root,thisfile))
-                ###TODO### dirty needs fixing
-        # for this_folder in subfolders:
-            # scandir(this_folder)
 
 def is_this_a_file(path):
-    """verify "path" to be a file
-
-    """
+    """verify "path" to be a file"""
     result = os.path.isfile(path)
     return result
 
 def delete_file(file_to_be_deleted):
-    """delete file_to_be_deleted
-
-    """
+    """delete file_to_be_deleted"""
     os.unlink(file_to_be_deleted)
     return True
 
 def main():
     """just in case somebody wants to test this file by itself"""
-    print("It works!!! ;-)")
-    ###TODO### do something with the various methods/functions of this file
+    pass
 
 # standard boilerplate
 if __name__ == '__main__':

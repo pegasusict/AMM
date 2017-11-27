@@ -15,7 +15,7 @@ class DBagent :
     def __init__(self):
         # my_sql = None
         # my_sql_errorcode = None
-        self.dbConnectInfo = ammConfig.get(dbConnectInfo)
+        self.db_connect_info = ammConfig.get(db_connect_info)
         import mysql.connector as my_sql
         from mysql.connector import errorcode as my_sql_errorcode
 
@@ -24,6 +24,9 @@ class DBagent :
         """connect to DB
 
         """
+        db_port = self.db_connect_info("db_port")
+        db_host = self.db_connect_info("host")
+
         if db_port != 3306:
             db_host = db_host + ":" + db_port
         #connect to database, display error if something goes wrong
