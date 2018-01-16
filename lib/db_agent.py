@@ -20,7 +20,7 @@ class DBagent :
         from mysql.connector import errorcode as my_sql_errorcode
 
     @classmethod
-    def _connect(self):
+    def connect(self):
         """connect to DB
 
         """
@@ -45,9 +45,16 @@ class DBagent :
         """ create DB, tables and structure """
         pass
 
+    @classmethod
+    def update_record(self): # , table, record
+    """method to update a record in a given table
+
+    """
+    pass
+
 def main():
     """just in case somebody wants to test this file by itself"""
-    print("It works!!! ;-)")
+    print("It works!!!")
     ###TODO### do something with the various methods/functions of this file
 
 # standard boilerplate

@@ -27,6 +27,13 @@ class DeBugger():
             debugline = key + ": " + value + "\n"
             this.debuglog =+ debugline ###CHECK###
 
+    @classmethod
+    def dummy_method(self)
+        """dummy method
+
+        """
+        pass
+
 def main():
     """just in case somebody wants to test the debugger itself"""
     print("It works!!! ;-)")

@@ -63,16 +63,16 @@ def transcode(file_path, quality):
 
     """
     transcodeprefs = prefs(transcode)
-    if filetype(filepath) != "mp3":
-        new_filepath = filepath[-3] + "mp3" ###CHECK###
+    if filetype(file_path) != "mp3":
+        new_filepath = file_path[-3] + "mp3" ###CHECK###
     else:
-        new_filepath = filepath
-    if transcodeprefs == 0:
+        new_filepath = file_path
+    if transcodeprefs == 0: ###CHECK###
         transcodeprefs = "paranoid"
     shline = "lame --preset " + transcodeprefs + file_path + new_filepath
     sh(shline)
 
-def store_tags(tags, this_file):
+def store_tags(): # tags, this_file
     """retrieves tag data from database and writes it to the file
 
     """
@@ -87,7 +87,7 @@ def store_tags(tags, this_file):
 
     audiofile.tag.save()
 
-def volume_normalizer(file_entry):
+def volume_normalizer(): # file_entry
     """normalizes the volume to maximum without clipping
 
     """

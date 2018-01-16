@@ -30,7 +30,7 @@ def cddb_query(cd_id):
     """
     pass
 
-def get_albumart(album_artist, album_title):
+def get_albumart(): # album_artist, album_title
     """Download album art
 
     search online for album art which goes with the combination of

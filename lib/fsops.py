@@ -27,7 +27,7 @@ def scan_dir(rootdir):
                  mod, opus, au, aac, cue]
     for root, files in os.walk(rootdir): ###CHECK### subfolders?
         for thisfile in files:
-            PurePath(thisfile).suffix
+            file_ext = PurePath(thisfile).suffix
             if file_ext not in audio_exts:
                 trash_list.append(thisfile)
             else :

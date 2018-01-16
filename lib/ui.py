@@ -31,6 +31,9 @@ class UserInterface:
 ##############################################################################
     @classmethod
     def ui_builder(self, dialogtype, **kwargs):
+        """construct elements of a user interface
+
+        """
         from collections import namedtuple
         dialogtypes = dict(message = "msgbox",
                            textbox = "textbox",
@@ -56,50 +59,71 @@ class UserInterface:
                                     ['name', 'text', 'title', 'path', 'ok',
                                      'cancel', 'extra', 'yes', 'no']
                                   )
+        if dialogtype not in dialogtypes:
+            raise Error(TypeError, "unknown dialogtype")
     @classmethod
     def message_box(self, message, title):
+        """display a messagebox
+
+        """
         result = myInterface.msgbox(message, title)
         return result
     @classmethod
-    def text_box(self, filePath):
-        result = myInterface.textbox(filePath)
+    def text_box(self, file_path):
+        """display a messagebox
+
+        """
+        result = myInterface.textbox(file_path)
         return result
     @classmethod
-    def text_editor(self, initialText, args, title):
+    def text_editor(self, initialtext, args, title):
+        """display a texteditor
+
+        """
         args = [None, None]
-        result = myInterface.editbox_str(initialText, args, title)
+        result = myInterface.editbox_str(initial_text, args, title)
         return result # returns a tuple (exitcode, text)
     @classmethod
     def announce(self, message, title):
+        """display an announcement
+
+        """
         result = myInterface.infobox(message, title)
         return result
     @classmethod
-    def countdown(self, message, timeOut, title):
-        # timeOut is secs(int)
-        result = myInterface.pause(message, timeOut, title)
+    def countdown(self, message, time_out, title):
+        """dispaly an announcement with a timeout
+
+        timeOut in secs(int)"""
+        result = myInterface.pause(message, time_out, title)
         return result
 ##############################################################################
-
 ##############################################################################
     @classmethod
     def progressbar(self, bar_type, message, percent, title, **kwargs):
+        """initialise/update a progressbar
+           this function utilizes _progress_bar, _progress_bar_update and
+           _progress_bar_stop to display, update and cleanup.
+           alternatively, it will use _multi_progress_bar to display/update a
+           multiprogressbar
+        """
         pass
     @classmethod
-    def progress_bar(self, message, percent, title): #
+    def _progress_bar(self, message, percent, title):
         if percent == '':
             percent = 0
         myInterface.guage_start(message, percent, title)
     @classmethod
-    def progress_bar_update(self, percent, message, updateMessage=False): #
-        myInterface.guage_update(percent, message, updateMessage)
+    def _progress_bar_update(self, percent, message, update_message=False): #
+        myInterface.guage_update(percent, message, update_message)
         if percent == '':
             percent = 10
     @classmethod
-    def progress_bar_stop(self): #
+    def _progress_bar_stop(self): #
         result = myInterface.guage_stop()
         return result
     @classmethod
-    def multi_progress_bar(self, message, percent, elements, title): #
+    def _multi_progress_bar(self, message, percent, elements, title): #
         if percent == '':
             percent = 0
         result = myInterface.mixedguage(message, percent, elements, title)
@@ -115,10 +139,12 @@ class UserInterface:
         #   total_progress) is changed
         return result
 ##############################################################################
-
 ##############################################################################
     @classmethod
     def form(self, fields):
+        """form generator
+
+        """
         #(fieldname, default_value, fieldlength=32)
         numfields = len(fields)
         #if numfields == 0:
@@ -129,8 +155,10 @@ class UserInterface:
            #print("fields cannot be 0")
         #elif fieldname == 0:
         #    fieldlength = 32
-        if numfields > 8: cols = 2
-        else: cols = 1
+        if numfields > 8:
+            cols = 2
+        else:
+            cols = 1
         col = 1
         row = 1
         for fieldname in fields:
@@ -139,13 +167,18 @@ class UserInterface:
                 row = row - rows // cols
             elements.append(fieldname, row, col, )
 ##############################################################################
-
 ##############################################################################
     @classmethod
-    def list_builder(self, message, items, title):
+    def list_builder(self, list_type, message, items, title):
+        """list_builder, encapsulating the various list methods below
+
+        """
         pass
     @classmethod
-    def build_list(self, message, items, title): #
+    def build_list(self, message, items, title):
+        """some interesting text
+
+        """
         # items[(tag, item, status)]
         listheight = None
         result = myInterface.buildlist(message, listheight, items, title)
@@ -154,7 +187,10 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def check_list(self, message, choices, title): #
+    def check_list(self, message, choices, title):
+        """some interesting text
+
+        """
         # choices[(tag, item, status)]
         listheight = None
         result = myInterface.checklist(message, listheight, choices, title)
@@ -163,7 +199,10 @@ class UserInterface:
         else:
             return result[1]
     @classmethod
-    def radio_list(self, message, choices, title): #
+    def radio_list(self, message, choices, title):
+        """some interesting text
+
+        """
         # choices[(tag, item)] where tag = shortname, item = description
         list_height = None
         result = myInterface.menu(message, list_height, choices, title)
@@ -172,15 +211,21 @@ class UserInterface:
         else:
             return result[1]
 ##############################################################################
-
 ##############################################################################
-    def select_dir(self, rootDir, title):
-        selectedDir = myInterface.dselect(rootDir, title)
+    def select_dir(self, root_dir, title):
+        """method for selecting a directory within a given root_dir
+
+        """
+        selected_dir = myInterface.dselect(root_dir, title)
         if debug_switch == True:
-            debugLog += "selectDir returned %s and %s. \n" % (selectedDir[1],
-                                                              selectedDir[2])
-        return selectedDir
+            debugLog += "select_dir returned %s and %s. \n" % (selected_dir[1],
+                                                               selected_dir[2])
+        return selected_dir
+##############################################################################
     def yn_question(self, question, buttons, title):
+        """displays a question which can be answered with 2 different answers,
+        defaulting to yes and no
+        """
         if buttons['yes_label'] == '':
             buttons['yes_label'] = ui_language['yes']
         if buttons['no_label'] == '':
@@ -188,7 +233,7 @@ class UserInterface:
         result = myInterface.yesno(question, buttons, title)
         return result
 ##############################################################################
-
+##############################################################################
 def main():
     """just in case somebody wants to test this file by itself"""
     print("It works!!! ;-)")
