@@ -50,28 +50,36 @@ def mainmenu():
     # if reportbuilder.number_of_reports > 0 :
     #     choices.append['reports'] = "View reports of previous runs"
     kwargs=(message, choices, title)
-    my_ui.menu_list(**kwargs)
+    chosenpath = my_ui.menu_list(**kwargs)
+    return chosenpath
 
 def __main__():
     init()
-    mainmenu()
-    # # # phase 0
-    # # scan source dir
-    fsops.scan_dir(amm_config['basedir'])
-    reportsection = "scanned_src"
-    reportbuilder.append_report_data(reportsection, file_list)
+    chosenpath = mainmenu()
+    if chosenpath == "wizard":
+        # run configuration wizard
+        conf.cfg_wizard()
+    elseif chosenpath == "scan":
+        # # # phase 0
+        # # scan source dir
+        file_list = fsops.scan_dir(amm_config['basedir'])
+        reportsection = "scanned_src"
+        reportbuilder.append_report_data(reportsection, file_list)
+        ## add audiofiles to DB
+        db_handle(store, scanned_dir['audiofiles'], "stage_completed=1")
+        del scanned_dir['audiofiles']
+        # # purge non-audio files
+        for file_entry in scanned_dir['trash']:
+            fsops.delete_file(file_entry)
+        del scanned_dir
+        # stagecomplete = '1'
+    else :
+        #illegal option
+        raise Error(SystemError, "The programmer made a booboo!")
 
-    ## add audiofiles to DB
-    db_handle.store(scanned_dir['audiofiles'], "stage_completed=1")
-    del scanned_dir['audiofiles']
-    # # purge non-audio files
-    for file_entry in scanned_dir['trash']:
-        fsops.delete_file(file_entry)
-    del scanned_dir
-    # stagecomplete = '1'
     # # # phase 2 -=- NEEDS TO RUN IN SEPARATE THREAD(s)
     # # parse & purge tags
-    file_list = db_handle.get("stage_completed=1", limit=1000) ### LOOP !!!
+    file_list = db_handle.get("stage_completed=1")
     newfile_list = afops.tags_parser(file_list)
     del file_list
     afops.normalize_audio(newfile_list)

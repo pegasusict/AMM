@@ -47,10 +47,16 @@ class DBagent :
 
     @classmethod
     def update_record(self): # , table, record
-    """method to update a record in a given table
+        """method to update a record in a given table
 
-    """
-    pass
+        """
+        pass
+
+    @classmethod
+    def run_query(self, query):
+        """method to run query"""
+        query_result = my_sql(query)
+        return query_result
 
 def main():
     """just in case somebody wants to test this file by itself"""

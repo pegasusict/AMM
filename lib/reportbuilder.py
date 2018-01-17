@@ -12,8 +12,8 @@ class report_builder:
     @classmethod
     def __init__(self):
         """initialising report generator"""
-        self.reportdata: dict = []
-        self._valid_subjects: list = ["purged_files", "reclaimed space"]
+        self.reportdata:dict = []
+        self._valid_subjects:list = ["purged_files", "reclaimed space"]
 
     @classmethod
     def update(self, kwargs):

@@ -28,7 +28,7 @@ class DeBugger():
             this.debuglog =+ debugline ###CHECK###
 
     @classmethod
-    def dummy_method(self)
+    def dummy_method(self):
         """dummy method
 
         """

@@ -24,7 +24,7 @@ def lookup_fp(fingerprint, duration):
     # artist name for each match
     return result
 
-def cddb_query(cd_id):
+def cddb_query(): # cd_id
     """Query cddb.org for information regarding cd_id(?)
 
     """
@@ -37,7 +37,7 @@ def get_albumart(): # album_artist, album_title
     albumTitle/albumArtist"""
     pass
 
-def get_lyrics(artist, title):
+def get_lyrics(): # artist, title
     """Download lyrics
 
     search online for lyrics which goes with the combination of

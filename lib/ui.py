@@ -16,18 +16,19 @@
 ###TODO### check Lynda vid 1203 & 1204!!!!
 
 class UserInterface:
-    def __init__(self, uiStyle="dialog"):
-        self.__uiStyle = uiStyle
-        if self.__uiStyle == "dialog":
+    """mandatory docstring"""
+    def __init__(self, ui_style="dialog"):
+        self.__ui_style = ui_style
+        if self.__ui_style == "dialog":
             from dialog import Dialog
-            self.myInterface = Dialog(dialog=self.__uiStyle,
+            self.my_interface = Dialog(dialog=self.__ui_style,
                                       DIALOGRC="./dialog.rc",
-                                      compat=self.__uiStyle, use_stdout=None,
+                                      compat=self.__ui_style, use_stdout=None,
                                       autowidgetsize=True,
                                       pass_args_via_file=True)
         else:
             raise TypeError('Other ui styles are not available yet, need to \
-                            use dialog for now')
+                            use Dialog for now')
 ##############################################################################
     @classmethod
     def ui_builder(self, dialogtype, **kwargs):
@@ -55,12 +56,13 @@ class UserInterface:
                            selectfd = "fselect",
                            yn_question = 'yesno'
                            )
-        dependencies = namedtuple('dependencies',
-                                    ['name', 'text', 'title', 'path', 'ok',
-                                     'cancel', 'extra', 'yes', 'no']
-                                  )
+#        dependencies = namedtuple('dependencies',
+#                                    ['name', 'text', 'title', 'path', 'ok',
+#                                     'cancel', 'extra', 'yes', 'no']
+#                                  )
         if dialogtype not in dialogtypes:
             raise Error(TypeError, "unknown dialogtype")
+
     @classmethod
     def message_box(self, message, title):
         """display a messagebox
@@ -81,7 +83,7 @@ class UserInterface:
 
         """
         args = [None, None]
-        result = myInterface.editbox_str(initial_text, args, title)
+        result = myInterface.editbox_str(initialtext, args, title)
         return result # returns a tuple (exitcode, text)
     @classmethod
     def announce(self, message, title):
@@ -212,16 +214,18 @@ class UserInterface:
             return result[1]
 ##############################################################################
 ##############################################################################
+    @classmethod
     def select_dir(self, root_dir, title):
         """method for selecting a directory within a given root_dir
 
         """
         selected_dir = myInterface.dselect(root_dir, title)
         if debug_switch == True:
-            debugLog += "select_dir returned %s and %s. \n" % (selected_dir[1],
+            debug_log += "select_dir returned %s and %s. \n" % (selected_dir[1],
                                                                selected_dir[2])
         return selected_dir
 ##############################################################################
+    @classmethod
     def yn_question(self, question, buttons, title):
         """displays a question which can be answered with 2 different answers,
         defaulting to yes and no

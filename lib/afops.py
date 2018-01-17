@@ -76,7 +76,7 @@ def store_tags(): # tags, this_file
     """retrieves tag data from database and writes it to the file
 
     """
-    import eyed3
+    #import eyed3
     ###TODO### retrieve tag data from database
     # audiofile = eyed3.load(this_file)
     # audiofile.tag.artist = u"Integrity"
