@@ -9,7 +9,7 @@
 """
 # # # Defining variables...
 debug_switch = False
-ui_style: str = "dialog"
+ui_style = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
 my_ui: str = ""

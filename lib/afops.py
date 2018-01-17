@@ -72,20 +72,19 @@ def transcode(file_path, quality):
     else:
         raise Error(conversionError, "no need to convert mp3 to mp3"
 
-def store_tags(): # tags, this_file
+def store_tags(tags, this_file):
     """retrieves tag data from database and writes it to the file
 
     """
-    #import eyed3
+    import eyed3
     ###TODO### retrieve tag data from database
-    # audiofile = eyed3.load(this_file)
+    audiofile = eyed3.load(this_file)
     # audiofile.tag.artist = u"Integrity"
     # audiofile.tag.album = u"Humanity Is The Devil"
     # audiofile.tag.album_artist = u"Integrity"
     # audiofile.tag.title = u"Hollow"
     # audiofile.tag.track_num = 2
-
-    audiofile.tag.save()
+    audiofile.tag.save(tags, this_file)
 
 def volume_normalizer(): # file_entry
     """normalizes the volume to maximum without clipping

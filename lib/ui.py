@@ -35,7 +35,7 @@ class UserInterface:
         """construct elements of a user interface
 
         """
-        from collections import namedtuple
+#        from collections import namedtuple
         dialogtypes = dict(message = "msgbox",
                            textbox = "textbox",
                            text_editor = "editbox_str",
@@ -56,12 +56,18 @@ class UserInterface:
                            selectfd = "fselect",
                            yn_question = 'yesno'
                            )
-        dependencies = namedtuple('dependencies',
-                                    ['name', 'text', 'title', 'path', 'ok',
-                                     'cancel', 'extra', 'yes', 'no']
-                                  )
+#        dependencies = namedtuple('dependencies',
+#                                    ['name', 'text', 'title', 'path', 'ok',
+#                                     'cancel', 'extra', 'yes', 'no']
+#                                  )
         if dialogtype not in dialogtypes:
             raise Error(TypeError, "unknown dialogtype")
+        else:
+            if dialogtype == "msgbox":
+                result = message_box(text, title)
+            elseif dialogtype == "textbox":
+                result = text_box(path)
+            #etc
 
     @classmethod
     def message_box(self, message, title):

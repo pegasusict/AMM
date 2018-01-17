@@ -13,10 +13,11 @@ class DeBugger():
 
     generates debug log and feedback with high verbosity"""
     def __init__(self):
-        import time
-        timestamp = time.strftime("%Y%m%d-%H%M%S")
+#        import time
+#        timestamp = time.strftime("%Y%m%d-%H%M%S")
 #        debugfilepath = "debug-" + timestamp + ".log"
         ###TODO### create pipe to debuglog
+        pass
 
     @classmethod
     def debug_this(self, **kwargs):

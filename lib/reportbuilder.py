@@ -13,7 +13,7 @@ class report_builder:
     def __init__(self):
         """initialising report generator"""
 #        self.reportdata:dict = []
-        self._valid_subjects:list = ["purged_files", "reclaimed space"]
+        self._valid_subjects = ["purged_files", "reclaimed space"]
 
     @classmethod
     def update(self, kwargs):
