@@ -12,7 +12,7 @@ debug_switch = False
 ui_style = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
-my_ui: str = ""
+my_ui = ""
 # amm_config = dict()
 db_handle: object = None
 
