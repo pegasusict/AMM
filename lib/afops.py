@@ -65,12 +65,12 @@ def transcode(file_path, quality):
     transcodeprefs = prefs(transcode)
     if filetype(file_path) != "mp3":
         new_filepath = file_path[-3] + "mp3" ###CHECK###
+        if transcodeprefs == 0: ###CHECK###
+            transcodeprefs = "paranoid"
+        shline = "lame --preset " + transcodeprefs + file_path + new_filepath
+        sh(shline)
     else:
-        new_filepath = file_path
-    if transcodeprefs == 0: ###CHECK###
-        transcodeprefs = "paranoid"
-    shline = "lame --preset " + transcodeprefs + file_path + new_filepath
-    sh(shline)
+        raise Error(conversionError, "no need to convert mp3 to mp3"
 
 def store_tags(): # tags, this_file
     """retrieves tag data from database and writes it to the file

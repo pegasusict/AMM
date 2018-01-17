@@ -8,7 +8,7 @@
 ************************************************************************
 """
 # # # Defining variables...
-debug_switch: bool = False
+debug_switch = False
 ui_style: str = "dialog"
 UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"

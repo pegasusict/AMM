@@ -56,10 +56,10 @@ class UserInterface:
                            selectfd = "fselect",
                            yn_question = 'yesno'
                            )
-#        dependencies = namedtuple('dependencies',
-#                                    ['name', 'text', 'title', 'path', 'ok',
-#                                     'cancel', 'extra', 'yes', 'no']
-#                                  )
+        dependencies = namedtuple('dependencies',
+                                    ['name', 'text', 'title', 'path', 'ok',
+                                     'cancel', 'extra', 'yes', 'no']
+                                  )
         if dialogtype not in dialogtypes:
             raise Error(TypeError, "unknown dialogtype")
 

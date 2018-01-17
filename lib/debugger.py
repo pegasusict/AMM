@@ -15,7 +15,7 @@ class DeBugger():
     def __init__(self):
         import time
         timestamp = time.strftime("%Y%m%d-%H%M%S")
-        debugfilepath = "debug-" + timestamp + ".log"
+#        debugfilepath = "debug-" + timestamp + ".log"
         ###TODO### create pipe to debuglog
 
     @classmethod
