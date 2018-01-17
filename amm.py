@@ -14,7 +14,7 @@ UI_LANGUAGE = "en"
 PACKAGE_TITLE = "Audiophiles Music Manager"
 my_ui = ""
 # amm_config = dict()
-db_handle: object = None
+db_handle = None
 
 # import sys
 # import time
