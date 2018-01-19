@@ -59,7 +59,7 @@ def __main__():
     if chosenpath == "wizard":
         # run configuration wizard
         conf.cfg_wizard()
-    elseif chosenpath == "scan":
+    elif chosenpath == "scan":
         # # # phase 0
         # # scan source dir
         file_list = fsops.scan_dir(amm_config['basedir'])
