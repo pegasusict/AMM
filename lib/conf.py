@@ -13,7 +13,6 @@ class AMMconfig :
 
     handles configfiles, arguments and database info"""
     def __init__(self):
-        # import lib.fsops as fsops
         ###TODO### devise a method to utilize configArgParse to read the files
         # and figure out how to proceed in case of missing files or arguments
         import locale

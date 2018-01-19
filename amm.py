@@ -24,7 +24,7 @@ db_handle = None # NOT A CONSTANT
 import lib.fsops as fsops
 import lib.conf as conf
 
-import lib.db_agent as dba
+import lib.db_agent as db_handle
 import lib.afops as afops
 # import lib.inetc as inetc
 # import lib.daemonizer as daemonizer
@@ -34,13 +34,14 @@ def init():
     """init function
 
     broke down main function to increase readability"""
-    global debug_switch
-    global ui_style
-    global my_ui
-    global UI_LANGUAGE
+    global debug_switch # NOT A CONSTANT
+    global ui_style # NOT A CONSTANT
+    global my_ui # NOT A CONSTANT
+    global ui_language = "en" # NOT A CONSTANT
+
     # # # init, load /generate config
-    # amm_config = conf.AMMconfig()
-    db_handle = dba.db_connect()
+    amm_config = conf.AMMconfig()
+    db_handle = dba.DB_agent()
 
 def mainmenu():
     """menu constructor"""
@@ -62,9 +63,9 @@ def __main__():
     elif chosenpath == "scan":
         # # # phase 0
         # # scan source dir
-        file_list = fsops.scan_dir(amm_config['basedir'])
+        fsops.scan_dir(amm_config['basedir'])
         reportsection = "scanned_src"
-        reportbuilder.append_report_data(reportsection, file_list)
+        reportbuilder.append_report_data(reportsection, file_list, trashlist)
         ## add audiofiles to DB
         db_handle(store, scanned_dir['audiofiles'], "stage_completed=1")
         del scanned_dir['audiofiles']
