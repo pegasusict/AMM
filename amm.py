@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-************************************************************************
-** Audiophiles Music Manager                         VER0.0.0PREALPHA **
-** (C)2017 Mattijs Snepvangers                  pegasus.ict@gmail.com **
-** amm.py                 main script                VER0.0.0PREALPHA **
-** License: MIT                    Please keep my name in the credits **
-************************************************************************
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Audiophiles Music Manager          Build 20180119          VER0.0.0PREALPHA *
+* (C)2017 Mattijs Snepvangers                           pegasus.ict@gmail.com *
+* amm.py                             Main script             VER0.0.0PREALPHA *
+* License: MIT                             Please keep my name in the credits *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """
 # # # Defining variables...
-debug_switch = False
-ui_style = "dialog"
-UI_LANGUAGE = "en"
+debug_switch = False # NOT A CONSTANT
+ui_style = "dialog" # NOT A CONSTANT
+ui_language = "en" # NOT A CONSTANT
 PACKAGE_TITLE = "Audiophiles Music Manager"
-my_ui = ""
-# amm_config = dict()
-db_handle = None
+my_ui = "" # NOT A CONSTANT
+amm_config = dict() # NOT A CONSTANT
+db_handle = None # NOT A CONSTANT
 
 # import sys
 # import time

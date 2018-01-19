@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-************************************************************************
-** Audiophiles Music Manager                         VER0.0.0PREALPHA **
-** (C)2017 Mattijs Snepvangers                  pegasus.ict@gmail.com **
-** lib/reportbuilder.py      Report Generator        VER0.0.0PREALPHA **
-** License: MIT                    Please keep my name in the credits **
-************************************************************************
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Audiophiles Music Manager          Build 20180119          VER0.0.0PREALPHA *
+* (C)2017 Mattijs Snepvangers                           pegasus.ict@gmail.com *
+* lib/reportbuider.py                Report Builder          VER0.0.0PREALPHA *
+* License: MIT                             Please keep my name in the credits *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """
 
 class report_builder:

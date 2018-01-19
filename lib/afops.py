@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-************************************************************************
-** Audiophiles Music Manager                         VER0.0.0PREALPHA **
-** (C)2017 Mattijs Snepvangers                  pegasus.ict@gmail.com **
-** afops.py              audiofile operations        VER0.0.0PREALPHA **
-** License: MIT                    Please keep my name in the credits **
-************************************************************************
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Audiophiles Music Manager          Build 20180119          VER0.0.0PREALPHA *
+* (C)2017 Mattijs Snepvangers                           pegasus.ict@gmail.com *
+* lib/afops.py                       Audiofile Operations    VER0.0.0PREALPHA *
+* License: MIT                             Please keep my name in the credits *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """
+
 BLACK_LIST = ["Jeckell and Hide", "Frozen flame (explosive cartuning rip)"]
 
 def tag_parser(file_list):
