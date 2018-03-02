@@ -37,7 +37,7 @@ def init():
     global debug_switch # NOT A CONSTANT
     global ui_style # NOT A CONSTANT
     global my_ui # NOT A CONSTANT
-    global ui_language = "en" # NOT A CONSTANT
+    global ui_language # NOT A CONSTANT
 
     # # # init, load /generate config
     amm_config = conf.AMMconfig()
