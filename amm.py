@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* Audiophiles Music Manager          Build 20180119          VER0.0.0PREALPHA *
-* (C)2017 Mattijs Snepvangers                           pegasus.ict@gmail.com *
-* amm.py                             Main script             VER0.0.0PREALPHA *
+* Audiophiles Music Manager                                                   *
 * License: MIT                             Please keep my name in the credits *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """
+# # # Defining constants...
+PACKAGE_TITLE = "Audiophiles Music Manager"
+SCRIPT_TITLE = "Main Script"
+MAINTAINER = "Mattijs Snepvangers"
+MAINTAINER_EMAIL = "pegasus.ict@gmail.com"
+COPYRIGHT = "(C) 2017-2018"
+LICENSE_TYPE = "MIT"
+VERSION_MAJOR = 0
+VERSION_MINOR = 0
+VERSION_PATCH = 158
+VERSION_RELEAASE_TYPE = "PRE-ALPHA"
+BUILD_DATE = "20180321"
 # # # Defining variables...
 debug_switch = False # NOT A CONSTANT
 ui_style = "dialog" # NOT A CONSTANT
 ui_language = "en" # NOT A CONSTANT
-PACKAGE_TITLE = "Audiophiles Music Manager"
 my_ui = "" # NOT A CONSTANT
 amm_config = dict() # NOT A CONSTANT
 db_handle = None # NOT A CONSTANT
@@ -32,8 +41,8 @@ import lib.reportbuilder as reportbuilder
 
 def init():
     """init function
-
-    broke down main function to increase readability"""
+    broke down main function to increase readability
+    """
     global debug_switch # NOT A CONSTANT
     global ui_style # NOT A CONSTANT
     global my_ui # NOT A CONSTANT
@@ -44,7 +53,9 @@ def init():
     db_handle = dba.DB_agent()
 
 def mainmenu():
-    """menu constructor"""
+    """menu constructor
+
+    """
     choices = {wizard, "run the configuration wizard",
                scan, "scan source directory for audiofiles"
                }
