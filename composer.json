@@ -1,0 +1,20 @@
+{
+  "name": "PegasusICT/AMM",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mattijs Snepvangers",
+      "email": "pegasus.ict@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "mhor/php-mediainfo": "5.3.0",
+    "mikealmond/musicbrainz": ">=v0.2.2",
+    "ext-mysqli": "*",
+    "ext-pdo": "*",
+    "ext-sqlite3": "*"
+  }
+}
